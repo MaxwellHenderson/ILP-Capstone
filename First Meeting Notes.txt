@@ -1,11 +1,37 @@
 Group Roles
 
 Participant 1
+- Basim Siddiqui
 
 Participant 2
+-Mounisha Kosana
 
 Participant 3
+-Deepthi Reddy Bommi
 
 Participant 4
+-Max Henderson
 
 Participant 5
+-Bhawana Purandare
+
+
+Using Bootstrap
+
+
+Plan of action
+
+Databases
+	Users
+	Admin
+	Employee
+	Product
+	Ticket
+	Orders
+	Requests
+	
+
+
+Services
+
+product.service
