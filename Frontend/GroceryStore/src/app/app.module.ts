@@ -10,6 +10,9 @@ import { EmployeeWindowComponent } from './employee-window/employee-window.compo
 import { UserNavbarComponent } from './user-navbar/user-navbar.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { EmployeeNavbarComponent } from './employee-navbar/employee-navbar.component';
+import { ProductCardComponent } from './product-card/product-card.component';
+import { UserRaiseTicketComponent } from './user-raise-ticket/user-raise-ticket.component';
+import { UserCartComponent } from './user-cart/user-cart.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,9 @@ import { EmployeeNavbarComponent } from './employee-navbar/employee-navbar.compo
     UserNavbarComponent,
     AdminNavbarComponent,
     EmployeeNavbarComponent,
+    ProductCardComponent,
+    UserRaiseTicketComponent,
+    UserCartComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
