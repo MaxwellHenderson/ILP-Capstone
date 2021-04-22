@@ -1,18 +1,16 @@
 {
-  "Cart": {
-    "123": {
-      "productId": 123,
-      "productName": "Computer",
-      "quantity": 3,
-      "unitPrice": 234.56,
-      "totalPrice": 703.68
-    },
-    "456:": {
-      "productId": 456,
-      "productName": "Phone",
-      "quantity": 1,
-      "unitPrice": 1000.99,
-      "totalPrice": 1000.99
-    }
+  "123": {
+    "productId": 123,
+    "productName": "Computer",
+    "quantity": 3,
+    "unitPrice": 234.56,
+    "totalPrice": 703.68
+  },
+  "456:": {
+    "productId": 456,
+    "productName": "Phone",
+    "quantity": 1,
+    "unitPrice": 1000.99,
+    "totalPrice": 1000.99
   }
 }
