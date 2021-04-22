@@ -23,6 +23,9 @@ Plan of action
 
 Databases
 	Users
+	  -userID
+	  -userName
+	  -userPassword
 	Admin
 	Employee
 	Product
