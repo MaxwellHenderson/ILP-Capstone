@@ -13,3 +13,4 @@ const mongooseDbOption ={       // to avoid warning
 mongoose.connect(url,mongooseDbOption);
 mongoose.connection;
 var Admin=require("./router/admin.router.js");
+var User=require("./router/user.router.js");
