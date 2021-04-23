@@ -13,7 +13,9 @@ let UserSchema = mongoose.Schema({
             unitPrice:Number,
             totalPrice:Number
         }
-    }]
+    }],
+    accountLocked:Boolean,
+    ticketId:Number
 })
 
 let UserModel = mongoose.model("",UserSchema,"User");
