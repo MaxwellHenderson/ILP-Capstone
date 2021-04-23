@@ -5,7 +5,15 @@ let UserSchema = mongoose.Schema({
     _id:Number,
     userName:String,
     userPassword:String,
-    cart:[{productId:Number,productName:String,quantity:Number,unitPrice:Number,totalPrice:Number}]
+    cart:[{
+        productId:{
+            productId:Number,
+            productName:String,
+            quantity:Number,
+            unitPrice:Number,
+            totalPrice:Number
+        }
+    }]
 })
 
 let UserModel = mongoose.model("",UserSchema,"User");

@@ -2,7 +2,7 @@ let mongoose = require("mongoose");
 mongoose.Promise = global.Promise;      // creating reference. 
 
 let AdminSchema = mongoose.Schema({
-    _ID:Number,
+    _id:Number,
     adminName:String,
     adminUsername:String,
     adminPassword:String

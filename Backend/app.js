@@ -14,3 +14,4 @@ mongoose.connect(url,mongooseDbOption);
 mongoose.connection;
 var Admin=require("./router/admin.router.js");
 var User=require("./router/user.router.js");
+var Order=require("./router/order.router.js");
