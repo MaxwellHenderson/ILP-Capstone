@@ -2,10 +2,10 @@ let mongoose = require("mongoose");
 mongoose.Promise = global.Promise;      // creating reference. 
 
 let OrderSchema = mongoose.Schema({
-    _ID:Number,
+    _id:Number,
     orderBy:String,
     orderDate:Number,
-    cart:{
+    cart:[{
         productId:{
             productId:Number,
             productName:String,
@@ -13,7 +13,7 @@ let OrderSchema = mongoose.Schema({
             unitPrice:Number,
             totalPrice:Number
         }
-    },
+    }],
     orderStatus:String,
     totalPrice:Number
 })
