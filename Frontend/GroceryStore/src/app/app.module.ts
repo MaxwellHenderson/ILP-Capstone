@@ -13,6 +13,16 @@ import { EmployeeNavbarComponent } from './employee-navbar/employee-navbar.compo
 import { ProductCardComponent } from './product-card/product-card.component';
 import { UserRaiseTicketComponent } from './user-raise-ticket/user-raise-ticket.component';
 import { UserCartComponent } from './user-cart/user-cart.component';
+import { AdminSigninComponent } from './admin-signin/admin-signin.component';
+import { AdminAddproductsComponent } from './admin-addproducts/admin-addproducts.component';
+import { AdminDeleteproductsComponent } from './admin-deleteproducts/admin-deleteproducts.component';
+import { AdminUpdateproductsComponent } from './admin-updateproducts/admin-updateproducts.component';
+import { AdminViewrequestsComponent } from './admin-viewrequests/admin-viewrequests.component';
+import { AdminAddemployeeComponent } from './admin-addemployee/admin-addemployee.component';
+import { AdminDeleteemployeeComponent } from './admin-deleteemployee/admin-deleteemployee.component';
+import { AdminGeneratereportsComponent } from './admin-generatereports/admin-generatereports.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,8 +37,17 @@ import { UserCartComponent } from './user-cart/user-cart.component';
     ProductCardComponent,
     UserRaiseTicketComponent,
     UserCartComponent,
-  ],
-  imports: [BrowserModule, AppRoutingModule],
+    AdminSigninComponent,
+    AdminAddproductsComponent,
+    AdminDeleteproductsComponent,
+    AdminUpdateproductsComponent,
+    AdminViewrequestsComponent,
+    AdminAddemployeeComponent,
+    AdminDeleteemployeeComponent,
+    AdminGeneratereportsComponent,
+    ],
+  imports: [BrowserModule, AppRoutingModule,  FormsModule,
+    HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
