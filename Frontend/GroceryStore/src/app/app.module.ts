@@ -13,6 +13,11 @@ import { EmployeeNavbarComponent } from './employee-navbar/employee-navbar.compo
 import { ProductCardComponent } from './product-card/product-card.component';
 import { UserRaiseTicketComponent } from './user-raise-ticket/user-raise-ticket.component';
 import { UserCartComponent } from './user-cart/user-cart.component';
+import { UserAddFundsComponent } from './user-add-funds/user-add-funds.component';
+import { UserOrderStatusComponent } from './user-order-status/user-order-status.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { EmployeeSigninComponent } from './employee-signin/employee-signin.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +32,11 @@ import { UserCartComponent } from './user-cart/user-cart.component';
     ProductCardComponent,
     UserRaiseTicketComponent,
     UserCartComponent,
+    UserAddFundsComponent,
+    UserOrderStatusComponent,
+    EmployeeSigninComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule,FormsModule,HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
