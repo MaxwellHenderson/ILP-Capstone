@@ -13,6 +13,10 @@ import { EmployeeNavbarComponent } from './employee-navbar/employee-navbar.compo
 import { ProductCardComponent } from './product-card/product-card.component';
 import { UserRaiseTicketComponent } from './user-raise-ticket/user-raise-ticket.component';
 import { UserCartComponent } from './user-cart/user-cart.component';
+import { SendRequestComponent } from './send-request/send-request.component';
+import { UpdateOrderStatusComponent } from './update-order-status/update-order-status.component';
+import { UnlockUsersComponent } from './unlock-users/unlock-users.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,10 @@ import { UserCartComponent } from './user-cart/user-cart.component';
     ProductCardComponent,
     UserRaiseTicketComponent,
     UserCartComponent,
+    SendRequestComponent,
+    UpdateOrderStatusComponent,
+    UnlockUsersComponent,
+    EditProfileComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
