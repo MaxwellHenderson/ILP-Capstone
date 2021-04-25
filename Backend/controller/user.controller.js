@@ -53,4 +53,26 @@ let getCart = (req, res) => {
     let user = getUser()
 }
 
-module.exports = { getUser, updateUserInfo };
+let updateAccountFunds= (req,res)=> {
+  let aid = req.body.aid;
+  let updatedAmount = req.body.amount;
+  UserModel.updateOne({accountNumber:aid},{$set:{amount:updatedAmount}},(err,result)=> {
+      if(!err){
+        console.log(result)
+          if(result.nModified>0){
+                  res.send("Record updated succesfully")
+          }else {
+                  res.send("Record is not available");
+          }
+      }else {
+          res.send("Error generated "+err);
+      }
+  })
+
+}
+
+
+module.exports = { getUser, updateUserInfo,updateAccountFunds };
+
+
+
