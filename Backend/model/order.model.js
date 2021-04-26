@@ -20,6 +20,6 @@ let OrderSchema = mongoose.Schema({
     reasonForCancellation:String
 })
 
-let OrderModel = mongoose.model("",OrderSchema,"Order");
+let OrderModel = mongoose.model("Order",OrderSchema);
 
 module.exports = OrderModel
