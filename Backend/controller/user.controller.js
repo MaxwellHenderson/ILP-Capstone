@@ -21,7 +21,7 @@ let addUser=(req,res)=>{
       userName:req.body.userName,
       userPassword:"password",
       accountNumber:req.body.accountNumber,
-      amount:req.body.amount,
+      fund:1000,
       userEmail:req.body.userEmail,
       userPhone:req.body.userPhone,
       userAddress:req.body.userAddress,
@@ -85,6 +85,7 @@ let createCart = (req, res) => {
 
 //Gets the user object from the other function
 //Then retrieves just the cart field and returns it
+
 let getCart = (req, res) => {
     let user = getUser()
 }
@@ -108,7 +109,7 @@ let updateAccountFunds= (req,res)=> {
 }
 
 
-module.exports = { getUser, updateUserInfo,updateAccountFunds };
+module.exports = { getUser, updateUserInfo,updateAccountFunds, addUser };
 
 
 
