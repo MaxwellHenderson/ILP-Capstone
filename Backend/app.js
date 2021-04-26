@@ -17,9 +17,10 @@ const mongooseDbOption ={       // to avoid warning
 mongoose.connect(url,mongooseDbOption);
 mongoose.connection;
 //var Admin=require("./router/admin.router.js");
-var User=require("./router/user.router.js");
+//var User=require("./router/user.router.js");
 //var Order=require("./router/order.router.js");
-//var Employee=require("./router/employee.router.js");
-app.use("/user",User)
+var Employee=require("./router/employee.router.js");
+//app.use("/user",User)
+app.use("/employee",Employee)
 
 app.listen(9090,()=>console.log("Server running on port number 9090"));

@@ -1,1 +1,12 @@
-<p>employee-signin works!</p>
+<div>
+    <h2>Login </h2>
+    <form #userRef="ngForm" (ngSubmit)="checkEmployee(userRef.value)">
+        <label>UserName</label>
+        <input type="text" name="userName" ngModel required minlength="2"/> <br/>
+        <label>Password</label>
+        <input type="password" name="userPassword" ngModel required /> <br/>
+        <input type="submit" value="submit" />
+    </form>
+    {{errmsg}}
+    
+</div>

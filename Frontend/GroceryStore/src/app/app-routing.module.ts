@@ -8,7 +8,7 @@ import { UserWindowComponent } from './user-window/user-window.component';
 const routes: Routes = [
   { path: 'userWindow', component: UserWindowComponent },
   { path: 'adminWindow', component: AdminWindowComponent },
-  { path: 'userWindow', component: EmployeeWindowComponent },
+  { path: 'employeeWindow', component: EmployeeWindowComponent },
   { path: '', redirectTo: 'userWindow', pathMatch: 'full' },
 ];
 
