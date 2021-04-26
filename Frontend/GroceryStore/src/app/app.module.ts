@@ -13,6 +13,16 @@ import { EmployeeNavbarComponent } from './employee-navbar/employee-navbar.compo
 import { ProductCardComponent } from './product-card/product-card.component';
 import { UserRaiseTicketComponent } from './user-raise-ticket/user-raise-ticket.component';
 import { UserCartComponent } from './user-cart/user-cart.component';
+import { UserAddFundsComponent } from './user-add-funds/user-add-funds.component';
+import { UserOrderStatusComponent } from './user-order-status/user-order-status.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { EmployeeSigninComponent } from './employee-signin/employee-signin.component';
+import { SendRequestComponent } from './send-request/send-request.component';
+import { UpdateOrderStatusComponent } from './update-order-status/update-order-status.component';
+import { UnlockUsersComponent } from './unlock-users/unlock-users.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +37,16 @@ import { UserCartComponent } from './user-cart/user-cart.component';
     ProductCardComponent,
     UserRaiseTicketComponent,
     UserCartComponent,
+    UserAddFundsComponent,
+    UserOrderStatusComponent,
+    EmployeeSigninComponent,
+    SendRequestComponent,
+    UpdateOrderStatusComponent,
+    UnlockUsersComponent,
+    EditProfileComponent,
+    UserEditProfileComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule,FormsModule,HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

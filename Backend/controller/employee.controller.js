@@ -6,9 +6,9 @@ let getEmployee=(req,res)=>{
 
     EmployeeModel.find({"userName":userName,"userPassword":userPassword},(err,data)=>{
         if(!err){
-
+                res.send("Login Success")
         }else{
-
+         res.send("Invalid Credentials ...........")
         }
     })
 }

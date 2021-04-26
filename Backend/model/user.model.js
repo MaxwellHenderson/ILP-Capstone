@@ -5,6 +5,11 @@ let UserSchema = mongoose.Schema({
     _id:Number,
     userName:String,
     userPassword:String,
+    accountNumber:Number,
+    amount:Number,
+    userEmail:String,
+    userPhone:Number,
+    userAddress:String,
     cart:[{
         productId:{
             productId:Number,
@@ -16,6 +21,7 @@ let UserSchema = mongoose.Schema({
     }],
     accountLocked:Boolean,
     ticketId:Number
+    
 })
 
 let UserModel = mongoose.model("",UserSchema,"User");

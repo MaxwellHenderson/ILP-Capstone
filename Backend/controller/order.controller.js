@@ -18,4 +18,18 @@ let updateOrderStatus=(req,res)=>{
     })
 }
 
-module.exports=updateOrderStatus;
+let getOrderById = (req,res)=> {
+    
+    let oid = req.params.oid;       
+    
+    OrderModel.find({_id:oid},(err,data)=> {
+        if(!err){
+            res.json(data);          
+        
+        }
+        
+    })
+}
+
+
+module.exports={updateOrderStatus,getOrderById};
