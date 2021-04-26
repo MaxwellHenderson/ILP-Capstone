@@ -43,7 +43,8 @@ let deleteProduct=(req,res)=>{
 let updateProduct=(req,res)=>{
     let pid = req.body.pid;
     let updatedPrice = req.body.price;
-    ProductModel.updateOne({productId:pid},{$set:{productPrice:updatedPrice}},(err,result)=> {
+    let updatedQuantity = req.body.quantity;
+    ProductModel.updateOne({productId:pid},{$set:{productPrice:updatedPrice,quantity:updatedQuantity}},(err,result)=> {
         if(!err){
             if(result.nModified>0){
                     res.send("Record updated succesfully")
