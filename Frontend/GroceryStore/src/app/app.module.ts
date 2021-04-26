@@ -22,12 +22,15 @@ import { AdminViewrequestsComponent } from './admin-viewrequests/admin-viewreque
 import { AdminAddemployeeComponent } from './admin-addemployee/admin-addemployee.component';
 import { AdminDeleteemployeeComponent } from './admin-deleteemployee/admin-deleteemployee.component';
 import { AdminGeneratereportsComponent } from './admin-generatereports/admin-generatereports.component';
+import { UserSigninComponent } from './user-signin/user-signin.component';
+import { UserSignupComponent } from './user-signup/user-signup.component';
+
 
 
 
 import { UserAddFundsComponent } from './user-add-funds/user-add-funds.component';
 import { UserOrderStatusComponent } from './user-order-status/user-order-status.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { EmployeeSigninComponent } from './employee-signin/employee-signin.component';
 import { SendRequestComponent } from './send-request/send-request.component';
@@ -35,7 +38,6 @@ import { UpdateOrderStatusComponent } from './update-order-status/update-order-s
 import { UnlockUsersComponent } from './unlock-users/unlock-users.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.component';
-
 
 @NgModule({
   declarations: [
@@ -60,6 +62,9 @@ import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.
     AdminDeleteemployeeComponent,
     AdminGeneratereportsComponent,
 
+    UserSigninComponent,
+    UserSignupComponent,
+   
     UserAddFundsComponent,
     UserOrderStatusComponent,
     EmployeeSigninComponent,
@@ -69,8 +74,7 @@ import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.
     EditProfileComponent,
     UserEditProfileComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule,FormsModule,HttpClientModule],
-
+  imports: [BrowserModule, AppRoutingModule,FormsModule,HttpClientModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
