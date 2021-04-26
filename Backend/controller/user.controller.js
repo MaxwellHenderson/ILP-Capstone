@@ -21,7 +21,7 @@ let addUser=(req,res)=>{
       userName:req.body.userName,
       userPassword:"password",
       accountNumber:req.body.accountNumber,
-      amount:req.body.amount,
+      fund:1000,
       userEmail:req.body.userEmail,
       userPhone:req.body.userPhone,
       userAddress:req.body.userAddress,
