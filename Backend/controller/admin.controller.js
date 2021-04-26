@@ -11,6 +11,6 @@ let getAdmin=(req,res)=>{
 
         }
     })
-}
+};
 
-module.exports=getAdmin;
+module.exports={getAdmin};
