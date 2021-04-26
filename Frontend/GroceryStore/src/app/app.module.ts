@@ -18,6 +18,10 @@ import { UserOrderStatusComponent } from './user-order-status/user-order-status.
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { EmployeeSigninComponent } from './employee-signin/employee-signin.component';
+import { SendRequestComponent } from './send-request/send-request.component';
+import { UpdateOrderStatusComponent } from './update-order-status/update-order-status.component';
+import { UnlockUsersComponent } from './unlock-users/unlock-users.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,10 @@ import { EmployeeSigninComponent } from './employee-signin/employee-signin.compo
     UserAddFundsComponent,
     UserOrderStatusComponent,
     EmployeeSigninComponent,
+    SendRequestComponent,
+    UpdateOrderStatusComponent,
+    UnlockUsersComponent,
+    EditProfileComponent,
   ],
   imports: [BrowserModule, AppRoutingModule,FormsModule,HttpClientModule],
   providers: [],
