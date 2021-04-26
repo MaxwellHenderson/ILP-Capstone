@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Requests } from '../model.request';
+import { RequestService } from '../request.service';
+
 
 @Component({
   selector: 'app-admin-viewrequests',
@@ -7,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminViewrequestsComponent implements OnInit {
 
-  constructor() { }
+  requests?:Array<Requests>
+  constructor(public requestSer:RequestService) { }
 
   ngOnInit(): void {
+    this.requestSer.retrieveRequests().subscribe(result=>this.requests=result);
   }
 
 }
