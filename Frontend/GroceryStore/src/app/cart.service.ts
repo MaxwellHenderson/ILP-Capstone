@@ -25,4 +25,8 @@ export class CartService {
       this.cart.set(productInfo.productId, item);
     }
   }
+
+  getCart() {
+    return this.cart;
+  }
 }
