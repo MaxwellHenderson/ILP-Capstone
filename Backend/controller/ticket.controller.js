@@ -4,6 +4,7 @@ let TicketModel=require("../model/ticket.model.js");
 let addTicket=(req,res)=>{
     let ticket=new TicketModel({
         _id:req.body.eid,
+        empId:req.body.empId,
         userId:req.body.userId,
         ticketDesc:req.body.ticketDesc
     });
