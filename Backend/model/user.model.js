@@ -6,7 +6,7 @@ let UserSchema = mongoose.Schema({
     userName:String,
     userPassword:String,
     accountNumber:Number,
-    amount:Number,
+    fund:Number,
     userEmail:String,
     userPhone:Number,
     userAddress:String,
