@@ -17,9 +17,12 @@ let getUser = (req, res) => {
 let updateUserInfo = (req, res) => {
   let userName = req.body.userName;
   let updatedPassword = req.body.userPassword;
+  let updatedPhone=req.body.userPhone
+  let updatedEmail=req.body.userEmail
+  let updatedAddress=req.body.userAddress
   UserModel.updateOne(
     { userName: userName },
-    { $set: { userPassword: updatedPassword } },
+    { $set: { userPassword: updatedPassword ,userPhone:updatedPhone,userEmail:updatedEmail,userAddress:updatedAddress} },
     (err, result) => {
       if (!err) {
         if (result.nModified > 0) {
