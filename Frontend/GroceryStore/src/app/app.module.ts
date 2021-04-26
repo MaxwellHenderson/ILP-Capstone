@@ -13,6 +13,7 @@ import { EmployeeNavbarComponent } from './employee-navbar/employee-navbar.compo
 import { ProductCardComponent } from './product-card/product-card.component';
 import { UserRaiseTicketComponent } from './user-raise-ticket/user-raise-ticket.component';
 import { UserCartComponent } from './user-cart/user-cart.component';
+
 import { AdminSigninComponent } from './admin-signin/admin-signin.component';
 import { AdminAddproductsComponent } from './admin-addproducts/admin-addproducts.component';
 import { AdminDeleteproductsComponent } from './admin-deleteproducts/admin-deleteproducts.component';
@@ -21,10 +22,22 @@ import { AdminViewrequestsComponent } from './admin-viewrequests/admin-viewreque
 import { AdminAddemployeeComponent } from './admin-addemployee/admin-addemployee.component';
 import { AdminDeleteemployeeComponent } from './admin-deleteemployee/admin-deleteemployee.component';
 import { AdminGeneratereportsComponent } from './admin-generatereports/admin-generatereports.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { UserSigninComponent } from './user-signin/user-signin.component';
 import { UserSignupComponent } from './user-signup/user-signup.component';
+
+
+
+
+import { UserAddFundsComponent } from './user-add-funds/user-add-funds.component';
+import { UserOrderStatusComponent } from './user-order-status/user-order-status.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { EmployeeSigninComponent } from './employee-signin/employee-signin.component';
+import { SendRequestComponent } from './send-request/send-request.component';
+import { UpdateOrderStatusComponent } from './update-order-status/update-order-status.component';
+import { UnlockUsersComponent } from './unlock-users/unlock-users.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +52,7 @@ import { UserSignupComponent } from './user-signup/user-signup.component';
     ProductCardComponent,
     UserRaiseTicketComponent,
     UserCartComponent,
+
     AdminSigninComponent,
     AdminAddproductsComponent,
     AdminDeleteproductsComponent,
@@ -47,11 +61,20 @@ import { UserSignupComponent } from './user-signup/user-signup.component';
     AdminAddemployeeComponent,
     AdminDeleteemployeeComponent,
     AdminGeneratereportsComponent,
+
     UserSigninComponent,
     UserSignupComponent,
-    ],
-  imports: [BrowserModule, AppRoutingModule,  FormsModule,
-    HttpClientModule, ReactiveFormsModule],
+   
+    UserAddFundsComponent,
+    UserOrderStatusComponent,
+    EmployeeSigninComponent,
+    SendRequestComponent,
+    UpdateOrderStatusComponent,
+    UnlockUsersComponent,
+    EditProfileComponent,
+    UserEditProfileComponent,
+  ],
+  imports: [BrowserModule, AppRoutingModule,FormsModule,HttpClientModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

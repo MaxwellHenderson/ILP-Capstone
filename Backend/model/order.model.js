@@ -2,10 +2,10 @@ let mongoose = require("mongoose");
 mongoose.Promise = global.Promise;      // creating reference. 
 
 let OrderSchema = mongoose.Schema({
-    _ID:Number,
+    _id:Number,
     orderBy:String,
     orderDate:Number,
-    cart:{
+    cart:[{
         productId:{
             productId:Number,
             productName:String,
@@ -13,11 +13,13 @@ let OrderSchema = mongoose.Schema({
             unitPrice:Number,
             totalPrice:Number
         }
-    },
+    }],
     orderStatus:String,
-    totalPrice:Number
+    totalPrice:Number,
+    userId:Number,
+    reasonForCancellation:String
 })
 
-let OrderModel = mongoose.model("",OrderSchema,"Order");
+let OrderModel = mongoose.model("Order",OrderSchema);
 
 module.exports = OrderModel
