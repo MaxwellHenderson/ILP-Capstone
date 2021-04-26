@@ -1,0 +1,22 @@
+<div class = "container">
+    <form #employeeRef = "ngForm" (ngSubmit)= "storeEmployee(employeeRef.value)">
+        
+        <br/><br/>
+        <h2 align = "center">Add Employees</h2>
+        <br/><br/><br/>
+        <label>Employee Id</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type = "text" name = "eid" ngModel> <br/><br/>
+        <label>FirstName</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type = "text" name = "fname" ngModel> <br/><br/>
+        <label>LastName</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type = "text" name = "lname" ngModel> <br/><br/>
+        <label>Email ID</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type = "email" name = "empemail" ngModel> <br/><br/>
+        <label>Password</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type = "password" name = "emppass" ngModel> <br/><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type = "submit" value = "Add"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type = "reset" value = "Reset"/> 
+
+    </form>
+</div>

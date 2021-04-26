@@ -13,6 +13,18 @@ import { EmployeeNavbarComponent } from './employee-navbar/employee-navbar.compo
 import { ProductCardComponent } from './product-card/product-card.component';
 import { UserRaiseTicketComponent } from './user-raise-ticket/user-raise-ticket.component';
 import { UserCartComponent } from './user-cart/user-cart.component';
+
+import { AdminSigninComponent } from './admin-signin/admin-signin.component';
+import { AdminAddproductsComponent } from './admin-addproducts/admin-addproducts.component';
+import { AdminDeleteproductsComponent } from './admin-deleteproducts/admin-deleteproducts.component';
+import { AdminUpdateproductsComponent } from './admin-updateproducts/admin-updateproducts.component';
+import { AdminViewrequestsComponent } from './admin-viewrequests/admin-viewrequests.component';
+import { AdminAddemployeeComponent } from './admin-addemployee/admin-addemployee.component';
+import { AdminDeleteemployeeComponent } from './admin-deleteemployee/admin-deleteemployee.component';
+import { AdminGeneratereportsComponent } from './admin-generatereports/admin-generatereports.component';
+
+
+
 import { UserAddFundsComponent } from './user-add-funds/user-add-funds.component';
 import { UserOrderStatusComponent } from './user-order-status/user-order-status.component';
 import { FormsModule } from '@angular/forms';
@@ -23,6 +35,7 @@ import { UpdateOrderStatusComponent } from './update-order-status/update-order-s
 import { UnlockUsersComponent } from './unlock-users/unlock-users.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.component';
+
 
 @NgModule({
   declarations: [
@@ -37,6 +50,16 @@ import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.
     ProductCardComponent,
     UserRaiseTicketComponent,
     UserCartComponent,
+
+    AdminSigninComponent,
+    AdminAddproductsComponent,
+    AdminDeleteproductsComponent,
+    AdminUpdateproductsComponent,
+    AdminViewrequestsComponent,
+    AdminAddemployeeComponent,
+    AdminDeleteemployeeComponent,
+    AdminGeneratereportsComponent,
+
     UserAddFundsComponent,
     UserOrderStatusComponent,
     EmployeeSigninComponent,
@@ -47,6 +70,7 @@ import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.
     UserEditProfileComponent,
   ],
   imports: [BrowserModule, AppRoutingModule,FormsModule,HttpClientModule],
+
   providers: [],
   bootstrap: [AppComponent],
 })

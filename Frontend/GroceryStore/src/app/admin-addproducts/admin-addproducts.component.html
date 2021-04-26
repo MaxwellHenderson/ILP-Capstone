@@ -1,0 +1,20 @@
+<div class = "container">
+    <form #productRef = "ngForm" (ngSubmit)= "storeProduct(productRef.value)">
+        
+        <br/><br/>
+        <h2 align = "center">Add Products</h2>
+        <br/><br/><br/>
+        <label>Product Id</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type = "text" name = "pid" ngModel> <br/><br/><br/>
+        <label>Product Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type = "text" name = "pname" ngModel> <br/><br/><br/>
+        <label>Product Price</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type = "text" name = "price" ngModel> <br/><br/><br/>
+        <label>Product Quantity</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type = "number" name = "pquantity" ngModel> <br/><br/><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type = "submit" value = "Add"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type = "reset" value = "Reset"/> 
+
+    </form>
+</div>
