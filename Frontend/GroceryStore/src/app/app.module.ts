@@ -22,6 +22,7 @@ import { SendRequestComponent } from './send-request/send-request.component';
 import { UpdateOrderStatusComponent } from './update-order-status/update-order-status.component';
 import { UnlockUsersComponent } from './unlock-users/unlock-users.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     UpdateOrderStatusComponent,
     UnlockUsersComponent,
     EditProfileComponent,
+    UserEditProfileComponent,
   ],
   imports: [BrowserModule, AppRoutingModule,FormsModule,HttpClientModule],
   providers: [],

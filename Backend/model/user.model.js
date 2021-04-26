@@ -7,6 +7,9 @@ let UserSchema = mongoose.Schema({
     userPassword:String,
     accountNumber:Number,
     amount:Number,
+    userEmail:String,
+    userPhone:Number,
+    userAddress:String,
     cart:[{
         productId:{
             productId:Number,
