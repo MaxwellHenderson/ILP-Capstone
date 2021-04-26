@@ -2,7 +2,7 @@ let ProductModel = require("../model/product.model.js");
 
 let addProduct = (req, res) => {
   let product = new ProductModel({
-    productId: req.body.pid,
+    _id: req.body.pid,
     productName: req.body.productName,
     productPrice: req.body.price,
     quantity: req.body.quantity,
@@ -11,11 +11,12 @@ let addProduct = (req, res) => {
     if (!err) {
       res.send("Record stored successfully ");
     } else {
-      res.send("Record didn't store ");
+      res.send("Record didn't store " + err);
     }
   });
 };
 
+//Get all the product entries in the database as an array of objects
 let getProducts = (req, res) => {
   // ProductModel.find({},(err,result)=> {
   //     if(!err){
@@ -54,6 +55,16 @@ let getProducts = (req, res) => {
   res.json(dummyProducts);
 };
 
+//Return the quantity value of the given product
+let getProductQuantity = (req, res) => {
+  let pid = req.params.pid;
+  ProductModel.findById({ productId: pid }, (err, result) => {
+    if (!err) {
+      res.send(result.quantity);
+    }
+  });
+};
+
 let deleteProduct = (req, res) => {
   let pid = req.params.pid;
   ProductModel.deleteOne({ productId: pid }, (err, result) => {
@@ -90,4 +101,10 @@ let updateProduct = (req, res) => {
   );
 };
 
-module.exports = { addProduct, getProducts, deleteProduct, updateProduct };
+module.exports = {
+  addProduct,
+  getProducts,
+  deleteProduct,
+  updateProduct,
+  getProductQuantity,
+};
