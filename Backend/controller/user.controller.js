@@ -108,7 +108,7 @@ let updateAccountFunds= (req,res)=> {
 }
 
 
-module.exports = { getUser, updateUserInfo,updateAccountFunds };
+module.exports = { getUser, updateUserInfo,updateAccountFunds, addUser };
 
 
 
