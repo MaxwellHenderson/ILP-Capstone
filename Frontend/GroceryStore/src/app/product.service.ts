@@ -14,4 +14,10 @@ export class ProductService {
       'http://localhost:9090/product/getProducts'
     );
   }
+
+  getProductQuantity(productId: number): Observable<Number> {
+    return this.http.get<Number>(
+      `http://localhost:9090/product/getProductQuantity?productId=${productId}`
+    );
+  }
 }

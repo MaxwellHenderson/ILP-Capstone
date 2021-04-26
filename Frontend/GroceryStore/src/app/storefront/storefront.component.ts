@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../cart.service';
 import { ProductService } from '../product.service';
+import { SessionService } from '../session.service';
 import { Product } from '../shared/product.model';
 
 @Component({
@@ -11,7 +13,11 @@ export class StorefrontComponent implements OnInit {
   products?: Array<Product>;
   dataLoaded: boolean = false;
 
-  constructor(public productService: ProductService) {}
+  constructor(
+    public productService: ProductService,
+    public sessionService: SessionService,
+    public cartService: CartService
+  ) {}
 
   ngOnInit(): void {
     this.productService.getAllProductDetails().subscribe((result) => {
@@ -21,7 +27,7 @@ export class StorefrontComponent implements OnInit {
     });
   }
 
-  addProductToCart(productId: any) {
-    console.log(productId);
+  addProductToCart(productInfo: any) {
+    this.cartService.addProductToCart(productInfo);
   }
 }
