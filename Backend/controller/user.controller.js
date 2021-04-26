@@ -14,6 +14,39 @@ let getUser = (req, res) => {
   );
 };
 
+
+let addUser=(req,res)=>{
+  let user=new UserModel({
+      _id:req.body.eid,
+      userName:req.body.userName,
+      userPassword:"password",
+      accountNumber:req.body.accountNumber,
+      amount:req.body.amount,
+      userEmail:req.body.userEmail,
+      userPhone:req.body.userPhone,
+      userAddress:req.body.userAddress,
+      cart:[{
+        productId:{
+            productId:0,
+            productName:"",
+            quantity:0,
+            unitPrice:0,
+            totalPrice:0
+        }
+    }],
+    accountLocked:false,
+    ticketId:0
+  });
+  user.save((err,result)=> {
+      if(!err){
+          res.send("Record stored successfully ")
+      }else {
+          res.send("Record didn't store ");
+      }
+  })
+}
+
+
 let updateUserInfo = (req, res) => {
   let userName = req.body.userName;
   let updatedPassword = req.body.userPassword;
