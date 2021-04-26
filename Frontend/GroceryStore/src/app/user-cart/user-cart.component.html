@@ -1,1 +1,7 @@
-<p>user-cart works!</p>
+<div class="container" id="cartContainer" *ngIf="dataLoaded">
+    <div class="container" *ngFor="let item of cart | keyvalue; index as i">
+        <div>
+            <h3>{{item.key}}</h3>
+        </div>
+    </div>
+</div>

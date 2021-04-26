@@ -14,12 +14,12 @@ const routes: Routes = [
   { path: 'userWindow', component: UserWindowComponent },
   { path: 'adminWindow', component: AdminWindowComponent },
   { path: 'userWindow', component: EmployeeWindowComponent },
-  { path: 'adminAddProduct', component: AdminAddproductsComponent},
-  { path: 'adminUpdateProduct', component: AdminUpdateproductsComponent},
-  { path: 'adminDeleteProduct', component: AdminDeleteproductsComponent},
-  { path: 'adminAddEmployee', component: AdminAddemployeeComponent},
-  { path: 'adminDeleteEmplpoyee', component: AdminDeleteemployeeComponent},
-  { path: '', redirectTo: 'adminAddProduct', pathMatch: 'full' },
+  { path: 'adminAddProduct', component: AdminAddproductsComponent },
+  { path: 'adminUpdateProduct', component: AdminUpdateproductsComponent },
+  { path: 'adminDeleteProduct', component: AdminDeleteproductsComponent },
+  { path: 'adminAddEmployee', component: AdminAddemployeeComponent },
+  { path: 'adminDeleteEmplpoyee', component: AdminDeleteemployeeComponent },
+  { path: '', redirectTo: 'userWindow', pathMatch: 'full' },
 ];
 
 @NgModule({
