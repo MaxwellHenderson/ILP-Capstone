@@ -85,6 +85,7 @@ let createCart = (req, res) => {
 
 //Gets the user object from the other function
 //Then retrieves just the cart field and returns it
+
 let getCart = (req, res) => {
     let user = getUser()
 }

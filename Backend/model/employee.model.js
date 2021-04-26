@@ -8,6 +8,6 @@ let EmployeeSchema = mongoose.Schema({
     loginCount:Number
 })
 
-let EmployeeModel = mongoose.model("",EmployeeSchema,"Employee");
+let EmployeeModel = mongoose.model("Employee",EmployeeSchema);
 
 module.exports = EmployeeModel

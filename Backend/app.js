@@ -30,6 +30,16 @@ var Admin=require("./router/admin.router.js");
 var User=require("./router/user.router.js");
 var Order=require("./router/order.router.js");
 var Employee=require("./router/employee.router.js");
-app.use("/user",User)
+var Ticket=require("./router/ticket.router.js");
+var Request=require("./router/request.router.js");
+var Product=require("./router/product.router.js");
+
+app.use("/user",User);
+app.use("/admin",Admin);
+app.use("/order",Order);
+app.use("/employee",Employee);
+app.use("/ticket",Ticket);
+app.use("/request",Request);
+app.use("/product",Product);
 
 app.listen(9090,()=>console.log("Server running on port number 9090"));
