@@ -8,6 +8,8 @@ import { AdminUpdateproductsComponent } from './admin-updateproducts/admin-updat
 import { AdminWindowComponent } from './admin-window/admin-window.component';
 import { EmployeeWindowComponent } from './employee-window/employee-window.component';
 import { StorefrontComponent } from './storefront/storefront.component';
+import { UserSigninComponent } from './user-signin/user-signin.component';
+import { UserSignupComponent } from './user-signup/user-signup.component';
 import { UserWindowComponent } from './user-window/user-window.component';
 
 const routes: Routes = [
@@ -19,6 +21,8 @@ const routes: Routes = [
   { path: 'adminDeleteProduct', component: AdminDeleteproductsComponent},
   { path: 'adminAddEmployee', component: AdminAddemployeeComponent},
   { path: 'adminDeleteEmplpoyee', component: AdminDeleteemployeeComponent},
+  { path: 'userSignup', component: UserSignupComponent},
+  { path: 'userSignin', component: UserSigninComponent},
   { path: '', redirectTo: 'adminAddProduct', pathMatch: 'full' },
 ];
 

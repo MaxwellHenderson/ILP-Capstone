@@ -21,8 +21,10 @@ import { AdminViewrequestsComponent } from './admin-viewrequests/admin-viewreque
 import { AdminAddemployeeComponent } from './admin-addemployee/admin-addemployee.component';
 import { AdminDeleteemployeeComponent } from './admin-deleteemployee/admin-deleteemployee.component';
 import { AdminGeneratereportsComponent } from './admin-generatereports/admin-generatereports.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { UserSigninComponent } from './user-signin/user-signin.component';
+import { UserSignupComponent } from './user-signup/user-signup.component';
 
 @NgModule({
   declarations: [
@@ -45,9 +47,11 @@ import { HttpClientModule } from '@angular/common/http';
     AdminAddemployeeComponent,
     AdminDeleteemployeeComponent,
     AdminGeneratereportsComponent,
+    UserSigninComponent,
+    UserSignupComponent,
     ],
   imports: [BrowserModule, AppRoutingModule,  FormsModule,
-    HttpClientModule],
+    HttpClientModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
