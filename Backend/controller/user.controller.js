@@ -99,26 +99,61 @@ let getCart = (req, res) => {
 let updateAccountFunds = (req, res) => {
   let aid = req.body.aid;
   let updatedAmount = req.body.amount;
-  UserModel.find((er, data) => {
-    console.log(data);
 
-    UserModel.updateOne(
-      { accountNumber: aid },
-      { $set: { amount: data.amount + updatedAmount } },
-      (err, result) => {
-        if (!err) {
-          console.log(result);
-          if (result.nModified > 0) {
-            res.send("Record updated succesfully");
-          } else {
-            res.send("Record is not available");
-          }
+  UserModel.updateOne(
+    { accountNumber: aid },
+    { $set: { fund: updatedAmount } },
+    (err, result) => {
+      if (!err) {
+        console.log(result);
+        if (result.nModified > 0) {
+          res.send("Record updated succesfully");
         } else {
-          res.send("Error generated " + err);
+          res.send("Record is not available");
         }
+      } else {
+        res.send("Error generated " + err);
       }
-    );
+    }
+  );
+};
+
+let updateAccountFundsByID = (req, res) => {
+  let userid = req.body.userid;
+  let updatedAmount = req.body.amount;
+  UserModel.updateOne(
+    { _id: userid },
+    { $set: { fund: updatedAmount } },
+    (err, result) => {
+      if (!err) {
+        console.log(result);
+        if (result.nModified > 0) {
+          res.send("Record updated succesfully");
+        } else {
+          res.send("Record is not available");
+        }
+      } else {
+        res.send("Error generated " + err);
+      }
+    }
+  );
+};
+
+let getLockedUser = (req, res) => {
+  UserModel.find({ accountLocked: true }, (err, data) => {
+    if (!err) {
+    } else {
+    }
   });
+};
+
+module.exports = {
+  getUser,
+  updateUserInfo,
+  updateAccountFunds,
+  addUser,
+  updateAccountFundsByID,
+  getLockedUser,
 };
 
 module.exports = { getUser, updateUserInfo, updateAccountFunds, addUser };
