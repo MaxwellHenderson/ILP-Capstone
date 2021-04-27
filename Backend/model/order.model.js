@@ -4,7 +4,7 @@ mongoose.Promise = global.Promise;      // creating reference.
 let OrderSchema = mongoose.Schema({
     _id:Number,
     orderBy:String,
-    orderDate:Number,
+    orderDate:Date,
     cart:[{
         productId:{
             productId:Number,
