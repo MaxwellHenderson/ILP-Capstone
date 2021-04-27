@@ -29,6 +29,10 @@ let getOrderMonth=(req,res)=>{
         orderDate:{
             $gte:new Date(new Data()-30*60*60*24*1000)
         }
+    },(err,data)=>{
+      if (!err) {
+        res.json(data);
+      }
     })
 }
 let getOrderYear=(req,res)=>{
@@ -36,6 +40,10 @@ let getOrderYear=(req,res)=>{
         orderDate:{
             $gte:new Date(new Data()-365*60*60*24*1000)
         }
+    },(err,data)=>{
+      if (!err) {
+        res.json(data);
+      }
     })
 }
 
@@ -54,6 +62,10 @@ let getOrderWeek = (req, res) => {
     orderDate: {
       $gte: new Date(new Data() - 7 * 60 * 60 * 24 * 1000),
     },
+  },(err,data)=>{
+    if (!err) {
+      res.json(data);
+    }
   });
 };
 
