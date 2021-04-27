@@ -15,8 +15,6 @@ import { UserWindowComponent } from './user-window/user-window.component';
 const routes: Routes = [
   { path: 'userWindow', component: UserWindowComponent },
   { path: 'adminWindow', component: AdminWindowComponent },
-  { path: 'employeeWindow', component: EmployeeWindowComponent },
-  { path: '', redirectTo: 'userWindow', pathMatch: 'full' },
   { path: 'userWindow', component: EmployeeWindowComponent },
   { path: 'adminAddProduct', component: AdminAddproductsComponent },
   { path: 'adminUpdateProduct', component: AdminUpdateproductsComponent },
