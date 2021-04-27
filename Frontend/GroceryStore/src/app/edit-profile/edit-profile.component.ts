@@ -14,7 +14,8 @@ export class EditProfileComponent implements OnInit {
   }
   updateInfo(userRef:any){
     console.log(userRef)
-    userRef.userName="vihu"
+    let uname = JSON.parse(sessionStorage.getItem("userInfo")!);
+    userRef.userName=uname
     this.userSer.updateUserProfile(userRef).subscribe((result:string)=> {
       this.updateMsg=result;
     });

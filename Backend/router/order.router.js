@@ -7,6 +7,7 @@ router.put("/updateOrderStatus",OrderController.updateOrderStatus);
 
 router.put("",OrderController.updateOrderStatus);
 router.get("",OrderController.getOrderById)
+router.get("/getOrderByUser",OrderController.getOrderByUser)
 
 
 module.exports=router;
