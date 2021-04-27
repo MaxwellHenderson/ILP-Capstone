@@ -38,6 +38,18 @@ let getOrderWeek=(req,res)=>{
         }
     })
 }
+let getOrderByUser = (req,res)=> {
+    
+    let user = req.params.userName;       
+    
+    OrderModel.find({userID:user},(err,data)=> {
+        if(!err){
+            res.json(data);          
+        
+        }
+        
+    })
+}
 
 
-module.exports={updateOrderStatus,getOrderById,getOrderWeek};
+module.exports={updateOrderStatus,getOrderById,getOrderWeek,getOrderByUser};

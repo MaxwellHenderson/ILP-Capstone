@@ -35,7 +35,7 @@ export class UserSigninComponent implements OnInit {
     let values = JSON.parse(sessionStorage.getItem("CredentialsInfo")!);
     console.log("You are Succesfully Logged in ..!!");
     this.msg = "Login Success !";
-
+    sessionStorage.setItem("userInfo", JSON.stringify(user1));
 
     if (user1 == values.registerUser && pass1 == values.registerPass)
     {
