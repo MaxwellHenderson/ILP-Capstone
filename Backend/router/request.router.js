@@ -2,8 +2,8 @@ let express = require("express");
 let router = express.Router();
 let RequestController=require("../controller/request.controller.js");
 
-router.get("",RequestController.getRequests);
-router.post("",RequestController.addRequest);
-router.put("",RequestController.updateRequest);
+router.get("/getRequest",RequestController.getRequests);
+router.post("/addRequest",RequestController.addRequest);
+router.put("/updateRequest",RequestController.updateRequest);
 
 module.exports=router;

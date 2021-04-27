@@ -7,6 +7,6 @@ let RequestSchema = mongoose.Schema({
     requestStatus:String
 })
 
-let RequestModel = mongoose.model("",RequestSchema,"Requests");
+let RequestModel = mongoose.model("Request",RequestSchema);
 
 module.exports = RequestModel

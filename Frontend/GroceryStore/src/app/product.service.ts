@@ -1,9 +1,23 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Product } from './shared/product.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
+  constructor(public http: HttpClient) {}
 
-  constructor() { }
+  getAllProductDetails(): Observable<Product[]> {
+    return this.http.get<Product[]>(
+      'http://localhost:9090/product/getProducts'
+    );
+  }
+
+  getProductQuantity(productId: number): Observable<Number> {
+    return this.http.get<Number>(
+      `http://localhost:9090/product/getProductQuantity?productId=${productId}`
+    );
+  }
 }

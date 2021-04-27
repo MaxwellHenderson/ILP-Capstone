@@ -1,0 +1,15 @@
+<div class = "container">
+    
+    <br/><br/>  
+    <h2 align = "center">Delete Employee</h2>
+
+    <br/><br/>
+    Employee Id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" #idRef/><br/><br/><br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="button" value="Delete"
+    (click)="deleteById(idRef.value)"/><br/><br/>
+   
+   
+    {{deleteMsg}}
+
+</div>

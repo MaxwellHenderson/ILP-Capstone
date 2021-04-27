@@ -6,7 +6,7 @@ let UserSchema = mongoose.Schema({
     userName:String,
     userPassword:String,
     accountNumber:Number,
-    amount:Number,
+    fund:Number,
     userEmail:String,
     userPhone:Number,
     userAddress:String,
@@ -24,6 +24,6 @@ let UserSchema = mongoose.Schema({
     
 })
 
-let UserModel = mongoose.model("",UserSchema,"User");
+let UserModel = mongoose.model("User",UserSchema);
 
 module.exports = UserModel

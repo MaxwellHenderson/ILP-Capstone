@@ -8,6 +8,6 @@ let TicketSchema = mongoose.Schema({
     ticketDesc:String
 })
 
-let TicketModel = mongoose.model("",TicketSchema,"Ticket");
+let TicketModel = mongoose.model("Ticket",TicketSchema);
 
 module.exports = TicketModel

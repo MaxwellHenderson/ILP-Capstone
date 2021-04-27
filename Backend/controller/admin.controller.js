@@ -1,16 +1,17 @@
-let AdminModel=require("../model/admin.model.js");
+let AdminModel = require("../model/admin.model.js");
 
-let getAdmin=(req,res)=>{
-    let adminUsername=req.params.adminUsername;
-    let adminPassword=req.params.adminPassword;
+let getAdmin = (req, res) => {
+  let adminUsername = req.params.adminUsername;
+  let adminPassword = req.params.adminPassword;
 
-    AdminModel.find({"adminUsername":adminUsername,"adminPassword":adminPassword},(err,data)=>{
-        if(!err){
+  AdminModel.find(
+    { adminUsername: adminUsername, adminPassword: adminPassword },
+    (err, data) => {
+      if (!err) {
+      } else {
+      }
+    }
+  );
+};
 
-        }else{
-
-        }
-    })
-}
-
-module.exports=getAdmin;
+module.exports = { getAdmin };

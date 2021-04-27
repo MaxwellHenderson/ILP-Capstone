@@ -1,10 +1,11 @@
 let express = require("express");
 let router = express.Router();
-let ProductController=require("../controller/product.controller.js");
+let ProductController = require("../controller/product.controller.js");
 
-router.get("",ProductController.viewProducts);
-router.post("",ProductController.addProduct);
-router.delete("",ProductController.deleteProduct);
-router.put("",ProductController.updateProduct)
+router.get("/getProducts", ProductController.getProducts);
+router.post("/addProduct", ProductController.addProduct);
+router.delete("/deleteProduct/:pid", ProductController.deleteProduct);
+router.put("/updateProduct", ProductController.updateProduct);
+router.get("/getProductQuantity/:pid", ProductController.getProductQuantity);
 
-module.exports=router;
+module.exports = router;

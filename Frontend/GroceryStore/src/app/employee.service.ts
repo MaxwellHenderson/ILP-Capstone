@@ -18,4 +18,13 @@ export class EmployeeService {
     return this.http.put("http://localhost:9090/employee/updateCount",Ref,{responseType:'text'})
   }
   
+  addEmployeeDetails(employeeRef:any)
+  {
+    this.http.post("http://localhost:9090/product/addEmployeeDetails",employeeRef).
+    subscribe(result=>console.log(result),error=>console.log(error));
+  }
+
+  deleteEmployee(id:any):any{
+    return this.http.delete("http://localhost:9090/product/deleteEmployeeById/"+id,{responseType:'text'});
+  }
 }
