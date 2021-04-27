@@ -1,1 +1,12 @@
 <p>send-request works!</p>
+<div>
+    <form [formGroup]="requestRef" (ngSubmit)="addRequest()">
+        <label>Request Id : </label>
+        <input type="number" formControlName="rid"/><br/>
+        <label>Add Description: </label>
+        <input type="text" formControlName="request"/><br/>
+        <input type="submit" value="submit"/>
+        <input type="reset" value="reset"/>
+    </form>
+
+</div>
