@@ -20,12 +20,23 @@ let updateOrderStatus = (req, res) => {
         } else {
           res.send("Record is not available");
         }
-      } else {
-        res.send("Error generated " + err);
-      }
-    }
-  );
-};
+
+    })
+}
+let getOrderMonth=(req,res)=>{
+    OrderModel.find({
+        orderDate:{
+            $gte:new Date(new Data()-30*60*60*24*1000)
+        }
+    })
+}
+let getOrderYear=(req,res)=>{
+    OrderModel.find({
+        orderDate:{
+            $gte:new Date(new Data()-365*60*60*24*1000)
+        }
+    })
+}
 
 let getOrderById = (req, res) => {
   let oid = req.params.oid;
@@ -55,6 +66,7 @@ let getOrderByUser = (req, res) => {
   });
 };
 
+
 let placeOrder = (req, res) => {
   console.log("placing order");
   console.log(req.body);
@@ -69,10 +81,5 @@ let placeOrder = (req, res) => {
   });
 };
 
-module.exports = {
-  updateOrderStatus,
-  getOrderById,
-  getOrderWeek,
-  getOrderByUser,
-  placeOrder,
-};
+
+module.exports={updateOrderStatus,getOrderById,getOrderWeek,getOrderMonth,getOrderYear,placeOrder,getOrderByUser};
