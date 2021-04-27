@@ -13,4 +13,8 @@ updateAccountFunds(userref:any):any{
   console.log(userref)
   return this.http.put("http://localhost:9090/user/updateFunds",userref,{responseType:'text'})
 }
+updateUserProfile(userref:any):any{
+  console.log(userref)
+  return this.http.put("http://localhost:9090/user/updateProfile",userref,{responseType:'text'})
+}
 }
