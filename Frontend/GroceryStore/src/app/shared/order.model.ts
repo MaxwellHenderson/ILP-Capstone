@@ -10,3 +10,7 @@ export interface Order {
   userId: number;
   reasonForCancellation?: string;
 }
+
+export class OrderReport {
+  constructor(public userName:String,public orderDate:Date,public orderStatus:string,public totalPrice:Number){}
+}
