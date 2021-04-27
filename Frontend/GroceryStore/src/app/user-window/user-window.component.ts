@@ -10,6 +10,7 @@ import { StorefrontComponent } from '../storefront/storefront.component';
 import { UserCartComponent } from '../user-cart/user-cart.component';
 import { UserCheckoutComponent } from '../user-checkout/user-checkout.component';
 import { UserComponentsDirective } from '../user-components.directive';
+import { UserComponentsService } from '../user-components.service';
 
 @Component({
   selector: 'app-user-window',
@@ -18,24 +19,17 @@ import { UserComponentsDirective } from '../user-components.directive';
 })
 export class UserWindowComponent implements OnInit {
   componentNumber?: number;
-  views: UserComponent[] = [
-    new UserComponent(StorefrontComponent, {
-      switchView: 'switchView',
-    }),
-    new UserComponent(UserCartComponent, {
-      switchView: 'switchView',
-    }),
-    new UserComponent(UserCheckoutComponent, {
-      switchView: 'switchView',
-    }),
-  ];
-
+  views!: UserComponent[];
   @ViewChild(UserComponentsDirective, { static: true })
   componentHost!: UserComponentsDirective;
 
-  constructor(public componentFactoryResolver: ComponentFactoryResolver) {}
+  constructor(
+    public componentFactoryResolver: ComponentFactoryResolver,
+    public userComponentService: UserComponentsService
+  ) {}
 
   ngOnInit(): void {
+    this.views = this.userComponentService.getViews();
     this.switchView(0);
   }
 
