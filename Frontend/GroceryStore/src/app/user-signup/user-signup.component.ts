@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-user-signup',
@@ -9,19 +8,23 @@ import { Router } from '@angular/router';
 })
 export class UserSignupComponent implements OnInit {
 
-  signupRef = new FormGroup({
-    fname:new FormControl(),
-    lname:new FormControl(),
-    registerUser:new FormControl(),
-    registerPass:new FormControl()
-
-  });
-  constructor(public router:Router) { }
+  
+  constructor(public userSer: UserService) { }
 
   ngOnInit(): void {
   }
 
   
+  registerUser(signupRef:any){
+    console.log(signupRef);
+   this.userSer.signup(signupRef);
+  // alert("You are Succesfully Registered .. !!")
+    //this.userSer.navigate(["userSignin"]);
+  }
+  
+
+
+  /*
   registerUser()
   {
     console.log(this.signupRef.value); // all value
@@ -41,8 +44,8 @@ export class UserSignupComponent implements OnInit {
     console.log(user);
 
     alert("You are Succesfully Registered .. !!")
-    this.router.navigate(["userSignin"]);
+    this.userSer.navigate(["userSignin"]);
 
   }
-
+  */
 }

@@ -3,12 +3,15 @@ mongoose.Promise = global.Promise;      // creating reference.
 
 let UserSchema = mongoose.Schema({
     _id:Number,
-    userName:String,
+    userId:Number,
+    userName:String, //firstname
+    userLastName:String,
     userPassword:String,
     accountNumber:Number,
     fund:Number,
     userEmail:String,
     userPhone:Number,
+    userDob:String,
     userAddress:String,
     cart:[{
         productId:{
