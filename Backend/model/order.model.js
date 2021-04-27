@@ -9,7 +9,7 @@ let OrderSchema = mongoose.Schema({
   orderStatus: String,
   totalPrice: Number,
   userId: Number,
-  reasonForCancellation: String,
+  reasonForCancellation: String
 });
 
 let OrderModel = mongoose.model("Order", OrderSchema);
