@@ -1,18 +1,11 @@
+<p>edit-profile works!</p>
 <div>
-    <h2>Update Details</h2>
-    <form #userRef="ngForm" (ngSubmit)="updateInfo(userRef.value)">
-        <label class="col-2">Password</label>
-        <input type="text" name="userPassword" class="col-2" ngModel/><br/>
-        <label class="col-2">Phone Number</label>
-        <input type="text" name="userPhone" class="col-2" ngModel/><br/>
-        <label class="col-2">Email</label>
-        <input type="text" name="userEmail" class="col-2" ngModel/><br/>
-        
-        <label class="col-2">Address</label>
-        <textarea name="userAddress" rows="2" cols="20">
-        </textarea><br/>
-        <input type="submit" value="Update Details"/>
-        {{updateMsg}}
+    <h2>Update Employee password using Employee ID</h2>
+    <form #empRef="ngForm" (ngSubmit)="updatePassword(empRef.value)">
+        <label>Employee Id</label>
+        <input type="number" name="empID" ngModel/><br/>
+        <label>New password</label>
+        <input type="password" name="password" ngModel/><br/>
+        <input type="submit" value="Update the Password"/>
     </form>
-    
 </div>
