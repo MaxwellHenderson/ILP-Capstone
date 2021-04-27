@@ -1,10 +1,10 @@
-<div>
+<div class="container">
     <form #userRef="ngForm" (ngSubmit)="updateFunds(userRef.value)">
-    <h2>Add Funds to Your Account</h2>
-    <Label>Ener your Account Number</Label>
-    <input type="text" name="aid" ngModel/><br/>
-    <label>Enter Amount</label>
-    <input type="text" name="amount" ngModel/><br/>
+    <h2 align="center">Add Funds to Your Account</h2><br/>
+    <Label class="col-2">Enter Account Number</Label>
+    <input type="number" name="aid" class="col-2" ngModel/><br/>
+    <label class="col-2">Enter Amount</label>
+    <input type="number" name="fund" class="col-2" ngModel/><br/>
     <input type="submit" value="Update Funds" class="btn btn-primary">
     {{updateMsg}}
 </form>

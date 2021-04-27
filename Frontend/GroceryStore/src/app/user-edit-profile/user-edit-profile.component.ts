@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-user-edit-profile',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserEditProfileComponent implements OnInit {
 
-  constructor() { }
+  updateMsg?:string
+  constructor(public userSer:UserService) { }
 
   ngOnInit(): void {
   }
-
+  updateInfo(userRef:any){
+    console.log(userRef)
+    let uname = JSON.parse(sessionStorage.getItem("userInfo")!);
+    userRef.userName=uname
+    this.userSer.updateUserProfile(userRef).subscribe((result:string)=> {
+      this.updateMsg=result;
+    });
+  }
 }

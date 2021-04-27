@@ -46,10 +46,12 @@ let getOrderWeek = (req, res) => {
 };
 
 let getOrderByUser = (req, res) => {
-  let user = req.params.userName;
-
-  OrderModel.find({ userID: user }, (err, data) => {
+  let user=req.params.userName
+  
+ console.log(user)
+  OrderModel.find({userName:user }, (err, data) => {
     if (!err) {
+      console.log(data)
       res.json(data);
     }
   });

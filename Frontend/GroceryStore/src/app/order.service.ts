@@ -20,7 +20,6 @@ export class OrderService {
 
   retrieveOrderById(id: any): Observable<Order[]> {
     return this.http.get<Order[]>(
-      'http://localhost:9090/order/getOrderByUser/' + id
-    );
+      'http://localhost:9090/order/getOrderByUser/'+id);
   }
 }
