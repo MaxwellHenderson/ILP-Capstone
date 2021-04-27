@@ -155,5 +155,3 @@ module.exports = {
   updateAccountFundsByID,
   getLockedUser,
 };
-
-module.exports = { getUser, updateUserInfo, updateAccountFunds, addUser };
