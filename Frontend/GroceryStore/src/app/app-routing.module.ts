@@ -20,9 +20,13 @@ const routes: Routes = [
   { path: 'userWindow', component: UserWindowComponent },
   { path: 'adminWindow', component: AdminWindowComponent },
   { path: 'adminDashboard', component: AdminNavbarComponent },
+
   { path: 'adminViewRequest', component: AdminViewrequestsComponent },
-  { path: 'employeeWindow', component: EmployeeWindowComponent },
+
   { path: 'generateReport', component: AdminGeneratereportsComponent },
+
+  { path: 'employeeWindow', component: EmployeeWindowComponent },
+
   { path: 'adminAddProduct', component: AdminAddproductsComponent },
   { path: 'adminUpdateProduct', component: AdminUpdateproductsComponent },
   { path: 'adminDeleteProduct', component: AdminDeleteproductsComponent },
@@ -30,7 +34,7 @@ const routes: Routes = [
   { path: 'adminDeleteEmplpoyee', component: AdminDeleteemployeeComponent },
   { path: 'userSignup', component: UserSignupComponent },
   { path: 'userSignin', component: UserSigninComponent },
-  { path: '', redirectTo: 'userWindow', pathMatch: 'full' },
+  { path: '', redirectTo: 'userSignin', pathMatch: 'full' },
 ];
 
 @NgModule({

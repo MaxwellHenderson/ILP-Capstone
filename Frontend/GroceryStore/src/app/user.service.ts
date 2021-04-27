@@ -31,4 +31,6 @@ export class UserService {
       responseType: 'text',
     });
   }
+
+  verifyUser() {}
 }
