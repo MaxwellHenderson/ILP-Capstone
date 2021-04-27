@@ -56,6 +56,9 @@ let updateUserInfo = (req, res) => {
   let updatedPhone=req.body.userPhone
   let updatedEmail=req.body.userEmail
   let updatedAddress=req.body.userAddress
+  UserModel.find((er,data)=>{
+    console.log(data)
+  })
   UserModel.updateOne(
     { userName: userName },
     { $set: { userPassword: updatedPassword ,userPhone:updatedPhone,userEmail:updatedEmail,userAddress:updatedAddress} },
@@ -96,7 +99,10 @@ let getCart = (req, res) => {
 let updateAccountFunds= (req,res)=> {
   let aid = req.body.aid;
   let updatedAmount = req.body.amount;
-  UserModel.updateOne({accountNumber:aid},{$set:{amount:updatedAmount}},(err,result)=> {
+  UserModel.find((er,data)=>{
+    console.log(data)
+  
+  UserModel.updateOne({accountNumber:aid},{$set:{amount:data.amount+updatedAmount}},(err,result)=> {
       if(!err){
         console.log(result)
           if(result.nModified>0){
@@ -108,6 +114,7 @@ let updateAccountFunds= (req,res)=> {
           res.send("Error generated "+err);
       }
   })
+})
 
 }
 

@@ -1,1 +1,14 @@
-<p>admin-viewrequests works!</p>
+<div>
+    <table border="1">
+            <tr>
+                <th>Request ID</th>
+                <th>Request Details</th>
+                <th>request Status</th>
+            </tr>
+            <tr *ngFor="let pp of requests">
+                    <td>{{pp._id}}</td>
+                    <td>{{pp.request}}</td>
+                    <td>{{pp.requestStatus}}</td>
+            </tr>
+    </table>
+</div>

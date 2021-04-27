@@ -19,15 +19,14 @@ const routes: Routes = [
   { path: 'adminWindow', component: AdminWindowComponent },
   { path: 'adminDashboard', component: AdminNavbarComponent },
   { path: 'userWindow', component: EmployeeWindowComponent },
-  { path: 'adminAddProduct', component: AdminAddproductsComponent},
-  { path: 'adminUpdateProduct', component: AdminUpdateproductsComponent},
-  { path: 'adminDeleteProduct', component: AdminDeleteproductsComponent},
-  { path: 'adminAddEmployee', component: AdminAddemployeeComponent},
-  { path: 'adminDeleteEmplpoyee', component: AdminDeleteemployeeComponent},
-  { path: 'adminSignin', component: AdminSigninComponent},
-  { path: 'userSignup', component: UserSignupComponent},
-  { path: 'userSignin', component: UserSigninComponent},
-  { path: '', redirectTo: 'adminAddProduct', pathMatch: 'full' },
+  { path: 'adminAddProduct', component: AdminAddproductsComponent },
+  { path: 'adminUpdateProduct', component: AdminUpdateproductsComponent },
+  { path: 'adminDeleteProduct', component: AdminDeleteproductsComponent },
+  { path: 'adminAddEmployee', component: AdminAddemployeeComponent },
+  { path: 'adminDeleteEmplpoyee', component: AdminDeleteemployeeComponent },
+  { path: 'userSignup', component: UserSignupComponent },
+  { path: 'userSignin', component: UserSigninComponent },
+  { path: '', redirectTo: 'userWindow', pathMatch: 'full' },
 ];
 
 @NgModule({

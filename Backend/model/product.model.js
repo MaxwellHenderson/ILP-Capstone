@@ -1,13 +1,13 @@
 let mongoose = require("mongoose");
-mongoose.Promise = global.Promise;      // creating reference. 
+mongoose.Promise = global.Promise; // creating reference.
 
 let ProductSchema = mongoose.Schema({
-    productId:Number,
-    productName:String,
-    productPrice:Number,
-    quantity:Number
-})
+  _id: Number,
+  productName: String,
+  productPrice: Number,
+  quantity: Number,
+});
 
-let ProductModel = mongoose.model("Product",ProductSchema);
+let ProductModel = mongoose.model("Product", ProductSchema);
 
-module.exports = ProductModel
+module.exports = ProductModel;

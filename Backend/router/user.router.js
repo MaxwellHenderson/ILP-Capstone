@@ -7,6 +7,8 @@ router.get("/getUser",UserController.getUser);
 router.put("/updateUserPassword",UserController.updateUserInfo);
 router.put("/updateFunds",UserController.updateAccountFunds);
 router.post("/addUser",UserController.addUser);
+router.put("/updateProfile",UserController.updateUserInfo);
+
 
 
 
