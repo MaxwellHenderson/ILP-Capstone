@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 import { OrderService } from '../order.service';
-import { Order, OrderReport } from '../shared/order.model';
+import { OrderReport } from '../shared/order.model';
 
 @Component({
   selector: 'app-admin-generatereports',
