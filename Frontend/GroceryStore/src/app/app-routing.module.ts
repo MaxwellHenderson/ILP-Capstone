@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'adminDeleteEmplpoyee', component: AdminDeleteemployeeComponent },
   { path: 'userSignup', component: UserSignupComponent },
   { path: 'userSignin', component: UserSigninComponent },
-  { path: '', redirectTo: 'adminAddProduct', pathMatch: 'full' },
+  { path: '', redirectTo: 'userWindow', pathMatch: 'full' },
 ];
 
 @NgModule({

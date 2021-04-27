@@ -1,43 +1,59 @@
-let OrderModel=require("../model/order.model.js");
+let OrderModel = require("../model/order.model.js");
 
-let updateOrderStatus=(req,res)=>{
-    let orderId=req.params._id;
-    let orderStatus=req.params.orderStatus;
-    let reasonForCancellation=req.params.reasonForCancellation
+let updateOrderStatus = (req, res) => {
+  let orderId = req.params._id;
+  let orderStatus = req.params.orderStatus;
+  let reasonForCancellation = req.params.reasonForCancellation;
 
-    OrderModel.updateOne({_id:orderId},{$set:{orderStatus:orderStatus,reasonForCancellation:reasonForCancellation}},(err,result)=>{
-        if(!err){
-            if(result.nModified>0){
-                    res.send("Record updated succesfully")
-            }else {
-                    res.send("Record is not available");
-            }
-        }else {
-            res.send("Error generated "+err);
+  OrderModel.updateOne(
+    { _id: orderId },
+    {
+      $set: {
+        orderStatus: orderStatus,
+        reasonForCancellation: reasonForCancellation,
+      },
+    },
+    (err, result) => {
+      if (!err) {
+        if (result.nModified > 0) {
+          res.send("Record updated succesfully");
+        } else {
+          res.send("Record is not available");
         }
-    })
-}
+      } else {
+        res.send("Error generated " + err);
+      }
+    }
+  );
+};
 
-let getOrderById = (req,res)=> {
-    
-    let oid = req.params.oid;       
-    
-    OrderModel.find({_id:oid},(err,data)=> {
-        if(!err){
-            res.json(data);          
-        
-        }
-        
-    })
-}
+let getOrderById = (req, res) => {
+  let oid = req.params.oid;
 
-let getOrderWeek=(req,res)=>{
-    OrderModel.find({
-        orderDate:{
-            $gte:new Date(new Data()-7*60*60*24*1000)
-        }
-    })
-}
+  OrderModel.find({ _id: oid }, (err, data) => {
+    if (!err) {
+      res.json(data);
+    }
+  });
+};
 
+let getOrderWeek = (req, res) => {
+  OrderModel.find({
+    orderDate: {
+      $gte: new Date(new Data() - 7 * 60 * 60 * 24 * 1000),
+    },
+  });
+};
 
-module.exports={updateOrderStatus,getOrderById,getOrderWeek};
+let placeOrder = (req, res) => {
+  let order = new OrderModel(req.body);
+  order.save((err, result) => {
+    if (!err) {
+      res.send("Order stored succesfully ");
+    } else {
+      res.send("Order didn't store " + err);
+    }
+  });
+};
+
+module.exports = { updateOrderStatus, getOrderById, getOrderWeek, placeOrder };

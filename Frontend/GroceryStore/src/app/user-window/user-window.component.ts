@@ -8,6 +8,7 @@ import {
 import { UserComponent } from '../shared/user-component';
 import { StorefrontComponent } from '../storefront/storefront.component';
 import { UserCartComponent } from '../user-cart/user-cart.component';
+import { UserCheckoutComponent } from '../user-checkout/user-checkout.component';
 import { UserComponentsDirective } from '../user-components.directive';
 
 @Component({
@@ -18,8 +19,15 @@ import { UserComponentsDirective } from '../user-components.directive';
 export class UserWindowComponent implements OnInit {
   componentNumber?: number;
   views: UserComponent[] = [
-    new UserComponent(StorefrontComponent),
-    new UserComponent(UserCartComponent),
+    new UserComponent(StorefrontComponent, {
+      switchView: 'switchView',
+    }),
+    new UserComponent(UserCartComponent, {
+      switchView: 'switchView',
+    }),
+    new UserComponent(UserCheckoutComponent, {
+      switchView: 'switchView',
+    }),
   ];
 
   @ViewChild(UserComponentsDirective, { static: true })
@@ -31,7 +39,7 @@ export class UserWindowComponent implements OnInit {
     this.switchView(0);
   }
 
-  switchView(componentNumber: number) {
+  switchView(componentNumber: any) {
     const userView = this.views[componentNumber];
 
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
@@ -43,6 +51,9 @@ export class UserWindowComponent implements OnInit {
 
     const componetRef = viewContainerRef.createComponent<UserComponent>(
       componentFactory
+    );
+    componetRef.instance.switchView.subscribe((event: any) =>
+      this.switchView(event)
     );
   }
 }
