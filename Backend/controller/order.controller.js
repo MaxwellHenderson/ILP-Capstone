@@ -1,41 +1,26 @@
-let OrderModel=require("../model/order.model.js");
+let OrderModel = require("../model/order.model.js");
 
-let updateOrderStatus=(req,res)=>{
-    let orderId=req.params._id;
-    let orderStatus=req.params.orderStatus;
-    let reasonForCancellation=req.params.reasonForCancellation
+let updateOrderStatus = (req, res) => {
+  let orderId = req.params._id;
+  let orderStatus = req.params.orderStatus;
+  let reasonForCancellation = req.params.reasonForCancellation;
 
-    OrderModel.updateOne({_id:orderId},{$set:{orderStatus:orderStatus,reasonForCancellation:reasonForCancellation}},(err,result)=>{
-        if(!err){
-            if(result.nModified>0){
-                    res.send("Record updated succesfully")
-            }else {
-                    res.send("Record is not available");
-            }
-        }else {
-            res.send("Error generated "+err);
+  OrderModel.updateOne(
+    { _id: orderId },
+    {
+      $set: {
+        orderStatus: orderStatus,
+        reasonForCancellation: reasonForCancellation,
+      },
+    },
+    (err, result) => {
+      if (!err) {
+        if (result.nModified > 0) {
+          res.send("Record updated succesfully");
+        } else {
+          res.send("Record is not available");
         }
-    })
-}
 
-let getOrderById = (req,res)=> {
-    
-    let oid = req.params.oid;       
-    
-    OrderModel.find({_id:oid},(err,data)=> {
-        if(!err){
-            res.json(data);          
-        
-        }
-        
-    })
-}
-
-let getOrderWeek=(req,res)=>{
-    OrderModel.find({
-        orderDate:{
-            $gte:new Date(new Data()-7*60*60*24*1000)
-        }
     })
 }
 let getOrderMonth=(req,res)=>{
@@ -53,5 +38,48 @@ let getOrderYear=(req,res)=>{
     })
 }
 
+let getOrderById = (req, res) => {
+  let oid = req.params.oid;
 
-module.exports={updateOrderStatus,getOrderById,getOrderWeek,getOrderMonth,getOrderYear};
+  OrderModel.find({ _id: oid }, (err, data) => {
+    if (!err) {
+      res.json(data);
+    }
+  });
+};
+
+let getOrderWeek = (req, res) => {
+  OrderModel.find({
+    orderDate: {
+      $gte: new Date(new Data() - 7 * 60 * 60 * 24 * 1000),
+    },
+  });
+};
+
+let getOrderByUser = (req, res) => {
+  let user = req.params.userName;
+
+  OrderModel.find({ userID: user }, (err, data) => {
+    if (!err) {
+      res.json(data);
+    }
+  });
+};
+
+
+let placeOrder = (req, res) => {
+  console.log("placing order");
+  console.log(req.body);
+  console.log(req.body.cart);
+  let order = new OrderModel(req.body);
+  order.save((err, result) => {
+    if (!err) {
+      res.send("Order stored succesfully ");
+    } else {
+      res.send("Order didn't store " + err);
+    }
+  });
+};
+
+
+module.exports={updateOrderStatus,getOrderById,getOrderWeek,getOrderMonth,getOrderYear,placeOrder,getOrderByUser};

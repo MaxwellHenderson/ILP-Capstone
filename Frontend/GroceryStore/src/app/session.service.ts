@@ -6,6 +6,7 @@ import { CartItem } from './shared/cart-item.model';
 })
 export class SessionService {
   userId?: number;
+  userName?: string;
 
   constructor() {}
 
@@ -14,5 +15,11 @@ export class SessionService {
   }
   getUserId(): number {
     return <number>this.userId;
+  }
+  setUserName(userName: any) {
+    this.userName = userName;
+  }
+  getUserName(): string {
+    return <string>this.userName;
   }
 }

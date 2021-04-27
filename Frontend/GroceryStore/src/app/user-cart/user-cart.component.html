@@ -1,1 +1,13 @@
-<p>user-cart works!</p>
+<div class="container" id="cartContainer" *ngIf="dataLoaded">
+    <div class="container" *ngIf="emptyCart">
+        <h2>You have no items in your cart. Click on Storefront to go shopping!</h2>
+    </div>
+    <div class="container" *ngFor="let item of cart | keyvalue; index as i">
+        <div id="cartItem" class="container">
+            <h3>{{item.value.productName}}</h3>
+            <p>You have {{item.value.productQuantity}} at ${{item.value.productPrice}} each</p>
+        </div>
+    </div>
+
+    <button (click)="proceedToCheckout()">Checkout</button>
+</div>

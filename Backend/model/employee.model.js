@@ -4,6 +4,8 @@ mongoose.Promise = global.Promise;      // creating reference.
 let EmployeeSchema = mongoose.Schema({
     _id:Number,
     userName:String,
+    userLastName:String,
+    userEmail:String,
     userPassword:String,
     loginCount:Number
 })

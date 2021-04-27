@@ -38,6 +38,8 @@ import { UpdateOrderStatusComponent } from './update-order-status/update-order-s
 import { UnlockUsersComponent } from './unlock-users/unlock-users.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.component';
+import { UserComponentsDirective } from './user-components.directive';
+import { UserCheckoutComponent } from './user-checkout/user-checkout.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +75,8 @@ import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.
     UnlockUsersComponent,
     EditProfileComponent,
     UserEditProfileComponent,
+    UserComponentsDirective,
+    UserCheckoutComponent,
   ],
   imports: [BrowserModule, AppRoutingModule,FormsModule,HttpClientModule, ReactiveFormsModule],
   providers: [],
