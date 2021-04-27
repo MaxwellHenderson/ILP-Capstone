@@ -56,6 +56,9 @@ let getOrderByUser = (req, res) => {
 };
 
 let placeOrder = (req, res) => {
+  console.log("placing order");
+  console.log(req.body);
+  console.log(req.body.cart);
   let order = new OrderModel(req.body);
   order.save((err, result) => {
     if (!err) {

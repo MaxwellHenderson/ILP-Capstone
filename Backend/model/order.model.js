@@ -5,7 +5,7 @@ let OrderSchema = mongoose.Schema({
   _id: Number,
   userName: String,
   orderDate: Number,
-  cart: Map,
+  cart: Object,
   orderStatus: String,
   totalPrice: Number,
   userId: Number,

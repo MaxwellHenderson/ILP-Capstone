@@ -37,8 +37,9 @@ export class UserCheckoutComponent implements OnInit {
       console.log('Plaicing order');
       let date = new Date();
       let timestamp: number = date.getTime();
+      console.log(this.cart);
       let order: Order = {
-        _id: 10,
+        _id: 100,
         userName: this.sessionService.getUserName(),
         orderDate: timestamp,
         cart: this.cart,
