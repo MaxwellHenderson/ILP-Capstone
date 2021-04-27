@@ -4,6 +4,8 @@ import { AdminAddemployeeComponent } from './admin-addemployee/admin-addemployee
 import { AdminAddproductsComponent } from './admin-addproducts/admin-addproducts.component';
 import { AdminDeleteemployeeComponent } from './admin-deleteemployee/admin-deleteemployee.component';
 import { AdminDeleteproductsComponent } from './admin-deleteproducts/admin-deleteproducts.component';
+import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
+import { AdminSigninComponent } from './admin-signin/admin-signin.component';
 import { AdminUpdateproductsComponent } from './admin-updateproducts/admin-updateproducts.component';
 import { AdminWindowComponent } from './admin-window/admin-window.component';
 import { EmployeeWindowComponent } from './employee-window/employee-window.component';
@@ -15,7 +17,8 @@ import { UserWindowComponent } from './user-window/user-window.component';
 const routes: Routes = [
   { path: 'userWindow', component: UserWindowComponent },
   { path: 'adminWindow', component: AdminWindowComponent },
-  { path: 'userWindow', component: EmployeeWindowComponent },
+  { path: 'adminDashboard', component: AdminNavbarComponent },
+  { path: 'employeeWindow', component: EmployeeWindowComponent },
   { path: 'adminAddProduct', component: AdminAddproductsComponent },
   { path: 'adminUpdateProduct', component: AdminUpdateproductsComponent },
   { path: 'adminDeleteProduct', component: AdminDeleteproductsComponent },
@@ -23,7 +26,7 @@ const routes: Routes = [
   { path: 'adminDeleteEmplpoyee', component: AdminDeleteemployeeComponent },
   { path: 'userSignup', component: UserSignupComponent },
   { path: 'userSignin', component: UserSigninComponent },
-  { path: '', redirectTo: 'userWindow', pathMatch: 'full' },
+  { path: '', redirectTo: 'userSignin', pathMatch: 'full' },
 ];
 
 @NgModule({
