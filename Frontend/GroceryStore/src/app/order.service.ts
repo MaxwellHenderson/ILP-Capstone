@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Order } from './shared/order.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -15,5 +16,11 @@ export class OrderService {
         (result) => console.log(result),
         (error) => console.log(error)
       );
+  }
+
+  retrieveOrderById(id: any): Observable<Order[]> {
+    return this.http.get<Order[]>(
+      'http://localhost:9090/order/getOrderByUser/' + id
+    );
   }
 }

@@ -20,7 +20,9 @@ let addEmployee=(req,res)=>{
     let employee=new EmployeeModel({
         _id:req.body.eid,
         userName:req.body.userName,
-        userPassword:"password"
+        userPassword:"password",
+        loginCount:0
+    
     });
     employee.save((err,result)=> {
         if(!err){

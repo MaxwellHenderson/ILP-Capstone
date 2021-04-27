@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Order } from '../mode.Order';
+import { OrderService } from '../order.service';
 
 @Component({
   selector: 'app-user-order-status',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-order-status.component.css']
 })
 export class UserOrderStatusComponent implements OnInit {
-
-  constructor() { }
+  resultMsg?:string;
+  orderArr:Array<Order>=[]
+  constructor(public orderSer:OrderService) { }
 
   ngOnInit(): void {
-  }
+    let uname = JSON.parse(sessionStorage.getItem("userInfo")!);
+    this.orderSer.retrieveOrderById(uname).subscribe(result=> {
+      console.log(result)
+      this.orderArr=result
+      
+      }
+    
+    );
+    
 
+    }
+   
 }

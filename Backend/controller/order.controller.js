@@ -45,6 +45,16 @@ let getOrderWeek = (req, res) => {
   });
 };
 
+let getOrderByUser = (req, res) => {
+  let user = req.params.userName;
+
+  OrderModel.find({ userID: user }, (err, data) => {
+    if (!err) {
+      res.json(data);
+    }
+  });
+};
+
 let placeOrder = (req, res) => {
   let order = new OrderModel(req.body);
   order.save((err, result) => {
@@ -56,4 +66,10 @@ let placeOrder = (req, res) => {
   });
 };
 
-module.exports = { updateOrderStatus, getOrderById, getOrderWeek, placeOrder };
+module.exports = {
+  updateOrderStatus,
+  getOrderById,
+  getOrderWeek,
+  getOrderByUser,
+  placeOrder,
+};
