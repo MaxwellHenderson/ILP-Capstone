@@ -4,25 +4,20 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-user-signup',
   templateUrl: './user-signup.component.html',
-  styleUrls: ['./user-signup.component.css']
+  styleUrls: ['./user-signup.component.css'],
 })
 export class UserSignupComponent implements OnInit {
+  constructor(public userSer: UserService) {}
 
-  
-  constructor(public userSer: UserService) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-
-  
-  registerUser(signupRef:any){
+  registerUser(signupRef: any) {
+    console.log('registerUser()');
     console.log(signupRef);
-   this.userSer.signup(signupRef);
-  // alert("You are Succesfully Registered .. !!")
+    this.userSer.signup(signupRef);
+    // alert("You are Succesfully Registered .. !!")
     //this.userSer.navigate(["userSignin"]);
   }
-  
-
 
   /*
   registerUser()

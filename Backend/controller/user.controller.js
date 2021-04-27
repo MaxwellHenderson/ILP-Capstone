@@ -14,54 +14,54 @@ let getUser = (req, res) => {
   );
 };
 
-
-let addUser=(req,res)=>{
-  let user=new UserModel({
-     // _id:req.body.eid, 
-      userId:req.body.uid, //user ID added
-      userName:req.body.userName, //firstname
-      userLastName:req.body.userLastName, //lastname
-      userPassword:req.body.userPassword, //chaged from "password" to "req.body.userPassword"
-      accountNumber:req.body.accountNumber,
-      fund:1000,
-      userEmail:req.body.userEmail,
-      userDob:req.body.userDob, //user DOB
-      userPhone:req.body.userPhone,
-      userAddress:req.body.userAddress,
-      cart:[{
-        productId:{
-            productId:0,
-            productName:"",
-            quantity:0,
-            unitPrice:0,
-            totalPrice:0
-        }
-    }],
-    accountLocked:false,
-    ticketId:0
+let addUser = (req, res) => {
+  console.log("adding user");
+  console.log(req.body);
+  let user = new UserModel({
+    _id: req.body.uid,
+    userName: req.body.userName, //firstname
+    userLastName: req.body.userLastName, //lastname
+    userPassword: req.body.userPassword, //chaged from "password" to "req.body.userPassword"
+    accountNumber: req.body.accountNumber,
+    fund: 1000,
+    userEmail: req.body.userEmail,
+    userDob: req.body.userDob, //user DOB
+    userPhone: req.body.userPhone,
+    userAddress: req.body.userAddress,
+    cart: [],
+    accountLocked: false,
+    ticketId: 0,
   });
-  user.save((err,result)=> {
-      if(!err){
-          res.send("Record stored successfully ")
-      }else {
-          res.send("Record didn't store ");
-      }
-  })
-}
-
+  user.save((err, result) => {
+    if (!err) {
+      res.send("Record stored successfully ");
+    } else {
+      console.log("Error");
+      console.log(err);
+      res.send("Record didn't store ");
+    }
+  });
+};
 
 let updateUserInfo = (req, res) => {
   let userName = req.body.userName;
   let updatedPassword = req.body.userPassword;
-  let updatedPhone=req.body.userPhone
-  let updatedEmail=req.body.userEmail
-  let updatedAddress=req.body.userAddress
-  UserModel.find((er,data)=>{
-    console.log(data)
-  })
+  let updatedPhone = req.body.userPhone;
+  let updatedEmail = req.body.userEmail;
+  let updatedAddress = req.body.userAddress;
+  UserModel.find((er, data) => {
+    console.log(data);
+  });
   UserModel.updateOne(
     { userName: userName },
-    { $set: { userPassword: updatedPassword ,userPhone:updatedPhone,userEmail:updatedEmail,userAddress:updatedAddress} },
+    {
+      $set: {
+        userPassword: updatedPassword,
+        userPhone: updatedPhone,
+        userEmail: updatedEmail,
+        userAddress: updatedAddress,
+      },
+    },
     (err, result) => {
       if (!err) {
         if (result.nModified > 0) {
@@ -93,33 +93,32 @@ let createCart = (req, res) => {
 //Then retrieves just the cart field and returns it
 
 let getCart = (req, res) => {
-    let user = getUser()
-}
+  let user = getUser();
+};
 
-let updateAccountFunds= (req,res)=> {
+let updateAccountFunds = (req, res) => {
   let aid = req.body.aid;
   let updatedAmount = req.body.amount;
-  UserModel.find((er,data)=>{
-    console.log(data)
-  
-  UserModel.updateOne({accountNumber:aid},{$set:{amount:data.amount+updatedAmount}},(err,result)=> {
-      if(!err){
-        console.log(result)
-          if(result.nModified>0){
-                  res.send("Record updated succesfully")
-          }else {
-                  res.send("Record is not available");
+  UserModel.find((er, data) => {
+    console.log(data);
+
+    UserModel.updateOne(
+      { accountNumber: aid },
+      { $set: { amount: data.amount + updatedAmount } },
+      (err, result) => {
+        if (!err) {
+          console.log(result);
+          if (result.nModified > 0) {
+            res.send("Record updated succesfully");
+          } else {
+            res.send("Record is not available");
           }
-      }else {
-          res.send("Error generated "+err);
+        } else {
+          res.send("Error generated " + err);
+        }
       }
-  })
-})
+    );
+  });
+};
 
-}
-
-
-module.exports = { getUser, updateUserInfo,updateAccountFunds, addUser };
-
-
-
+module.exports = { getUser, updateUserInfo, updateAccountFunds, addUser };
