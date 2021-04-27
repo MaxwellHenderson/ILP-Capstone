@@ -16,8 +16,10 @@ let getEmployee=(req,res)=>{
 let addEmployee=(req,res)=>{
     let employee=new EmployeeModel({
         _id:req.body.eid,
-        userName:req.body.userName,
-        userPassword:"password"
+        userName:req.body.userName, //firstname
+        userLastName:req.body.userLastName,
+        userEmail:req.body.userEmail,
+        userPassword:req.body.userPassword ////chaged from "password" to "req.body.userPassword"
     });
     employee.save((err,result)=> {
         if(!err){

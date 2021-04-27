@@ -17,12 +17,15 @@ let getUser = (req, res) => {
 
 let addUser=(req,res)=>{
   let user=new UserModel({
-      _id:req.body.eid,
-      userName:req.body.userName,
-      userPassword:"password",
+     // _id:req.body.eid, 
+      userId:req.body.uid, //user ID added
+      userName:req.body.userName, //firstname
+      userLastName:req.body.userLastName, //lastname
+      userPassword:req.body.userPassword, //chaged from "password" to "req.body.userPassword"
       accountNumber:req.body.accountNumber,
       fund:1000,
       userEmail:req.body.userEmail,
+      userDob:req.body.userDob, //user DOB
       userPhone:req.body.userPhone,
       userAddress:req.body.userAddress,
       cart:[{
