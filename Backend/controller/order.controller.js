@@ -21,8 +21,9 @@ let updateOrderStatus = (req, res) => {
           res.send("Record is not available");
         }
 
-    })
-}
+      }
+    }
+)}
 let getOrderMonth=(req,res)=>{
     OrderModel.find({
         orderDate:{
