@@ -6,9 +6,9 @@ let getUser = (req, res) => {
 
   UserModel.find(
     { userName: userName, userPassword: userPassword },
-    (err, data) => {
+    (err,data)=>{
       if (!err) {
-      } else {
+        res.json(data);
       }
     }
   );

@@ -3,9 +3,7 @@ let RequestModel=require("../model/request.model.js");
 let getRequests=(req,res)=>{
     RequestModel.find({},(err,data)=>{
         if(!err){
-
-        }else{
-
+            res.json(data);
         }
     })
 }
