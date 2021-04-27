@@ -67,6 +67,15 @@ let getOrderByUser = (req, res) => {
   });
 };
 
+let getOrders = (req, res) => {
+  
+  OrderModel.find({}, (err, data) => {
+    if (!err) {
+      res.json(data);
+    }
+  });
+};
+
 
 let placeOrder = (req, res) => {
   console.log("placing order");
@@ -83,4 +92,4 @@ let placeOrder = (req, res) => {
 };
 
 
-module.exports={updateOrderStatus,getOrderById,getOrderWeek,getOrderMonth,getOrderYear,placeOrder,getOrderByUser};
+module.exports={updateOrderStatus,getOrderById,getOrderWeek,getOrderMonth,getOrderYear,placeOrder,getOrderByUser,getOrders};
