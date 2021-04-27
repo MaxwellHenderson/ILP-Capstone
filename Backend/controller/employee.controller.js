@@ -1,14 +1,17 @@
 let EmployeeModel=require("../model/employee.model.js");
 
 let getEmployee=(req,res)=>{
-    let userName=req.params.userName;
-    let userPassword=req.params.userPassword;
-
-    EmployeeModel.find({"userName":userName,"userPassword":userPassword},(err,data)=>{
-        if(!err){
-                res.send("Login Success")
-        }else{
-         res.send("Invalid Credentials ...........")
+    let newname=req.body.userName;
+    let newpassword=req.body.userPassword;
+    
+    EmployeeModel.findOne({"userName":newname,"userPassword":newpassword},(err,data)=>{
+        
+        if(!err && data!=null){
+            
+                res.json({"data":data})
+        }
+        else{
+            res.send("invalid")
         }
     })
 }
@@ -43,6 +46,7 @@ let removeEmployee=(req,res)=>{
     })
 }
 
+
 let updateEmployeePassword=(req,res)=>{
     let empID = req.body.empID;
     let newPassword = req.body.password;
@@ -58,5 +62,31 @@ let updateEmployeePassword=(req,res)=>{
         }
     })
 }
+let updateLoginCount=(req,res)=>{
+    let username=req.body.userName;
+    let userpassword=req.body.userPassword;
+    EmployeeModel.findOne({userName:username,userPassword:userpassword},(err,data)=> {
+        console.log(data)
+        if(!err && data!=null){
+            
+                 EmployeeModel.updateOne({userName:username,userPassword:userpassword},{$set:{loginCount:data.loginCount+1}},(err,result)=> {
+                    
+                     if(!err && data!=null){
+                   res.json({"loginCount":data.loginCount+1})
+                   console.log(result)
+                    }
 
-module.exports={getEmployee,addEmployee,removeEmployee,updateEmployeePassword};
+                 
+                
+                })
+            
+           
+            }
+        
+    })
+      
+}
+
+
+
+module.exports={getEmployee,addEmployee,removeEmployee,updateEmployeePassword,updateLoginCount};
