@@ -4,6 +4,7 @@ let UserController=require("../controller/user.controller.js");
 
 
 router.get("/getUser",UserController.getUser);
+router.get("/getLockedUser",UserController.getLockedUser);
 
 router.put("/updateFunds",UserController.updateAccountFunds);
 router.post("/addUser",UserController.addUser);

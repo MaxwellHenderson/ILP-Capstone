@@ -131,12 +131,21 @@ let updateAccountFundsByID= (req,res)=> {
           res.send("Error generated "+err);
       }
   })
-})
-
 }
 
+let getLockedUser = (req, res) => {
+  UserModel.find(
+    { accountLocked: true},
+    (err, data) => {
+      if (!err) {
+      } else {
+      }
+    }
+  );
+};
 
-module.exports = { getUser, updateUserInfo,updateAccountFunds, addUser, updateAccountFundsByID };
+
+module.exports = { getUser, updateUserInfo,updateAccountFunds, addUser, updateAccountFundsByID, getLockedUser};
 
 
 
