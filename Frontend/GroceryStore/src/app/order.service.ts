@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Order } from './shared/order.model';
+import { Order, OrderReport } from './shared/order.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -39,5 +39,10 @@ export class OrderService {
     return this.http.get<Order[]>(
       'http://localhost:9090/order/getOrderByUser/' + id
     );
+  }
+  generateReportDaily():Observable<OrderReport[]>{
+    return this.http.get<OrderReport[]>(
+      'http://localhost:9090/order/getReportDaily'
+    )
   }
 }

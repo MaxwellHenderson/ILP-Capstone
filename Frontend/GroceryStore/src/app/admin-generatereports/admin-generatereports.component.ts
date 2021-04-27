@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../admin.service';
+import { OrderService } from '../order.service';
+import { Order, OrderReport } from '../shared/order.model';
 
 @Component({
   selector: 'app-admin-generatereports',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminGeneratereportsComponent implements OnInit {
 
-  constructor() { }
+  reports?:Array<OrderReport>
+  constructor(public reportSer:OrderService) { }
 
   ngOnInit(): void {
+  }
+
+  dailyReport(){
+    this.reportSer.generateReportDaily().subscribe(result=>this.reports=result);
   }
 
 }

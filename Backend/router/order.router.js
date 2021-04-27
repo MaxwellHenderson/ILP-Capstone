@@ -12,7 +12,7 @@ router.get("/getOrderByUser", OrderController.getOrderByUser);
 
 router.get("",OrderController.getOrderWeek)
 router.get("",OrderController.getOrderMonth)
-router.get("",OrderController.getOrderYear)
+router.get("/getReportDaily",OrderController.getOrderDaily)
 
 
 module.exports=router;

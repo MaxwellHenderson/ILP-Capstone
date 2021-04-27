@@ -27,7 +27,7 @@ let updateOrderStatus = (req, res) => {
 let getOrderMonth=(req,res)=>{
     OrderModel.find({
         orderDate:{
-            $gte:new Date(new Data()-30*60*60*24*1000)
+            $gte:new Date(new Date()-30*60*60*24*1000)
         }
     },(err,data)=>{
       if (!err) {
@@ -35,10 +35,10 @@ let getOrderMonth=(req,res)=>{
       }
     })
 }
-let getOrderYear=(req,res)=>{
+let getOrderDaily=(req,res)=>{
     OrderModel.find({
         orderDate:{
-            $gte:new Date(new Data()-365*60*60*24*1000)
+            $gte:new Date(new Date()-1*60*60*24*1000)
         }
     },(err,data)=>{
       if (!err) {
@@ -60,7 +60,7 @@ let getOrderById = (req, res) => {
 let getOrderWeek = (req, res) => {
   OrderModel.find({
     orderDate: {
-      $gte: new Date(new Data() - 7 * 60 * 60 * 24 * 1000),
+      $gte: new Date(new Date() - 7 * 60 * 60 * 24 * 1000),
     },
   },(err,data)=>{
     if (!err) {
@@ -104,4 +104,4 @@ let placeOrder = (req, res) => {
 };
 
 
-module.exports={updateOrderStatus,getOrderById,getOrderWeek,getOrderMonth,getOrderYear,placeOrder,getOrderByUser,getOrders};
+module.exports={updateOrderStatus,getOrderById,getOrderWeek,getOrderMonth,getOrderDaily,placeOrder,getOrderByUser,getOrders};

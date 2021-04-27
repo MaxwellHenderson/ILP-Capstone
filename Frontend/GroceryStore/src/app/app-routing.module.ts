@@ -4,9 +4,11 @@ import { AdminAddemployeeComponent } from './admin-addemployee/admin-addemployee
 import { AdminAddproductsComponent } from './admin-addproducts/admin-addproducts.component';
 import { AdminDeleteemployeeComponent } from './admin-deleteemployee/admin-deleteemployee.component';
 import { AdminDeleteproductsComponent } from './admin-deleteproducts/admin-deleteproducts.component';
+import { AdminGeneratereportsComponent } from './admin-generatereports/admin-generatereports.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { AdminSigninComponent } from './admin-signin/admin-signin.component';
 import { AdminUpdateproductsComponent } from './admin-updateproducts/admin-updateproducts.component';
+import { AdminViewrequestsComponent } from './admin-viewrequests/admin-viewrequests.component';
 import { AdminWindowComponent } from './admin-window/admin-window.component';
 import { EmployeeWindowComponent } from './employee-window/employee-window.component';
 import { StorefrontComponent } from './storefront/storefront.component';
@@ -18,7 +20,9 @@ const routes: Routes = [
   { path: 'userWindow', component: UserWindowComponent },
   { path: 'adminWindow', component: AdminWindowComponent },
   { path: 'adminDashboard', component: AdminNavbarComponent },
-  { path: 'userWindow', component: EmployeeWindowComponent },
+  { path: 'adminViewRequest', component: AdminViewrequestsComponent },
+  { path: 'employeeWindow', component: EmployeeWindowComponent },
+  { path: 'generateReport', component: AdminGeneratereportsComponent },
   { path: 'adminAddProduct', component: AdminAddproductsComponent },
   { path: 'adminUpdateProduct', component: AdminUpdateproductsComponent },
   { path: 'adminDeleteProduct', component: AdminDeleteproductsComponent },
