@@ -38,6 +38,20 @@ let getOrderWeek=(req,res)=>{
         }
     })
 }
+let getOrderMonth=(req,res)=>{
+    OrderModel.find({
+        orderDate:{
+            $gte:new Date(new Data()-30*60*60*24*1000)
+        }
+    })
+}
+let getOrderYear=(req,res)=>{
+    OrderModel.find({
+        orderDate:{
+            $gte:new Date(new Data()-365*60*60*24*1000)
+        }
+    })
+}
 
 
-module.exports={updateOrderStatus,getOrderById,getOrderWeek};
+module.exports={updateOrderStatus,getOrderById,getOrderWeek,getOrderMonth,getOrderYear};
