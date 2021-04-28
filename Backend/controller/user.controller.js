@@ -67,7 +67,7 @@ let updateUserInfo = (req, res) => {
         if (result.nModified > 0) {
           res.send("Record updated succesfully");
         } else {
-          res.send("Record is not available");
+          res.send("Please fill all the details");
         }
       } else {
         res.send("Error generated " + err);
@@ -96,27 +96,36 @@ let getCart = (req, res) => {
   let user = getUser();
 };
 
-let updateAccountFunds = (req, res) => {
-  let aid = req.body.aid;
-  let updatedAmount = req.body.amount;
+let updateAccountFunds= (req,res)=> {
+  let aNum = req.body.aid;
+  let updatedAmount = req.body.fund;
+  if(updatedAmount<0){res.send("No Sufficient Funds")}else{
+  UserModel.find({accountNumber:aNum},(err,data)=>{
+    if(!err && data.length!=0){
 
-  UserModel.updateOne(
-    { accountNumber: aid },
-    { $set: { fund: updatedAmount } },
-    (err, result) => {
-      if (!err) {
-        console.log(result);
-        if (result.nModified > 0) {
-          res.send("Record updated succesfully");
-        } else {
-          res.send("Record is not available");
+      console.log(data)
+      console.log("888999")
+      UserModel.updateOne({accountNumber:aNum},{$set:{fund:(data[0].fund)+updatedAmount}},(err,result)=> {
+        if(!err){
+          console.log(result)
+            if(result.nModified>0){
+                    res.send("Funds have been added to account")
+            }else {
+                    res.send("No Sufficient Funds");
+            }
+        }else {
+            res.send("Error generated "+ err);
         }
-      } else {
-        res.send("Error generated " + err);
-      }
-    }
-  );
-};
+    })
+}else{
+  res.send("Invalid account Number")
+}
+    
+})
+  }
+
+
+}
 
 let updateAccountFundsByID = (req, res) => {
   let userid = req.body.userid;

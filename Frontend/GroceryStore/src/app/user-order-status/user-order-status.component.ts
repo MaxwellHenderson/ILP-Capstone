@@ -13,8 +13,8 @@ export class UserOrderStatusComponent implements OnInit {
   constructor(public orderSer: OrderService) {}
 
   ngOnInit(): void {
-    let uname = JSON.parse(sessionStorage.getItem('userInfo')!);
-    this.orderSer.retrieveOrderById(uname).subscribe((result) => {
+    let userName = JSON.parse(sessionStorage.getItem('userInfo')!);
+    this.orderSer.retrieveOrderById(userName).subscribe((result) => {
       console.log(result);
       this.orderArr = result;
     });

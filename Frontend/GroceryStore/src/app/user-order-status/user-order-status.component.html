@@ -1,6 +1,6 @@
 <div>
     <h2 align="center">Your Orders</h2>
-    <table >
+    <table border="1" >
         <tr>
         <th>Order Id</th>
         <th>totalPrice</th>
@@ -8,6 +8,7 @@
         </tr>
         <tr *ngFor="let e of orderArr">
             <td>{{e._id}}</td>
+            <td>{{e.orderDate}}</td>
             <td>{{e.totalPrice}}</td>
             <td>{{e.orderStatus}}</td>
 

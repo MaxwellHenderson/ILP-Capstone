@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EmployeeService } from '../employee.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class EmployeeSigninComponent implements OnInit {
 msg:string=""
 errmsg?:string
 count?:string
-  constructor(public empSer:EmployeeService) { }
+  constructor(public empSer:EmployeeService,public router:Router) { }
 
   ngOnInit(): void {
   }
@@ -29,8 +30,10 @@ count?:string
         console.log(this.count)
         if(Number(this.count)<2){
         //link to update password
+        this.router.navigate(["editpassword"]);
         }else{
           //link to dashboard
+          
         }
       })
     }

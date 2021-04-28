@@ -83,6 +83,7 @@ let getOrders = (req, res) => {
   
   OrderModel.find({}, (err, data) => {
     if (!err) {
+      console.log(data)
       res.json(data);
     }
   });

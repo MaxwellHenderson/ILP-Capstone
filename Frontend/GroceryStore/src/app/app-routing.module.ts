@@ -38,6 +38,8 @@ const routes: Routes = [
   { path: 'adminDeleteEmplpoyee', component: AdminDeleteemployeeComponent },
   { path: 'userSignup', component: UserSignupComponent },
   { path: 'userSignin', component: UserSigninComponent },
+  {path:'editpassword',component:EditProfileComponent},
+  { path: '', redirectTo: 'userWindow', pathMatch: 'full' },
   { path: 'sendRequest', component: SendRequestComponent},
   { path: 'updateOrderStatus', component: UpdateOrderStatusComponent},
   { path: 'unlockUsers', component: UnlockUsersComponent},
