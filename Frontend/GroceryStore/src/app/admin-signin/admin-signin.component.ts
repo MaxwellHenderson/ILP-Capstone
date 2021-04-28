@@ -11,7 +11,12 @@ export class AdminSigninComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  signIn() {
-    this.router.navigate(['adminWindow']);
+  signIn(loginRef:any) {
+    if(loginRef.user=="admin"&&loginRef.password=="password"){
+      this.router.navigate(['adminWindow']);
+    }
+    else{
+      alert("Incorrect Login");
+    }
   }
 }
