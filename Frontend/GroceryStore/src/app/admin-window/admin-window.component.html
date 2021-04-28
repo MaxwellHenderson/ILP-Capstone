@@ -1,10 +1,11 @@
 <div class="container">
-    <app-admin-navbar></app-admin-navbar>
-    <br /><br />
+    <app-admin-navbar (componentSwitch)="switchView($event)"></app-admin-navbar>
+    <ng-template appAdminComponents></ng-template>
+    <!-- <br /><br />
     <h2 align="center">Admin Pannel</h2>
     <form action="http://localhost:4200/adminSignin" method="post">
 
         <a href="http://localhost:4200/adminAddProduct">SignIn</a> <br /><br />
         <input type="submit" value="signIn" />
-    </form>
+    </form> -->
 </div>

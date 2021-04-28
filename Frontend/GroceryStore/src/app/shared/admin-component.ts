@@ -1,5 +1,5 @@
 import { Type } from '@angular/core';
 
-export class UserComponent {
+export class AdminComponent {
   constructor(public component: Type<any>, public switchView: any) {}
 }
