@@ -43,7 +43,10 @@ export class UserSigninComponent implements OnInit {
       console.log('Navigated');
       console.log('You are Succesfully Logged in ..!!');
       alert('Login Success !');
-    } else this.msg = 'Login Failed, Please Try Again ..!!';
+      this.router.navigate(['userWindow']);
+    } else {
+      this.msg = 'Login Failed, Please Try Again ..!!';
+    }
   }
 
   signUp() {
