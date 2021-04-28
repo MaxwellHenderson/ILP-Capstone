@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-navbar',
@@ -8,11 +9,14 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 export class UserNavbarComponent implements OnInit {
   @Output()
   componentSwitch = new EventEmitter<number>();
-  constructor() {}
+  constructor(public router: Router) {}
 
   ngOnInit(): void {}
   switchView(componentNumber: number) {
     console.log(`Switching to ${componentNumber}`);
     this.componentSwitch.emit(componentNumber);
+  }
+  logout() {
+    this.router.navigate(['landingPage']);
   }
 }
