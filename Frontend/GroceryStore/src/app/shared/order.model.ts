@@ -12,5 +12,5 @@ export interface Order {
 }
 
 export class OrderReport {
-  constructor(public userName:String,public orderDate:Date,public orderStatus:string,public totalPrice:Number){}
+  constructor(public _id:Number,public orderDate:Date,public orderStatus:string,public totalPrice:Number){}
 }

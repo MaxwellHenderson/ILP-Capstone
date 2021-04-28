@@ -23,12 +23,17 @@ let addEmployee = (req, res) => {
     userLastName: req.body.userLastName,
     userEmail: req.body.userEmail,
     userPassword: req.body.userPassword, ////chaged from "password" to "req.body.userPassword"
+    loginCount: 0,
   });
+
   employee.save((err, result) => {
     if (!err) {
+      console.log("------ " + result);
       res.send("Record stored successfully ");
     } else {
+      console.log(err);
       res.send("Record didn't store ");
+      res.send(err);
     }
   });
 };

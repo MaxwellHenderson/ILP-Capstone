@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../user.service';
@@ -38,7 +39,10 @@ export class UserSigninComponent implements OnInit {
       console.log('Navigated');
       console.log('You are Succesfully Logged in ..!!');
       alert('Login Success !');
-    } else this.msg = 'Login Failed, Please Try Again ..!!';
+      this.router.navigate(['userWindow']);
+    } else {
+      this.msg = 'Login Failed, Please Try Again ..!!';
+    }
   }
 
 */
@@ -75,5 +79,10 @@ export class UserSigninComponent implements OnInit {
 
   signUp() {
     this.router.navigate(['userSignup']);
+  }
+
+  switchView(componentNumber: number) {
+    console.log(`Switching to ${componentNumber}`);
+    this.componentSwitch.emit(componentNumber);
   }
 }

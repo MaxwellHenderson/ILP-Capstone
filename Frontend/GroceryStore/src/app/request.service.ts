@@ -16,6 +16,6 @@ export class RequestService {
   }
 
   retrieveRequests():Observable<Requests[]>{
-    return this.http.get<Requests[]>("http://localhost:9090/requests/getRequest")
+    return this.http.get<Requests[]>("http://localhost:9090/request/getRequest")
  }
 }
