@@ -28,30 +28,6 @@ const routes: Routes = [
   { path: 'adminWindow', component: AdminWindowComponent },
   { path: 'employeeWindow', component: EmployeeWindowComponent },
   { path: 'landingPage', component: LandingPageComponent },
-
-  //Admin paths
-  { path: 'adminDashboard', component: AdminNavbarComponent },
-  { path: 'generateReport', component: AdminGeneratereportsComponent },
-  { path: 'adminAddProduct', component: AdminAddproductsComponent },
-  { path: 'adminViewRequest', component: AdminViewrequestsComponent },
-  { path: 'adminUpdateProduct', component: AdminUpdateproductsComponent },
-  { path: 'adminDeleteProduct', component: AdminDeleteproductsComponent },
-  { path: 'adminAddEmployee', component: AdminAddemployeeComponent },
-  { path: 'adminDeleteEmplpoyee', component: AdminDeleteemployeeComponent },
-
-  //User paths
-  { path: 'userSignup', component: UserSignupComponent },
-  { path: 'userSignin', component: UserSigninComponent },
-  { path: 'editpassword', component: EditProfileComponent },
-  { path: 'sendRequest', component: SendRequestComponent },
-
-  //Employee paths
-  { path: 'updateOrderStatus', component: UpdateOrderStatusComponent },
-  { path: 'unlockUsers', component: UnlockUsersComponent },
-  { path: 'editProfile', component: EditProfileComponent },
-  { path: 'employeewindow', component: EmployeeWindowComponent },
-  { path: 'empSignin', component: EmployeeSigninComponent },
-
   { path: '', redirectTo: 'landingPage', pathMatch: 'full' },
 ];
 
