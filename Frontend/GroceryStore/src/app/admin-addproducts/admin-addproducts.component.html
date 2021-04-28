@@ -1,11 +1,15 @@
-<div class = "container">
+<div class = "container form-group">
     <form #productRef = "ngForm" (ngSubmit)= "storeProduct(productRef.value)">
         
         <br/><br/>
         <h2 align = "center">Add Products</h2>
         <br/><br/><br/>
-        <label>Product Id</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type = "text" name = "pid" ngModel> <br/><br/><br/>
+        <div class = "row">
+            <label class="col-2">Product Id</label> <br/>
+            <input type = "text" class="col-2"  name = "pid" ngModel> <br/><br/><br/>    
+        </div>
+        <label for="ex2">Product Id</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type = "text" class="form-control"  name = "pid" ngModel> <br/><br/><br/>
         <label>Product Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input type = "text" name = "productName" ngModel> <br/><br/><br/>
         <label>Product Price</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -13,8 +17,8 @@
         <label>Product Quantity</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input type = "number" name = "quantity" ngModel> <br/><br/><br/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type = "submit" value = "Add"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type = "reset" value = "Reset"/> 
-
+        <input type = "submit" class="btn btn-success" value = "Add"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type = "reset" class="btn btn-warning" value = "Reset"/> 
+    
     </form>
 </div>
