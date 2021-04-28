@@ -44,7 +44,7 @@ let addUser = (req, res) => {
 };
 
 let updateUserInfo = (req, res) => {
-  let userName = req.body.userName;
+  let Uid = req.body.uid;
   let updatedPassword = req.body.userPassword;
   let updatedPhone = req.body.userPhone;
   let updatedEmail = req.body.userEmail;
@@ -53,7 +53,7 @@ let updateUserInfo = (req, res) => {
     console.log(data);
   });
   UserModel.updateOne(
-    { userName: userName },
+    { _id: Uid },
     {
       $set: {
         userPassword: updatedPassword,

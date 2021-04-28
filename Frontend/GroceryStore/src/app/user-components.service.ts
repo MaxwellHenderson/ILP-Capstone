@@ -27,7 +27,7 @@ export class UserComponentsService {
     new UserComponent(UserOrderStatusComponent, {
       switchView: 'switchView',
     }),
-    new UserComponent(EditProfileComponent, {
+    new UserComponent(UserEditProfileComponent, {
       switchView: 'switchView',
     }),
     new UserComponent(UserAddFundsComponent, {
