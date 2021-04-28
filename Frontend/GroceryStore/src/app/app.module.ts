@@ -41,6 +41,7 @@ import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.
 import { UserComponentsDirective } from './user-components.directive';
 import { UserCheckoutComponent } from './user-checkout/user-checkout.component';
 import { AdminComponentsDirective } from './admin-components.directive';
+import { EmployeeComponentsDirective } from './employee-components.directive';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { AdminComponentsDirective } from './admin-components.directive';
     UserComponentsDirective,
     UserCheckoutComponent,
     AdminComponentsDirective,
+    EmployeeComponentsDirective,
   ],
   imports: [BrowserModule, AppRoutingModule,FormsModule,HttpClientModule, ReactiveFormsModule],
   providers: [],

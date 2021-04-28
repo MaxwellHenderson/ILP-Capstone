@@ -50,7 +50,7 @@ const routes: Routes = [
   { path: 'employeewindow', component: EmployeeWindowComponent },
   { path: 'empSignin', component: EmployeeSigninComponent },
 
-  { path: '', redirectTo: 'adminWindow', pathMatch: 'full' },
+  { path: '', redirectTo: 'employeeWindow', pathMatch: 'full' },
 ];
 
 @NgModule({
