@@ -11,6 +11,7 @@ import { AdminUpdateproductsComponent } from './admin-updateproducts/admin-updat
 import { AdminViewrequestsComponent } from './admin-viewrequests/admin-viewrequests.component';
 import { AdminWindowComponent } from './admin-window/admin-window.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { EmployeeSigninComponent } from './employee-signin/employee-signin.component';
 import { EmployeeWindowComponent } from './employee-window/employee-window.component';
 import { SendRequestComponent } from './send-request/send-request.component';
 import { StorefrontComponent } from './storefront/storefront.component';
@@ -38,10 +39,14 @@ const routes: Routes = [
   { path: 'adminDeleteEmplpoyee', component: AdminDeleteemployeeComponent },
   { path: 'userSignup', component: UserSignupComponent },
   { path: 'userSignin', component: UserSigninComponent },
+  {path:'editpassword',component:EditProfileComponent},
+  { path: '', redirectTo: 'userWindow', pathMatch: 'full' },
   { path: 'sendRequest', component: SendRequestComponent},
   { path: 'updateOrderStatus', component: UpdateOrderStatusComponent},
   { path: 'unlockUsers', component: UnlockUsersComponent},
   { path: 'editProfile', component: EditProfileComponent},
+  {path:'employeewindow',component:EmployeeWindowComponent},
+  {path:'empSignin',component:EmployeeSigninComponent},
   { path: '', redirectTo: 'userSignin', pathMatch: 'full' },
 ];
 
