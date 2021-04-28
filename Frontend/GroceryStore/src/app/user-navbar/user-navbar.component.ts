@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-user-navbar',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class UserNavbarComponent implements OnInit {
   @Output()
   componentSwitch = new EventEmitter<number>();
-  constructor(public router: Router) {}
+  constructor(public router: Router, public sessionService: SessionService) {}
 
   ngOnInit(): void {}
   switchView(componentNumber: number) {
@@ -17,6 +18,7 @@ export class UserNavbarComponent implements OnInit {
     this.componentSwitch.emit(componentNumber);
   }
   logout() {
-    this.router.navigate(['landingPage']);
+    this.sessionService.setUserAuthorized(false);
+    this.router.navigate(['']);
   }
 }

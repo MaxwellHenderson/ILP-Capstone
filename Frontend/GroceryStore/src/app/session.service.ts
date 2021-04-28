@@ -8,6 +8,9 @@ export class SessionService {
   userId?: number = 12345;
   userName?: string = 'bill';
   employeeId?: number;
+  adminAuthorized: boolean = false;
+  userAuthorized: boolean = false;
+  employeeAuthorized: boolean = false;
 
   constructor() {}
 
@@ -28,5 +31,23 @@ export class SessionService {
   }
   getEmployeeId(): number {
     return <number>this.employeeId;
+  }
+  setAdminAuthorized(authorized: boolean) {
+    this.adminAuthorized = authorized;
+  }
+  getAdminAuthorized(): boolean {
+    return this.adminAuthorized;
+  }
+  setUserAuthorized(authorized: boolean) {
+    this.userAuthorized = authorized;
+  }
+  getUserAuthorized(): boolean {
+    return this.userAuthorized;
+  }
+  setEmployeeAuthorized(authorized: boolean) {
+    this.employeeAuthorized = authorized;
+  }
+  getEmployeeAuthorized(): boolean {
+    return this.employeeAuthorized;
   }
 }

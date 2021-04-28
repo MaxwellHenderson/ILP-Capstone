@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { SessionService } from '../session.service';
 import { UserService } from '../user.service';
 
 @Component({
@@ -20,7 +21,8 @@ export class UserSigninComponent implements OnInit {
   constructor(
     public router: Router,
     public userService: UserService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    public sessionService: SessionService
   ) {}
 
   ngOnInit(): void {}
@@ -37,11 +39,10 @@ export class UserSigninComponent implements OnInit {
         });
 
         console.log(this.signInData.user);
-        sessionStorage.setItem(
-          'userDetails',
-          JSON.stringify(this.signInData.user)
-        );
-        //this.msg= "Hello";
+        this.sessionService.setUserAuthorized(true);
+        this.sessionService.setUserId = this.signInData.userId;
+        this.sessionService.setUserName = this.signInData.userName;
+
         this.router.navigate(['userWindow']);
       } else {
         this.toastr.error(this.signInData.msg, 'Error', {
