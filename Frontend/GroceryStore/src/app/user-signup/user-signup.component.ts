@@ -1,27 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-user-signup',
   templateUrl: './user-signup.component.html',
-  styleUrls: ['./user-signup.component.css']
+  styleUrls: ['./user-signup.component.css'],
 })
 export class UserSignupComponent implements OnInit {
+  constructor(public userSer: UserService) {}
 
-  signupRef = new FormGroup({
-    fname:new FormControl(),
-    lname:new FormControl(),
-    registerUser:new FormControl(),
-    registerPass:new FormControl()
+  ngOnInit(): void {}
 
-  });
-  constructor(public router:Router) { }
-
-  ngOnInit(): void {
+  registerUser(signupRef: any) {
+    console.log('registerUser()');
+    console.log(signupRef);
+    this.userSer.signup(signupRef);
+    // alert("You are Succesfully Registered .. !!")
+    //this.userSer.navigate(["userSignin"]);
   }
 
-  
+  /*
   registerUser()
   {
     console.log(this.signupRef.value); // all value
@@ -41,8 +39,8 @@ export class UserSignupComponent implements OnInit {
     console.log(user);
 
     alert("You are Succesfully Registered .. !!")
-    this.router.navigate(["userSignin"]);
+    this.userSer.navigate(["userSignin"]);
 
   }
-
+  */
 }

@@ -4,12 +4,12 @@ mongoose.Promise = global.Promise; // creating reference.
 let OrderSchema = mongoose.Schema({
   _id: Number,
   userName: String,
-  orderDate: Number,
-  cart: Map,
+  orderDate: Date,
+  cart: Object,
   orderStatus: String,
   totalPrice: Number,
   userId: Number,
-  reasonForCancellation: String,
+  reasonForCancellation: String
 });
 
 let OrderModel = mongoose.model("Order", OrderSchema);

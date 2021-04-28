@@ -1,36 +1,40 @@
-<div class = "container">
-    <br/><br/>
-    <h3 align = "center">User SignUp !!</h3>
-    <br/>
+<div class="container">
+    <br /><br />
+    <h3 align="center">User SignUp !!</h3>
+    <br />
 
-    <form [formGroup] = "signupRef" (ngSubmit) = "registerUser()">
-        <label class ="formcontrol col-2"> FirstName </label>
-        <input typpe = "text"formControlName = "fname" class ="formcontrol col-2"/><br/>
-        <br/>
-        <label class ="formcontrol col-2"> LastName </label>
-        <input typpe = "text"formControlName = "lname" class ="formcontrol col-2"/><br/>
-        <br/>
-        <label class ="formcontrol col-2">  UserID </label>
-        <input type = "text" formControlName = "registerUser" class ="formcontrol col-2"/><br/>
-        <br/>
-        <label class ="formcontrol col-2"> Eamil ID </label>
-        <input typpe = "email" formControlName = "useremail" class ="formcontrol col-2"/><br/>
-        <br/>
-        <label class ="formcontrol col-2">Password</label>
-        <input type = "password" formControlName = "registerPass" class ="formcontrol col-2"/><br/>
-        <br/>
-        <label class ="formcontrol col-2"> Date of Birth </label>
-        <input type = "date" formControlName = "userdob" class ="formcontrol col-2"/><br/>
-        <br/>
-        <label class ="formcontrol col-2">  Phone number </label>
-        <input type = "number" formControlName = "phoneno" class ="formcontrol col-2"/><br/>
-        <br/>
-        <label class ="formcontrol col-2">  Address </label>
-        <input type = "text" formControlName = "Address" class ="formcontrol col-2"/><br/>
-        <br/>
+    <form #signupRef="ngForm" (ngSubmit)="registerUser(signupRef.value)">
+        <label class="col-2"> FirstName </label>
+        <input typpe="text" name="userName" class="col-2" ngModel /><br />
+        <br />
+        <label class="col-2"> LastName </label>
+        <input typpe="text" name="userLastName" class=" col-2" ngModel /><br />
+        <br />
+        <label class="col-2"> UserID </label>
+        <input type="text" name="uid" class=" col-2" ngModel /><br />
+        <br />
+        <label class="col-2"> Eamil ID </label>
+        <input typpe="email" name="userEmail" class="col-2" ngModel /><br />
+        <br />
+        <label class="col-2">Password</label>
+        <input type="password" name="userPassword" class=" col-2" ngModel /><br />
+        <br />
+        <label class=" col-2"> Date of Birth </label>
+        <input type="text" name="userDob" class=" col-2" ngModel /><br />
+        <br />
+        <label class="col-2"> Phone number </label>
+        <input type="number" name="userPhone" class=" col-2" ngModel /><br />
+        <br />
+        <label class="col-2"> Address </label>
+        <input type="text" name="userAddress" class=" col-2" ngModel /><br />
+        <br />
 
-        <input type = "submit" value = "Register" class ="formcontrol col-1"/>
-        <br/><br/>
-        <input type = "reset" value ="Reset" class ="formcontrol col-1"/>
+        <input type="submit" value="SignUp" />
+        <br /><br />
+        <input type="reset" value="Reset" />
     </form>
+
+
+
+
 </div>
