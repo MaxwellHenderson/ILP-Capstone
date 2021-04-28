@@ -38,10 +38,10 @@ let UserModel = require("../model/user.model.js");
 let getUser = (req, res) => {
   console.log("Getting user");
   console.log(req.body);
-  let userName = req.body.userName;
+  let userName = req.body._id;
   let userPassword = req.body.userPassword;
 
-  UserModel.findOne({ userName: userName }, (err, result) => {
+  UserModel.findOne({ _id: userName }, (err, result) => {
     if (err) throw err;
     console.log(result);
     if (!result) {
@@ -92,6 +92,17 @@ let addUser = (req, res) => {
     if (!err) {
       res.send("Record stored successfully ");
     } else {
+      if (userAlreadyExists) {
+        res.json({
+          error: true,
+          errorMessage: "User already exists",
+        });
+      } else {
+        res.json({
+          error: truem,
+          errorMessage: "Unknown DB Error",
+        });
+      }
       console.log("Error");
       console.log(err);
       res.send("Record didn't store ");
