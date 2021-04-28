@@ -19,5 +19,11 @@ export class AdminGeneratereportsComponent implements OnInit {
   dailyReport(){
     this.reportSer.generateReportDaily().subscribe(result=>this.reports=result);
   }
+  weeklyReport(){
+    this.reportSer.generateReportWeekly().subscribe(result=>this.reports=result);
+  }
+  monthlyReport(){
+    this.reportSer.generateReportMonthly().subscribe(result=>this.reports=result);
+  }
 
 }

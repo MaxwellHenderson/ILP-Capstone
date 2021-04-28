@@ -1,11 +1,11 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-employee-navbar',
-  templateUrl: './employee-navbar.component.html',
-  styleUrls: ['./employee-navbar.component.css'],
+  selector: 'app-landing-page-navbar',
+  templateUrl: './landing-page-navbar.component.html',
+  styleUrls: ['./landing-page-navbar.component.css'],
 })
-export class EmployeeNavbarComponent implements OnInit {
+export class LandingPageNavbarComponent implements OnInit {
   @Output()
   componentSwitch = new EventEmitter<number>();
   constructor() {}

@@ -7,7 +7,7 @@ let getUser = (req, res) => {
 
   UserModel.find(
     { userName: userName, userPassword: userPassword },
-    (err,data)=>{
+    (err, data) => {
       if (!err) {
        // res.json(data);
         res.json({
@@ -69,7 +69,7 @@ let addUser = (req, res) => {
     userName: req.body.userName, //firstname
     userLastName: req.body.userLastName, //lastname
     userPassword: req.body.userPassword, //chaged from "password" to "req.body.userPassword"
-    accountNumber: req.body.accountNumber,
+    accountNumber: 123456789, //Dummy bank account number, same for all users because we are absolutely not implementing a seperate bank system like what?
     fund: 1000,
     userEmail: req.body.userEmail,
     userDob: req.body.userDob, //user DOB
@@ -91,7 +91,7 @@ let addUser = (req, res) => {
 };
 
 let updateUserInfo = (req, res) => {
-  let userName = req.body.userName;
+  let Uid = req.body.uid;
   let updatedPassword = req.body.userPassword;
   let updatedPhone = req.body.userPhone;
   let updatedEmail = req.body.userEmail;
@@ -100,7 +100,7 @@ let updateUserInfo = (req, res) => {
     console.log(data);
   });
   UserModel.updateOne(
-    { userName: userName },
+    { _id: Uid },
     {
       $set: {
         userPassword: updatedPassword,
@@ -143,36 +143,37 @@ let getCart = (req, res) => {
   let user = getUser();
 };
 
-let updateAccountFunds= (req,res)=> {
+let updateAccountFunds = (req, res) => {
   let aNum = req.body.aid;
   let updatedAmount = req.body.fund;
-  if(updatedAmount<0){res.send("No Sufficient Funds")}else{
-  UserModel.find({accountNumber:aNum},(err,data)=>{
-    if(!err && data.length!=0){
-
-      console.log(data)
-      console.log("888999")
-      UserModel.updateOne({accountNumber:aNum},{$set:{fund:(data[0].fund)+updatedAmount}},(err,result)=> {
-        if(!err){
-          console.log(result)
-            if(result.nModified>0){
-                    res.send("Funds have been added to account")
-            }else {
-                    res.send("No Sufficient Funds");
+  if (updatedAmount < 0) {
+    res.send("You can't add negative money silly!");
+  } else {
+    UserModel.find({ accountNumber: aNum }, (err, data) => {
+      if (!err && data.length != 0) {
+        console.log(data);
+        UserModel.updateOne(
+          { accountNumber: aNum },
+          { $set: { fund: data[0].fund + updatedAmount } },
+          (err, result) => {
+            if (!err) {
+              console.log(result);
+              if (result.nModified > 0) {
+                res.send("Funds have been added to account");
+              } else {
+                res.send("No Sufficient Funds");
+              }
+            } else {
+              res.send("Error generated " + err);
             }
-        }else {
-            res.send("Error generated "+ err);
-        }
-    })
-}else{
-  res.send("Invalid account Number")
-}
-    
-})
+          }
+        );
+      } else {
+        res.send("Invalid account Number");
+      }
+    });
   }
-
-
-}
+};
 
 let updateAccountFundsByID = (req, res) => {
   let userid = req.body.userid;

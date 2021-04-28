@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { UserComponent } from './shared/user-component';
 import { StorefrontComponent } from './storefront/storefront.component';
 import { UserAddFundsComponent } from './user-add-funds/user-add-funds.component';
@@ -27,7 +26,7 @@ export class UserComponentsService {
     new UserComponent(UserOrderStatusComponent, {
       switchView: 'switchView',
     }),
-    new UserComponent(EditProfileComponent, {
+    new UserComponent(UserEditProfileComponent, {
       switchView: 'switchView',
     }),
     new UserComponent(UserAddFundsComponent, {

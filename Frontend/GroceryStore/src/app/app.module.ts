@@ -41,6 +41,11 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.component';
 import { UserComponentsDirective } from './user-components.directive';
 import { UserCheckoutComponent } from './user-checkout/user-checkout.component';
+import { AdminComponentsDirective } from './admin-components.directive';
+import { EmployeeComponentsDirective } from './employee-components.directive';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { LandingPageNavbarComponent } from './landing-page-navbar/landing-page-navbar.component';
+import { LandingPageComponentDirective } from './landing-page-component.directive';
 
 @NgModule({
   declarations: [
@@ -78,6 +83,11 @@ import { UserCheckoutComponent } from './user-checkout/user-checkout.component';
     UserEditProfileComponent,
     UserComponentsDirective,
     UserCheckoutComponent,
+    AdminComponentsDirective,
+    EmployeeComponentsDirective,
+    LandingPageComponent,
+    LandingPageNavbarComponent,
+    LandingPageComponentDirective,
   ],
   imports: [BrowserModule,
     AppRoutingModule,

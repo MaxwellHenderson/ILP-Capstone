@@ -20,6 +20,7 @@ export class EmployeeService {
   
   addEmployeeDetails(employeeRef:any)
   {
+    
     this.http.post("http://localhost:9090/employee/addEmployee",employeeRef).
     subscribe(result=>console.log(result),error=>console.log(error));
   }

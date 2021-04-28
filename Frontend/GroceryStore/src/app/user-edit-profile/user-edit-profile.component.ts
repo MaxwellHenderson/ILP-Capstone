@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from '../session.service';
 import { UserService } from '../user.service';
 
 @Component({
@@ -9,14 +10,14 @@ import { UserService } from '../user.service';
 export class UserEditProfileComponent implements OnInit {
 
   updateMsg?:string
-  constructor(public userSer:UserService) { }
+  constructor(public userSer:UserService,public sessServ:SessionService) { }
 
   ngOnInit(): void {
   }
   updateInfo(userRef:any){
     console.log(userRef)
-    let uname = JSON.parse(sessionStorage.getItem("userInfo")!);
-    userRef.userName=uname
+    let uid=this.sessServ.getUserId()
+    userRef.uid=uid
     this.userSer.updateUserProfile(userRef).subscribe((result:string)=> {
       this.updateMsg=result;
     });

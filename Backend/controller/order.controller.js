@@ -70,9 +70,9 @@ let getOrderWeek = (req, res) => {
 };
 
 let getOrderByUser = (req, res) => {
-  let user = req.params.userName;
+  let Uid = req.params.uid;
 
-  OrderModel.find({ userName: user }, (err, data) => {
+  OrderModel.find({ _id: Uid }, (err, data) => {
     if (!err) {
       res.json(data);
     }
