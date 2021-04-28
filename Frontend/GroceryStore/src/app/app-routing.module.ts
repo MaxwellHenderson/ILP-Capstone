@@ -22,32 +22,35 @@ import { UserSignupComponent } from './user-signup/user-signup.component';
 import { UserWindowComponent } from './user-window/user-window.component';
 
 const routes: Routes = [
+  //Windows
   { path: 'userWindow', component: UserWindowComponent },
   { path: 'adminWindow', component: AdminWindowComponent },
-  { path: 'adminDashboard', component: AdminNavbarComponent },
-
-  { path: 'adminViewRequest', component: AdminViewrequestsComponent },
-
-  { path: 'generateReport', component: AdminGeneratereportsComponent },
-
   { path: 'employeeWindow', component: EmployeeWindowComponent },
 
+  //Admin paths
+  { path: 'adminDashboard', component: AdminNavbarComponent },
+  { path: 'generateReport', component: AdminGeneratereportsComponent },
   { path: 'adminAddProduct', component: AdminAddproductsComponent },
+  { path: 'adminViewRequest', component: AdminViewrequestsComponent },
   { path: 'adminUpdateProduct', component: AdminUpdateproductsComponent },
   { path: 'adminDeleteProduct', component: AdminDeleteproductsComponent },
   { path: 'adminAddEmployee', component: AdminAddemployeeComponent },
   { path: 'adminDeleteEmplpoyee', component: AdminDeleteemployeeComponent },
+
+  //User paths
   { path: 'userSignup', component: UserSignupComponent },
   { path: 'userSignin', component: UserSigninComponent },
-  {path:'editpassword',component:EditProfileComponent},
-  { path: '', redirectTo: 'userWindow', pathMatch: 'full' },
-  { path: 'sendRequest', component: SendRequestComponent},
-  { path: 'updateOrderStatus', component: UpdateOrderStatusComponent},
-  { path: 'unlockUsers', component: UnlockUsersComponent},
-  { path: 'editProfile', component: EditProfileComponent},
-  {path:'employeewindow',component:EmployeeWindowComponent},
-  {path:'empSignin',component:EmployeeSigninComponent},
-  { path: '', redirectTo: 'userSignin', pathMatch: 'full' },
+  { path: 'editpassword', component: EditProfileComponent },
+  { path: 'sendRequest', component: SendRequestComponent },
+
+  //Employee paths
+  { path: 'updateOrderStatus', component: UpdateOrderStatusComponent },
+  { path: 'unlockUsers', component: UnlockUsersComponent },
+  { path: 'editProfile', component: EditProfileComponent },
+  { path: 'employeewindow', component: EmployeeWindowComponent },
+  { path: 'empSignin', component: EmployeeSigninComponent },
+
+  { path: '', redirectTo: 'adminWindow', pathMatch: 'full' },
 ];
 
 @NgModule({
