@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SessionService } from '../session.service';
@@ -17,6 +17,8 @@ export class UserSigninComponent implements OnInit {
 
     //})
   });
+  @Output()
+  componentSwitch = new EventEmitter<number>();
   msg: string = '';
   //msg1:string = "";
 
@@ -51,5 +53,10 @@ export class UserSigninComponent implements OnInit {
 
   signUp() {
     this.router.navigate(['userWindow']);
+  }
+
+  switchView(componentNumber: number) {
+    console.log(`Switching to ${componentNumber}`);
+    this.componentSwitch.emit(componentNumber);
   }
 }
