@@ -32,6 +32,7 @@ import { UserAddFundsComponent } from './user-add-funds/user-add-funds.component
 import { UserOrderStatusComponent } from './user-order-status/user-order-status.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 import { EmployeeSigninComponent } from './employee-signin/employee-signin.component';
 import { SendRequestComponent } from './send-request/send-request.component';
 import { UpdateOrderStatusComponent } from './update-order-status/update-order-status.component';
@@ -78,7 +79,18 @@ import { UserCheckoutComponent } from './user-checkout/user-checkout.component';
     UserComponentsDirective,
     UserCheckoutComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule,FormsModule,HttpClientModule, ReactiveFormsModule],
+  imports: [BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot(
+      {
+        positionClass:'top-left',
+        closeButton:true,
+      }
+    ),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

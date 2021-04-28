@@ -19,6 +19,13 @@ export class UserService {
       );
   }
 
+
+  signin(loginRef:any){
+    console.log(loginRef)
+    return this.http.get("http://localhost:9090/user/getUser",loginRef)
+    
+  }
+
   updateAccountFunds(userref:any):any{
     console.log(userref)
     return this.http.put("http://localhost:9090/user/updateAccountFunds",userref,{responseType:'text'})
@@ -28,5 +35,5 @@ export class UserService {
     return this.http.put("http://localhost:9090/user/updateProfile",userref,{responseType:'text'})
   }
 
-  verifyUser() {}
+  //verifyUser() {}
 }

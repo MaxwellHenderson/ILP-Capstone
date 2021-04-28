@@ -1,5 +1,6 @@
 let UserModel = require("../model/user.model.js");
 
+
 let getUser = (req, res) => {
   let userName = req.params.UserName;
   let userPassword = req.params.UserPassword;
@@ -8,11 +9,57 @@ let getUser = (req, res) => {
     { userName: userName, userPassword: userPassword },
     (err,data)=>{
       if (!err) {
-        res.json(data);
-      }
+       // res.json(data);
+        res.json({
+          success:true,
+          user: {
+              _id:result._id,
+              userEmail:result.userEmail,
+              userName:result.userName,
+              userLastName:result.userLastName,
+              userDob:result.userDob,
+              userAddress:result.userAddress,
+              fund:result.fund
+          }
+        })
+      }else {
+        return res.json({success:false, msg:"Incorrect password"})
+        }
     }
-  );
-};
+  )};
+
+
+/*
+
+let getUser = (req,res) => {
+    let userName = req.body.UserName;
+    let userPassword = req.body.UserPassword;
+
+UserModel.findOne({userName: userName}, (err,result)=>{
+    if(err)throw err;
+    if(!result){
+        return res.json({success:false, msg:"Incorrect User Name"})
+    }else{
+        if(result.password == userPassword){
+            res.json({
+                success:true,
+                user: {
+                    _id:result._id,
+                    userEmail:result.userEmail,
+                    userName:result.userName,
+                    userLastName:result.userLastName,
+                    userDob:result.userDob,
+                    userAddress:result.userAddress,
+                    fund:result.fund
+                }
+            })
+        }else {
+            return res.json({success:false, msg:"Incorrect password"})
+        }
+    }
+})
+}*/
+
 
 let addUser = (req, res) => {
   console.log("adding user");
