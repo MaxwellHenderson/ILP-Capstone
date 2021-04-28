@@ -100,14 +100,21 @@ let getOrders = (req, res) => {
 
 let placeOrder = (req, res) => {
   console.log("placing order");
-  console.log(req.body);
-  console.log(req.body.cart);
-  let order = new OrderModel(req.body);
-  order.save((err, result) => {
+  //Get the size of the db to increment order number
+  OrderModel.countDocuments({}, (err, count) => {
     if (!err) {
-      res.send("Order stored succesfully ");
-    } else {
-      res.send("Order didn't store " + err);
+      //After getting count, can set orderId
+      req.body._id = count + 1;
+      console.log(req.body);
+      console.log(req.body.cart);
+      let order = new OrderModel(req.body);
+      order.save((err, result) => {
+        if (!err) {
+          res.send("Order stored succesfully ");
+        } else {
+          res.send("Order didn't store " + err);
+        }
+      });
     }
   });
 };
