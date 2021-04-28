@@ -3,15 +3,16 @@
     <br /><br />
     <h3 align="center">User SignIn</h3>
     <br />
-    <form [formGroup]="loginRef" (ngSubmit)="checkUser()" class="formcontrol">
-        <label class="formcontrol col-2"> User ID </label>
-        <input typpe="text" formControlName="user" class="formcontrol col-2" /><br /><br />
-        <label class="formcontrol col-2">Password</label>
-        <input type="password" formControlName="pass" class="formcontrol col-2" /><br />
+    <form #loginRef="ngForm" (ngSubmit)="checkUser(loginRef.value)">
+
+        <label class="col-2"> User ID </label>
+        <input typpe="text" name="userName" class="col-2" ngModel /><br /><br />
+        <label class="col-2">Password</label>
+        <input type="password" name="userPassword" class="col-2" ngModel /><br />
         <br />
-        <input type="submit" value="Login" class="formcontrol col-1" />
+        <input type="submit" value="Login" class="col-1" />
         <br /><br />
-        <input type="button" value="SignUp" (click)="signUp()" class="formcontrol col-1" />
+        <input type="button" value="SignUp" (click)="signUp()" class="col-1" />
     </form>
     {{msg}}
     <br>

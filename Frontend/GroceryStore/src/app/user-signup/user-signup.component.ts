@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-signup.component.css'],
 })
 export class UserSignupComponent implements OnInit {
-  constructor(public userSer: UserService) {}
+  constructor(public userSer: UserService, public router:Router) {}
 
   ngOnInit(): void {}
 
@@ -16,7 +17,7 @@ export class UserSignupComponent implements OnInit {
     console.log(signupRef);
     this.userSer.signup(signupRef);
     // alert("You are Succesfully Registered .. !!")
-    //this.userSer.navigate(["userSignin"]);
+    this.router.navigate(["userSignin"]);
   }
 
   /*

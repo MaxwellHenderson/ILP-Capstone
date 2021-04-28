@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SessionService } from '../session.service';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../user.service';
 
 @Component({
@@ -10,26 +10,20 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-signin.component.css'],
 })
 export class UserSigninComponent implements OnInit {
-  loginRef = new FormGroup({
-    user: new FormControl(),
-    pass: new FormControl(),
-    // addAdd: new FormGroup({
-
-    //})
-  });
-  @Output()
-  componentSwitch = new EventEmitter<number>();
   msg: string = '';
   //msg1:string = "";
+
+  signInData: any = {};
 
   constructor(
     public router: Router,
     public userService: UserService,
-    public sessionService: SessionService
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {}
 
+  /*
   checkUser() {
     console.log(this.loginRef.value); // all value
     let user1 = this.loginRef.get('user')?.value; // get specific control value
@@ -51,8 +45,40 @@ export class UserSigninComponent implements OnInit {
     }
   }
 
+*/
+
+  checkUser(loginRef: any) {
+    this.userService.signin(loginRef).subscribe((result: any) => {
+      this.signInData = result;
+
+      if (this.signInData.success) {
+        this.router.navigate(['userWindow']);
+      }
+
+      this.router.navigate(['userWindow']);
+
+      /*
+      if(this.signInData.success){
+        this.toastr.success('Successful Signed In', 'Success',{
+          timeOut:2000,
+        });
+    
+      console.log(this.signInData.user)
+      sessionStorage.setItem('userDetails',JSON.stringify(this.signInData.user));
+        //this.msg= "Hello";
+        this.router.navigate(['userWindow']);
+
+      }else{
+        this.toastr.error(this.signInData.msg,'Error' , {
+          timeOut:2000,
+        })
+        this.router.navigate(['userSignin']);
+      }*/
+    });
+  }
+
   signUp() {
-    this.router.navigate(['userWindow']);
+    this.router.navigate(['userSignup']);
   }
 
   switchView(componentNumber: number) {
