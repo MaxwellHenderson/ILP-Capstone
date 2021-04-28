@@ -3,7 +3,8 @@
     
     <form #userRef="ngForm" (ngSubmit)="checkEmployee(userRef.value)" class="text-center border border-light p-5">
         <label class="col-2">UserName</label>
-        <input type="text" name="userName" ngModel class="col-2" required minlength="2" /> <br />
+        <input type="text" name="userName" ngModel class="col-2" required minlength="2" > <br />
+        
         <label class="col-2">Password</label>
         <input type="password" name="userPassword" class="col-2" ngModel required/> <br /><br />
         <input type="submit" value="submit" class="btn btn-primary btn-lg" /><br/>{{errmsg}}
