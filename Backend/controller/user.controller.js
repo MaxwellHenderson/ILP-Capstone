@@ -142,9 +142,32 @@ let updateAccountFundsByID = (req, res) => {
 let getLockedUser = (req, res) => {
   UserModel.find({ accountLocked: true }, (err, data) => {
     if (!err) {
+      res.send(data)
     } else {
     }
   });
+};
+
+let unlockUser= (req, res) => {
+  console.log(req.body);
+  let userid = req.body._id;
+  let accountLocke =false;
+  UserModel.updateOne(
+    { _id: userid },
+    { $set: { accountLocked: accountLocke } },
+    (err, result) => {
+      if (!err) {
+        console.log(result);
+        if (result.nModified > 0) {
+          res.send("Record updated succesfully");
+        } else {
+          res.send("Record is not available");
+        }
+      } else {
+        res.send("Error generated " + err);
+      }
+    }
+  );
 };
 
 module.exports = {
@@ -154,4 +177,5 @@ module.exports = {
   addUser,
   updateAccountFundsByID,
   getLockedUser,
+  unlockUser,
 };

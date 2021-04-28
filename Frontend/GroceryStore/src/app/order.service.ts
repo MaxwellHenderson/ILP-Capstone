@@ -40,6 +40,13 @@ export class OrderService {
       'http://localhost:9090/order/getOrderByUser/' + id
     );
   }
+
+  retrieveOrders():Observable<Order[]>{
+    return this.http.get<Order[]>(
+      'http://localhost:9090/order/getOrders'
+    )
+  }
+
   generateReportDaily():Observable<OrderReport[]>{
     return this.http.get<OrderReport[]>(
       'http://localhost:9090/order/getReportDaily'

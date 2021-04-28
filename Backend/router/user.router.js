@@ -13,6 +13,8 @@ router.put("/updateFundsByID",UserController.updateAccountFundsByID);
 
 router.put("/updateProfile",UserController.updateUserInfo);
 
+router.put("/unlockUser",UserController.unlockUser);
+
 
 
 
