@@ -2,7 +2,7 @@ let mongoose = require("mongoose");
 mongoose.Promise = global.Promise; // creating reference.
 
 let UserSchema = mongoose.Schema({
-  _id: Number,
+  _id: String,
   userName: String, //firstname
   userLastName: String,
   userPassword: String,

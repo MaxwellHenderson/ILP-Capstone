@@ -41,7 +41,7 @@ let getUser = (req, res) => {
   let userName = req.body.userName;
   let userPassword = req.body.userPassword;
 
-  UserModel.findOne({ userName: userName }, (err, result) => {
+  UserModel.findOne({ _id: userName }, (err, result) => {
     if (err) throw err;
     console.log(result);
     if (!result) {
