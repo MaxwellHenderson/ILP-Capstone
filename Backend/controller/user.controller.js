@@ -90,11 +90,13 @@ let addUser = (req, res) => {
   });
   user.save((err, result) => {
     if (!err) {
-      res.send("Record stored successfully ");
+      res.json({message:"Record stored successfully ",
+      error:false
+    });
     } else {
       console.log("Error");
       console.log(err);
-      res.send("Record didn't store ");
+      res.json({error:true,message:err})
     }
   });
 };

@@ -8,6 +8,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-signup.component.css'],
 })
 export class UserSignupComponent implements OnInit {
+  signInData: any = {};
   constructor(public userSer: UserService, public router:Router) {}
 
   ngOnInit(): void {}
@@ -15,10 +16,18 @@ export class UserSignupComponent implements OnInit {
   registerUser(signupRef: any) {
     console.log('registerUser()');
     console.log(signupRef);
-    this.userSer.signup(signupRef)
-    
-    alert("User Added")
-    this.router.navigate(["userSignin"]);
+    this.userSer.signup(signupRef).subscribe(
+      (result:any) => {
+        this.signInData=result;
+        if(result.error==false){
+        console.log(result)
+        alert("User Added")
+        this.router.navigate(["userSignin"]);
+        }else{
+          alert("User Already Exists");
+        }
+      })
+  
   }
 
   /*
