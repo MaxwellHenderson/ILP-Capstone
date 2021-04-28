@@ -5,8 +5,8 @@ import { CartItem } from './shared/cart-item.model';
   providedIn: 'root',
 })
 export class SessionService {
-  userId?: number = 12345;
-  userName?: string = 'bill';
+  userId?: number;
+  userName?: string;
   employeeId?: number;
   adminAuthorized: boolean = false;
   userAuthorized: boolean = false;
@@ -14,7 +14,7 @@ export class SessionService {
 
   constructor() {}
 
-  setUserId(userId: any) {
+  setUserId(userId: number) {
     this.userId = userId;
   }
   getUserId(): number {
