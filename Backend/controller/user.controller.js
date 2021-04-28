@@ -64,7 +64,7 @@ let updateUserInfo = (req, res) => {
         if (result.nModified > 0) {
           res.send("Record updated succesfully");
         } else {
-          res.send("Record is not available");
+          res.send("Please fill all the details");
         }
       } else {
         res.send("Error generated " + err);
@@ -96,6 +96,7 @@ let getCart = (req, res) => {
 let updateAccountFunds= (req,res)=> {
   let aNum = req.body.aid;
   let updatedAmount = req.body.fund;
+  if(updatedAmount<0){res.send("No Sufficient Funds")}else{
   UserModel.find({accountNumber:aNum},(err,data)=>{
     if(!err && data.length!=0){
 
@@ -118,6 +119,7 @@ let updateAccountFunds= (req,res)=> {
 }
     
 })
+  }
 
 
 }

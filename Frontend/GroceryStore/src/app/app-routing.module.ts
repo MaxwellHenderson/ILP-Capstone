@@ -6,6 +6,7 @@ import { AdminDeleteemployeeComponent } from './admin-deleteemployee/admin-delet
 import { AdminDeleteproductsComponent } from './admin-deleteproducts/admin-deleteproducts.component';
 import { AdminUpdateproductsComponent } from './admin-updateproducts/admin-updateproducts.component';
 import { AdminWindowComponent } from './admin-window/admin-window.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { EmployeeWindowComponent } from './employee-window/employee-window.component';
 import { StorefrontComponent } from './storefront/storefront.component';
 import { UserSigninComponent } from './user-signin/user-signin.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'adminDeleteEmplpoyee', component: AdminDeleteemployeeComponent },
   { path: 'userSignup', component: UserSignupComponent },
   { path: 'userSignin', component: UserSigninComponent },
+  {path:'editpassword',component:EditProfileComponent},
   { path: '', redirectTo: 'userWindow', pathMatch: 'full' },
 ];
 

@@ -30,7 +30,7 @@ count?:string
         console.log(this.count)
         if(Number(this.count)<2){
         //link to update password
-        this.router.navigate([" "]);
+        this.router.navigate(["editpassword"]);
         }else{
           //link to dashboard
           
