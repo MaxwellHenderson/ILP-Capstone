@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr'; 
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../user.service';
 
 @Component({
@@ -9,12 +9,11 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-signin.component.css'],
 })
 export class UserSigninComponent implements OnInit {
-  
   msg: string = '';
   //msg1:string = "";
 
-  signInData:any={};
-  
+  signInData: any = {};
+
   constructor(
     public router: Router,
     public userService: UserService,
@@ -22,7 +21,6 @@ export class UserSigninComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
-
 
   /*
   checkUser() {
@@ -44,21 +42,16 @@ export class UserSigninComponent implements OnInit {
   }
 
 */
-  
-checkUser(loginRef:any){
-   
 
-  
-    this.userService.signin(loginRef).subscribe((result: any)=>{
+  checkUser(loginRef: any) {
+    this.userService.signin(loginRef).subscribe((result: any) => {
       this.signInData = result;
 
-      if(this.signInData.success){
+      if (this.signInData.success) {
         this.router.navigate(['userWindow']);
-        };
-    
+      }
 
       this.router.navigate(['userWindow']);
-
 
       /*
       if(this.signInData.success){
@@ -77,10 +70,8 @@ checkUser(loginRef:any){
         })
         this.router.navigate(['userSignin']);
       }*/
-   })
-    
-    
- }
+    });
+  }
 
   signUp() {
     this.router.navigate(['userSignup']);
