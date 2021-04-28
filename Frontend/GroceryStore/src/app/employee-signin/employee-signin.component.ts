@@ -26,9 +26,9 @@ export class EmployeeSigninComponent implements OnInit {
       console.log(empRef.userName);
       console.log(empRef.userPassword);
       if (empRef.userName == '' || empRef.userPassword == '') {
-        this.errmsg = 'Please enter the details';
+        alert('Please fill all the fields');
       } else if (this.msg === 'invalid') {
-        this.errmsg = 'Invalid Credentials ..Please Try again';
+        alert('Invalid Credentials ..Please Try again');
       } else {
         console.log(JSON.parse(this.msg).data._id);
         this.sesSer.setEmployeeId(JSON.parse(this.msg).data._id);

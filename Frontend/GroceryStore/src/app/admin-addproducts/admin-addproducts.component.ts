@@ -17,5 +17,6 @@ export class AdminAddproductsComponent implements OnInit {
   {
     console.log(productRef);
     this.adminSer.addProductDetails(productRef);
+    alert("Product Added");
   }
 }

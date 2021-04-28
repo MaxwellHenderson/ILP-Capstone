@@ -19,6 +19,7 @@ export class AdminDeleteproductsComponent implements OnInit {
     this.adminSer.deleteProducts(id).subscribe((result:string)=> {
         this.deleteMsg=result;
     })
+    alert("Product Deleted");
   }
 
 }
