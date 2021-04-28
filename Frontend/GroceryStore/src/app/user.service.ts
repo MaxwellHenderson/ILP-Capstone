@@ -19,20 +19,24 @@ export class UserService {
       );
   }
 
-
-  signin(loginRef:any){
-    console.log(loginRef)
-    return this.http.get("http://localhost:9090/user/getUser",loginRef)
-    
+  signin(loginRef: any) {
+    console.log(loginRef);
+    return this.http.post('http://localhost:9090/user/getUser', loginRef);
   }
 
-  updateAccountFunds(userref:any):any{
-    console.log(userref)
-    return this.http.put("http://localhost:9090/user/updateAccountFunds",userref,{responseType:'text'})
+  updateAccountFunds(userref: any): any {
+    console.log(userref);
+    return this.http.put(
+      'http://localhost:9090/user/updateAccountFunds',
+      userref,
+      { responseType: 'text' }
+    );
   }
-  updateUserProfile(userref:any):any{
-    console.log(userref)
-    return this.http.put("http://localhost:9090/user/updateProfile",userref,{responseType:'text'})
+  updateUserProfile(userref: any): any {
+    console.log(userref);
+    return this.http.put('http://localhost:9090/user/updateProfile', userref, {
+      responseType: 'text',
+    });
   }
 
   //verifyUser() {}

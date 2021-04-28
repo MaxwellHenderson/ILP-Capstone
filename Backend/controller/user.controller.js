@@ -1,65 +1,74 @@
 let UserModel = require("../model/user.model.js");
 
+// let getUser = (req, res) => {
+//   console.log("Getting user");
+//   console.log(req.body);
+//   let userName = req.body.UserName;
+//   let userPassword = req.body.UserPassword;
+
+//   UserModel.find(
+//     { $and: { userName: userName, userPassword: userPassword } },
+//     (err, data) => {
+//       console.log("Data");
+//       console.log(data);
+//       if (!err) {
+//         if (data.length > 0) {
+//           console.log(data);
+//           // res.json(data);
+//           res.json({
+//             success: true,
+//             user: {
+//               _id: data.uid,
+//               userEmail: data.userEmail,
+//               userName: data.userName,
+//               userLastName: data.userLastName,
+//               userDob: data.userDob,
+//               userAddress: data.userAddress,
+//               fund: data.fund,
+//             },
+//           });
+//         }
+//       } else {
+//         return res.json({ success: false, msg: "Incorrect password" });
+//       }
+//     }
+//   );
+// };
 
 let getUser = (req, res) => {
-  let userName = req.params.UserName;
-  let userPassword = req.params.UserPassword;
+  console.log("Getting user");
+  console.log(req.body);
+  let userName = req.body.userName;
+  let userPassword = req.body.userPassword;
 
-  UserModel.find(
-    { userName: userName, userPassword: userPassword },
-    (err, data) => {
-      if (!err) {
-       // res.json(data);
+  UserModel.findOne({ userName: userName }, (err, result) => {
+    if (err) throw err;
+    console.log(result);
+    if (!result) {
+      console.log("No username");
+      return res.json({ success: false, msg: "Incorrect User Name" });
+    } else {
+      if (result.userPassword == userPassword) {
+        console.log("Correct");
         res.json({
-          success:true,
+          success: true,
           user: {
-              _id:result._id,
-              userEmail:result.userEmail,
-              userName:result.userName,
-              userLastName:result.userLastName,
-              userDob:result.userDob,
-              userAddress:result.userAddress,
-              fund:result.fund
-          }
-        })
-      }else {
-        return res.json({success:false, msg:"Incorrect password"})
-        }
+            _id: result._id,
+            userEmail: result.userEmail,
+            userName: result.userName,
+            userLastName: result.userLastName,
+            userDob: result.userDob,
+            userAddress: result.userAddress,
+            fund: result.fund,
+          },
+        });
+      } else {
+        console.log("Wrong pass");
+        return res.json({ success: false, msg: "Incorrect password" });
+      }
     }
-  )};
-
-
-/*
-
-let getUser = (req,res) => {
-    let userName = req.body.UserName;
-    let userPassword = req.body.UserPassword;
-
-UserModel.findOne({userName: userName}, (err,result)=>{
-    if(err)throw err;
-    if(!result){
-        return res.json({success:false, msg:"Incorrect User Name"})
-    }else{
-        if(result.password == userPassword){
-            res.json({
-                success:true,
-                user: {
-                    _id:result._id,
-                    userEmail:result.userEmail,
-                    userName:result.userName,
-                    userLastName:result.userLastName,
-                    userDob:result.userDob,
-                    userAddress:result.userAddress,
-                    fund:result.fund
-                }
-            })
-        }else {
-            return res.json({success:false, msg:"Incorrect password"})
-        }
-    }
-})
-}*/
-
+  });
+};
 
 let addUser = (req, res) => {
   console.log("adding user");
