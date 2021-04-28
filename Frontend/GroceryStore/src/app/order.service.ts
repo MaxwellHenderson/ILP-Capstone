@@ -19,13 +19,12 @@ export class OrderService {
     console.log('In service');
     console.log(orderInfo);
     let httpOrderInfo = {
-      _id: 552355,
-      userName: 123,
+      userName: orderInfo.userName,
       orderDate: orderInfo.orderDate,
       cart: convertedCart,
       orderStatus: orderInfo.orderStatus,
       totalPrice: orderInfo.totalPrice,
-      userId: 123,
+      userId: orderInfo.userId,
     };
     this.http
       .post('http://localhost:9090/order/placeOrder', httpOrderInfo)

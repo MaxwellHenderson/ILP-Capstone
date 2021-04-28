@@ -1,7 +1,7 @@
 import { CartItem } from './cart-item.model';
 
 export interface Order {
-  _id: number;
+  _id?: number;
   userName: string;
   orderDate: number;
   cart: Map<number, CartItem>;
@@ -12,5 +12,10 @@ export interface Order {
 }
 
 export class OrderReport {
-  constructor(public _id:Number,public orderDate:Date,public orderStatus:string,public totalPrice:Number){}
+  constructor(
+    public _id: Number,
+    public orderDate: Date,
+    public orderStatus: string,
+    public totalPrice: Number
+  ) {}
 }
