@@ -23,13 +23,15 @@ export class EmployeeSigninComponent implements OnInit {
     console.log('checking');
     this.empSer.authenticateEmployee(empRef).subscribe((result) => {
       this.msg = result;
-      console.log(JSON.parse(this.msg).data._id);
-      this.sesSer.setEmployeeId(JSON.parse(this.msg).data._id);
-      console.log('empId' + this.sesSer.getEmployeeId());
+      
 
       if (this.msg === 'invalid') {
         this.errmsg = 'Invalid Credentials ..Please Try again';
+        
       } else {
+        console.log(JSON.parse(this.msg).data._id);
+      this.sesSer.setEmployeeId(JSON.parse(this.msg).data._id);
+      console.log('empId' + this.sesSer.getEmployeeId());
         this.empSer.updateCount(empRef).subscribe((result: string) => {
           this.count = result;
           console.log(JSON.parse(this.count));
