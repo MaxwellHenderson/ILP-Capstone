@@ -42,6 +42,9 @@ import { UserComponentsDirective } from './user-components.directive';
 import { UserCheckoutComponent } from './user-checkout/user-checkout.component';
 import { AdminComponentsDirective } from './admin-components.directive';
 import { EmployeeComponentsDirective } from './employee-components.directive';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { LandingPageNavbarComponent } from './landing-page-navbar/landing-page-navbar.component';
+import { LandingPageComponentDirective } from './landing-page-component.directive';
 
 @NgModule({
   declarations: [
@@ -81,6 +84,9 @@ import { EmployeeComponentsDirective } from './employee-components.directive';
     UserCheckoutComponent,
     AdminComponentsDirective,
     EmployeeComponentsDirective,
+    LandingPageComponent,
+    LandingPageNavbarComponent,
+    LandingPageComponentDirective,
   ],
   imports: [BrowserModule, AppRoutingModule,FormsModule,HttpClientModule, ReactiveFormsModule],
   providers: [],

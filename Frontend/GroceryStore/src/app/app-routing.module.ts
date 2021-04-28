@@ -13,6 +13,7 @@ import { AdminWindowComponent } from './admin-window/admin-window.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { EmployeeSigninComponent } from './employee-signin/employee-signin.component';
 import { EmployeeWindowComponent } from './employee-window/employee-window.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SendRequestComponent } from './send-request/send-request.component';
 import { StorefrontComponent } from './storefront/storefront.component';
 import { UnlockUsersComponent } from './unlock-users/unlock-users.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'userWindow', component: UserWindowComponent },
   { path: 'adminWindow', component: AdminWindowComponent },
   { path: 'employeeWindow', component: EmployeeWindowComponent },
+  { path: 'landingPage', component: LandingPageComponent },
 
   //Admin paths
   { path: 'adminDashboard', component: AdminNavbarComponent },
@@ -50,7 +52,7 @@ const routes: Routes = [
   { path: 'employeewindow', component: EmployeeWindowComponent },
   { path: 'empSignin', component: EmployeeSigninComponent },
 
-  { path: '', redirectTo: 'employeeWindow', pathMatch: 'full' },
+  { path: '', redirectTo: 'landingPage', pathMatch: 'full' },
 ];
 
 @NgModule({
