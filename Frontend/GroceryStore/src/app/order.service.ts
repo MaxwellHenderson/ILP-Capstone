@@ -44,4 +44,14 @@ export class OrderService {
       'http://localhost:9090/order/getReportDaily'
     )
   }
+  generateReportWeekly():Observable<OrderReport[]>{
+    return this.http.get<OrderReport[]>(
+      'http://localhost:9090/order/getReportDaily'
+    )
+  }
+  generateReportMonthly():Observable<OrderReport[]>{
+    return this.http.get<OrderReport[]>(
+      'http://localhost:9090/order/getReportDaily'
+    )
+  }
 }

@@ -1,5 +1,21 @@
 <div>
-    <input type="button" value="Daily Report" onclick="dailyReport()">
-    <input type="button" value="Weekly Report" onclick="weeklyReport()">
-    <input type="button" value="Monthly Report" onclick="monthlyReport()">
+    <input type="button" value="Daily Report" (click)="dailyReport()">
+    <input type="button" value="Weekly Report" (click)="weeklyReport()">
+    <input type="button" value="Monthly Report" (click)="monthlyReport()">
+</div>
+<div>
+    <table border="1">
+        <tr>
+            <th>Order ID</th>
+            <th>Order Date</th>
+            <th>Order Status</th>
+            <th>Order Price</th>
+        </tr>
+        <tr *ngFor="let pp of reports">
+                <td>{{pp._id}}</td>
+                <td>{{pp.orderDate}}</td>
+                <td>{{pp.orderStatus}}</td>
+                <td>{{pp.totalPrice}}</td>
+        </tr>
+</table>
 </div>
