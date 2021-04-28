@@ -16,7 +16,7 @@ export class UserSignupComponent implements OnInit {
     console.log('registerUser()');
     console.log(signupRef);
     this.userSer.signup(signupRef);
-    // alert("You are Succesfully Registered .. !!")
+    alert("You are Succesfully Registered .. !!")
     this.router.navigate(["userSignin"]);
   }
 
