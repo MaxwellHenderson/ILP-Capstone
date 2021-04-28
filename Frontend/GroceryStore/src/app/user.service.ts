@@ -12,11 +12,8 @@ export class UserService {
   signup(signupRef: any) {
     console.log(signupRef);
     return this.http
-      .post('http://localhost:9090/user/addUser', signupRef)
-      .subscribe(
-        (result) => console.log(result),
-        (error) => console.log(error)
-      );
+      .post('http://localhost:9090/user/addUser', signupRef);
+      
   }
 
   signin(loginRef: any) {
