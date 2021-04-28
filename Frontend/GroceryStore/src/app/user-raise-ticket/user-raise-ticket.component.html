@@ -1,1 +1,6 @@
-<p>user-raise-ticket works!</p>
+<div class="container">
+    <h3>If you believe your account is locked, please enter your user ID below and a staff member will unlock it for
+        you shortly</h3>
+    <input #username type="number" name="username" id="username">
+    <button (click)="submitUnlockRequest(username.value)">Submit unlock request</button>
+</div>

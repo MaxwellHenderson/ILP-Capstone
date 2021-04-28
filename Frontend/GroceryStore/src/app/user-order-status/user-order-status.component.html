@@ -1,1 +1,16 @@
-<p>user-order-status works!</p>
+<div>
+    <h2 align="center">Your Orders</h2>
+    <table >
+        <tr>
+        <th>Order Id</th>
+        <th>totalPrice</th>
+        <th>Order Status</th>
+        </tr>
+        <tr *ngFor="let e of orderArr">
+            <td>{{e._id}}</td>
+            <td>{{e.totalPrice}}</td>
+            <td>{{e.orderStatus}}</td>
+
+        </tr>
+    </table>
+</div>

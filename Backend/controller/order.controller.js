@@ -20,12 +20,32 @@ let updateOrderStatus = (req, res) => {
         } else {
           res.send("Record is not available");
         }
-      } else {
-        res.send("Error generated " + err);
+
       }
     }
-  );
-};
+)}
+let getOrderMonth=(req,res)=>{
+    OrderModel.find({
+        orderDate:{
+            $gte:new Date(new Date()-30*60*60*24*1000)
+        }
+    },(err,data)=>{
+      if (!err) {
+        res.json(data);
+      }
+    })
+}
+let getOrderDaily=(req,res)=>{
+    OrderModel.find({
+        orderDate:{
+            $gte:new Date(new Date()-1*60*60*24*1000)
+        }
+    },(err,data)=>{
+      if (!err) {
+        res.json(data);
+      }
+    })
+}
 
 let getOrderById = (req, res) => {
   let oid = req.params.oid;
@@ -40,12 +60,39 @@ let getOrderById = (req, res) => {
 let getOrderWeek = (req, res) => {
   OrderModel.find({
     orderDate: {
-      $gte: new Date(new Data() - 7 * 60 * 60 * 24 * 1000),
+      $gte: new Date(new Date() - 7 * 60 * 60 * 24 * 1000),
     },
+  },(err,data)=>{
+    if (!err) {
+      res.json(data);
+    }
   });
 };
 
+let getOrderByUser = (req, res) => {
+  let user = req.params.userName;
+
+  OrderModel.find({ userName: user }, (err, data) => {
+    if (!err) {
+      res.json(data);
+    }
+  });
+};
+
+let getOrders = (req, res) => {
+  
+  OrderModel.find({}, (err, data) => {
+    if (!err) {
+      res.json(data);
+    }
+  });
+};
+
+
 let placeOrder = (req, res) => {
+  console.log("placing order");
+  console.log(req.body);
+  console.log(req.body.cart);
   let order = new OrderModel(req.body);
   order.save((err, result) => {
     if (!err) {
@@ -56,4 +103,5 @@ let placeOrder = (req, res) => {
   });
 };
 
-module.exports = { updateOrderStatus, getOrderById, getOrderWeek, placeOrder };
+
+module.exports={updateOrderStatus,getOrderById,getOrderWeek,getOrderMonth,getOrderDaily,placeOrder,getOrderByUser,getOrders};

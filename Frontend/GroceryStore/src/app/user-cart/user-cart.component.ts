@@ -23,4 +23,8 @@ export class UserCartComponent implements OnInit {
   proceedToCheckout() {
     this.switchView.emit(2);
   }
+  removeProductFromCart(productId: number) {
+    console.log(productId);
+    this.cart.delete(productId);
+  }
 }
