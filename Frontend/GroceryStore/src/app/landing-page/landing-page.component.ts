@@ -27,6 +27,7 @@ export class LandingPageComponent implements OnInit {
     this.switchView(0);
   }
   switchView(componentNumber: any) {
+    console.log('Hello from landing page');
     const landingView = this.landingViews[componentNumber];
 
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
@@ -39,7 +40,7 @@ export class LandingPageComponent implements OnInit {
     const componetRef = viewContainerRef.createComponent<LandingComponent>(
       componentFactory
     );
-    componetRef.instance.switchView.subscribe((event: any) =>
+    componetRef.instance.componentSwitch.subscribe((event: any) =>
       this.switchView(event)
     );
   }
