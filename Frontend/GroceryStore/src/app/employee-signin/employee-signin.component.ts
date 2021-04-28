@@ -23,9 +23,10 @@ export class EmployeeSigninComponent implements OnInit {
     console.log('checking');
     this.empSer.authenticateEmployee(empRef).subscribe((result) => {
       this.msg = result;
-      
-
-      if (this.msg === 'invalid') {
+      console.log(empRef.userName)
+      console.log(empRef.userPassword)
+      if(empRef.userName=="" ||empRef.userPassword==""){this.errmsg="Please enter the details"}
+      else if (this.msg === 'invalid') {
         this.errmsg = 'Invalid Credentials ..Please Try again';
         
       } else {
