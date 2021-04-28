@@ -1,11 +1,11 @@
 <div>
-    <h2 align="center">Your Orders</h2><br/>
-    <table border="1" class="center">
+    <h2 align="center">Your Orders</h2><br />
+    <table border="1" class="table center" *ngIf="dataLoaded">
         <tr>
-        <th>Order Id</th>
-        <th>orderDate</th>
-        <th>totalPrice</th>
-        <th>Order Status</th>
+            <th>Order Id</th>
+            <th>orderDate</th>
+            <th>totalPrice</th>
+            <th>Order Status</th>
         </tr>
         <tr *ngFor="let e of orderArr">
             <td>{{e._id}}</td>

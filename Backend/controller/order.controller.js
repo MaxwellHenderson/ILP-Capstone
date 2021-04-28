@@ -20,32 +20,38 @@ let updateOrderStatus = (req, res) => {
         } else {
           res.send("Record is not available");
         }
-
       }
     }
-)}
-let getOrderMonth=(req,res)=>{
-    OrderModel.find({
-        orderDate:{
-            $gte:new Date(new Date()-30*60*60*24*1000)
-        }
-    },(err,data)=>{
+  );
+};
+let getOrderMonth = (req, res) => {
+  OrderModel.find(
+    {
+      orderDate: {
+        $gte: new Date(new Date() - 30 * 60 * 60 * 24 * 1000),
+      },
+    },
+    (err, data) => {
       if (!err) {
         res.json(data);
       }
-    })
-}
-let getOrderDaily=(req,res)=>{
-    OrderModel.find({
-        orderDate:{
-            $gte:new Date(new Date()-1*60*60*24*1000)
-        }
-    },(err,data)=>{
+    }
+  );
+};
+let getOrderDaily = (req, res) => {
+  OrderModel.find(
+    {
+      orderDate: {
+        $gte: new Date(new Date() - 1 * 60 * 60 * 24 * 1000),
+      },
+    },
+    (err, data) => {
       if (!err) {
         res.json(data);
       }
-    })
-}
+    }
+  );
+};
 
 let getOrderById = (req, res) => {
   let oid = req.params.oid;
@@ -58,21 +64,25 @@ let getOrderById = (req, res) => {
 };
 
 let getOrderWeek = (req, res) => {
-  OrderModel.find({
-    orderDate: {
-      $gte: new Date(new Date() - 7 * 60 * 60 * 24 * 1000),
+  OrderModel.find(
+    {
+      orderDate: {
+        $gte: new Date(new Date() - 7 * 60 * 60 * 24 * 1000),
+      },
     },
-  },(err,data)=>{
-    if (!err) {
-      res.json(data);
+    (err, data) => {
+      if (!err) {
+        res.json(data);
+      }
     }
-  });
+  );
 };
 
 let getOrderByUser = (req, res) => {
+  console.log(req.params.uid);
   let Uid = req.params.uid;
 
-  OrderModel.find({ _id: Uid }, (err, data) => {
+  OrderModel.find({ userId: Uid }, (err, data) => {
     if (!err) {
       res.json(data);
     }
@@ -80,15 +90,13 @@ let getOrderByUser = (req, res) => {
 };
 
 let getOrders = (req, res) => {
-  
   OrderModel.find({}, (err, data) => {
     if (!err) {
-      console.log(data)
+      console.log(data);
       res.json(data);
     }
   });
 };
-
 
 let placeOrder = (req, res) => {
   console.log("placing order");
@@ -104,5 +112,13 @@ let placeOrder = (req, res) => {
   });
 };
 
-
-module.exports={updateOrderStatus,getOrderById,getOrderWeek,getOrderMonth,getOrderDaily,placeOrder,getOrderByUser,getOrders};
+module.exports = {
+  updateOrderStatus,
+  getOrderById,
+  getOrderWeek,
+  getOrderMonth,
+  getOrderDaily,
+  placeOrder,
+  getOrderByUser,
+  getOrders,
+};

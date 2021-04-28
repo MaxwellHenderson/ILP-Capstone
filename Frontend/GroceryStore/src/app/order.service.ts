@@ -19,13 +19,13 @@ export class OrderService {
     console.log('In service');
     console.log(orderInfo);
     let httpOrderInfo = {
-      _id: orderInfo._id,
-      userName: orderInfo.userId,
+      _id: 552355,
+      userName: 123,
       orderDate: orderInfo.orderDate,
       cart: convertedCart,
       orderStatus: orderInfo.orderStatus,
       totalPrice: orderInfo.totalPrice,
-      userId: orderInfo.userId,
+      userId: 123,
     };
     this.http
       .post('http://localhost:9090/order/placeOrder', httpOrderInfo)
@@ -37,21 +37,22 @@ export class OrderService {
 
   retrieveOrderById(id: any): Observable<Order[]> {
     return this.http.get<Order[]>(
-      'http://localhost:9090/order/getOrderByUser/'+id);
+      'http://localhost:9090/order/getOrderByUser/?uid=' + id
+    );
   }
-  generateReportDaily():Observable<OrderReport[]>{
+  generateReportDaily(): Observable<OrderReport[]> {
     return this.http.get<OrderReport[]>(
       'http://localhost:9090/order/getReportDaily'
-    )
+    );
   }
-  generateReportWeekly():Observable<OrderReport[]>{
+  generateReportWeekly(): Observable<OrderReport[]> {
     return this.http.get<OrderReport[]>(
       'http://localhost:9090/order/getReportDaily'
-    )
+    );
   }
-  generateReportMonthly():Observable<OrderReport[]>{
+  generateReportMonthly(): Observable<OrderReport[]> {
     return this.http.get<OrderReport[]>(
       'http://localhost:9090/order/getReportDaily'
-    )
+    );
   }
 }
