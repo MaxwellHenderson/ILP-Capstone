@@ -19,5 +19,6 @@ export class AdminUpdateproductsComponent implements OnInit {
     this.adminSer.updateProducts(productRef).subscribe((result:string)=> {
       this.updateMsg=result;
     });
+    alert("Product Updated");
   }
 }

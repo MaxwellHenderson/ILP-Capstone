@@ -19,5 +19,6 @@ export class AdminDeleteemployeeComponent implements OnInit {
     this.employeeSer.deleteEmployee(id).subscribe((result:string)=> {
         this.deleteMsg=result;
     })
+    alert("Employee Deleted");
   }
 }
