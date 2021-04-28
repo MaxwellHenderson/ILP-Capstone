@@ -1,40 +1,5 @@
 let UserModel = require("../model/user.model.js");
 
-// let getUser = (req, res) => {
-//   console.log("Getting user");
-//   console.log(req.body);
-//   let userName = req.body.UserName;
-//   let userPassword = req.body.UserPassword;
-
-//   UserModel.find(
-//     { $and: { userName: userName, userPassword: userPassword } },
-//     (err, data) => {
-//       console.log("Data");
-//       console.log(data);
-//       if (!err) {
-//         if (data.length > 0) {
-//           console.log(data);
-//           // res.json(data);
-//           res.json({
-//             success: true,
-//             user: {
-//               _id: data.uid,
-//               userEmail: data.userEmail,
-//               userName: data.userName,
-//               userLastName: data.userLastName,
-//               userDob: data.userDob,
-//               userAddress: data.userAddress,
-//               fund: data.fund,
-//             },
-//           });
-//         }
-//       } else {
-//         return res.json({ success: false, msg: "Incorrect password" });
-//       }
-//     }
-//   );
-// };
-
 let getUser = (req, res) => {
   console.log("Getting user");
   console.log(req.body);
@@ -90,24 +55,11 @@ let addUser = (req, res) => {
   });
   user.save((err, result) => {
     if (!err) {
-      res.json({message:"Record stored successfully ",
-      error:false
-    });
+      res.json({ message: "Record stored successfully ", error: false });
     } else {
-      if (userAlreadyExists) {
-        res.json({
-          error: true,
-          errorMessage: "User already exists",
-        });
-      } else {
-        res.json({
-          error: truem,
-          errorMessage: "Unknown DB Error",
-        });
-      }
       console.log("Error");
       console.log(err);
-      res.json({error:true,message:err})
+      res.json({ error: true, message: err });
     }
   });
 };

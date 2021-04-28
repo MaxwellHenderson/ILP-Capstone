@@ -10,7 +10,7 @@ let UserSchema = mongoose.Schema({
   fund: Number,
   userEmail: String,
   userPhone: Number,
-  userDob: String,
+  userDob: Date,
   userAddress: String,
   cart: [
     {
