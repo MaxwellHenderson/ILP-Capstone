@@ -5,6 +5,13 @@
     <div class="container" *ngFor="let item of cart | keyvalue; index as i">
         <div id="cartItem" class="container">
             <h3>{{item.value.productName}}</h3>
+
+            <p>
+
+                <a (click)="decrementProductQuantity(item.value.productId)"><i class="fa fa-minus"></i></a>
+                {{item.value.productQuantity}} <a (click)="incrementProductQuantity(item.value.productId)"><i
+                        class="fa fa-plus"></i></a>
+            </p>
             <p>You have {{item.value.productQuantity}} at ${{item.value.productPrice}} each</p>
             <button (click)="removeProductFromCart(item.value.productId)">Remove from cart</button>
         </div>
