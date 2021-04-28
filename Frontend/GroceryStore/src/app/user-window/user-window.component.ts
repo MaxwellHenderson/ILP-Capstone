@@ -1,7 +1,6 @@
 import {
   Component,
   ComponentFactoryResolver,
-  Input,
   OnInit,
   ViewChild,
 } from '@angular/core';

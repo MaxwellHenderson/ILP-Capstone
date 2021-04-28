@@ -20,17 +20,13 @@ export class UserService {
       );
   }
 
-  updateAccountFunds(userref: any): any {
-    console.log(userref);
-    return this.http.put('http://localhost:9090/user/updateFunds', userref, {
-      responseType: 'text',
-    });
+  updateAccountFunds(userref:any):any{
+    console.log(userref)
+    return this.http.put("http://localhost:9090/user/updateAccountFunds",userref,{responseType:'text'})
   }
-  updateUserProfile(userref: any): any {
-    console.log(userref);
-    return this.http.put('http://localhost:9090/user/updateProfile', userref, {
-      responseType: 'text',
-    });
+  updateUserProfile(userref:any):any{
+    console.log(userref)
+    return this.http.put("http://localhost:9090/user/updateProfile",userref,{responseType:'text'})
   }
 
   retrieveLockedUserDetails():Observable<any>{
