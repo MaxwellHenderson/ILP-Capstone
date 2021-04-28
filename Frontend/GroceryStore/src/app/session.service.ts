@@ -5,7 +5,7 @@ import { CartItem } from './shared/cart-item.model';
   providedIn: 'root',
 })
 export class SessionService {
-  userId?: number = 12345;
+  userId?: number ;
   userName?: string = 'bill';
   employeeId?: number;
   adminAuthorized: boolean = false;

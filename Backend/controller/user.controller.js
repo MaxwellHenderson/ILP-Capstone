@@ -66,13 +66,14 @@ let addUser = (req, res) => {
 
 let updateUserInfo = (req, res) => {
   let Uid = req.body.uid;
+  console.log(Uid)
+  console.log("entered")
   let updatedPassword = req.body.userPassword;
   let updatedPhone = req.body.userPhone;
   let updatedEmail = req.body.userEmail;
   let updatedAddress = req.body.userAddress;
-  UserModel.find((er, data) => {
-    console.log(data);
-  });
+  
+  
   UserModel.updateOne(
     { _id: Uid },
     {
@@ -88,13 +89,14 @@ let updateUserInfo = (req, res) => {
         if (result.nModified > 0) {
           res.send("Record updated succesfully");
         } else {
-          res.send("Please fill all the details");
+          res.send("Record did not store");
         }
       } else {
         res.send("Error generated " + err);
       }
     }
   );
+  
 };
 
 //req.body.cart is an object of product objects
