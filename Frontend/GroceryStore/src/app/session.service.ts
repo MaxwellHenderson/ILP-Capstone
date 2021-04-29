@@ -7,11 +7,14 @@ import { CartItem } from './shared/cart-item.model';
 export class SessionService {
   userId?: number;
   userName?: string;
-  employeeId?:number
+  employeeId?: number;
+  adminAuthorized: boolean = false;
+  userAuthorized: boolean = false;
+  employeeAuthorized: boolean = false;
 
   constructor() {}
 
-  setUserId(userId: any) {
+  setUserId(userId: number) {
     this.userId = userId;
   }
   getUserId(): number {
@@ -24,9 +27,27 @@ export class SessionService {
     return <string>this.userName;
   }
   setEmployeeId(empId: any) {
-    this.employeeId= empId;
+    this.employeeId = empId;
   }
   getEmployeeId(): number {
     return <number>this.employeeId;
+  }
+  setAdminAuthorized(authorized: boolean) {
+    this.adminAuthorized = authorized;
+  }
+  getAdminAuthorized(): boolean {
+    return this.adminAuthorized;
+  }
+  setUserAuthorized(authorized: boolean) {
+    this.userAuthorized = authorized;
+  }
+  getUserAuthorized(): boolean {
+    return this.userAuthorized;
+  }
+  setEmployeeAuthorized(authorized: boolean) {
+    this.employeeAuthorized = authorized;
+  }
+  getEmployeeAuthorized(): boolean {
+    return this.employeeAuthorized;
   }
 }

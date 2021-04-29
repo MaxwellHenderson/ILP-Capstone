@@ -1,17 +1,38 @@
 let UserModel = require("../model/user.model.js");
 
 let getUser = (req, res) => {
-  let userName = req.params.UserName;
-  let userPassword = req.params.UserPassword;
+  console.log("Getting user");
+  console.log(req.body);
+  let userName = req.body._id;
+  let userPassword = req.body.userPassword;
 
-  UserModel.find(
-    { userName: userName, userPassword: userPassword },
-    (err,data)=>{
-      if (!err) {
-        res.json(data);
+  UserModel.findOne({ _id: userName }, (err, result) => {
+    if (err) throw err;
+    console.log(result);
+    if (!result) {
+      console.log("No username");
+      return res.json({ success: false, msg: "Incorrect User Name" });
+    } else {
+      if (result.userPassword == userPassword) {
+        console.log("Correct");
+        res.json({
+          success: true,
+          user: {
+            _id: result._id,
+            userEmail: result.userEmail,
+            userName: result.userName,
+            userLastName: result.userLastName,
+            userDob: result.userDob,
+            userAddress: result.userAddress,
+            fund: result.fund,
+          },
+        });
+      } else {
+        console.log("Wrong pass");
+        return res.json({ success: false, msg: "Incorrect password" });
       }
     }
-  );
+  });
 };
 
 let addUser = (req, res) => {
@@ -22,7 +43,7 @@ let addUser = (req, res) => {
     userName: req.body.userName, //firstname
     userLastName: req.body.userLastName, //lastname
     userPassword: req.body.userPassword, //chaged from "password" to "req.body.userPassword"
-    accountNumber: req.body.accountNumber,
+    accountNumber: 123456789, //Dummy bank account number, same for all users because we are absolutely not implementing a seperate bank system like what?
     fund: 1000,
     userEmail: req.body.userEmail,
     userDob: req.body.userDob, //user DOB
@@ -34,24 +55,25 @@ let addUser = (req, res) => {
   });
   user.save((err, result) => {
     if (!err) {
-      res.send("Record stored successfully ");
+      res.json({ message: "Record stored successfully ", error: false });
     } else {
       console.log("Error");
       console.log(err);
-      res.send("Record didn't store ");
+      res.json({ error: true, message: err });
     }
   });
 };
 
 let updateUserInfo = (req, res) => {
   let Uid = req.body.uid;
+  console.log(Uid)
+  console.log("entered")
   let updatedPassword = req.body.userPassword;
   let updatedPhone = req.body.userPhone;
   let updatedEmail = req.body.userEmail;
   let updatedAddress = req.body.userAddress;
-  UserModel.find((er, data) => {
-    console.log(data);
-  });
+  
+  
   UserModel.updateOne(
     { _id: Uid },
     {
@@ -67,13 +89,14 @@ let updateUserInfo = (req, res) => {
         if (result.nModified > 0) {
           res.send("Record updated succesfully");
         } else {
-          res.send("Please fill all the details");
+          res.send("Record did not store");
         }
       } else {
         res.send("Error generated " + err);
       }
     }
   );
+  
 };
 
 //req.body.cart is an object of product objects
@@ -96,36 +119,37 @@ let getCart = (req, res) => {
   let user = getUser();
 };
 
-let updateAccountFunds= (req,res)=> {
+let updateAccountFunds = (req, res) => {
   let aNum = req.body.aid;
   let updatedAmount = req.body.fund;
-  if(updatedAmount<0){res.send("No Sufficient Funds")}else{
-  UserModel.find({accountNumber:aNum},(err,data)=>{
-    if(!err && data.length!=0){
-
-      console.log(data)
-      console.log("888999")
-      UserModel.updateOne({accountNumber:aNum},{$set:{fund:(data[0].fund)+updatedAmount}},(err,result)=> {
-        if(!err){
-          console.log(result)
-            if(result.nModified>0){
-                    res.send("Funds have been added to account")
-            }else {
-                    res.send("No Sufficient Funds");
+  if (updatedAmount < 0) {
+    res.send("You can't add negative money silly!");
+  } else {
+    UserModel.find({ accountNumber: aNum }, (err, data) => {
+      if (!err && data.length != 0) {
+        console.log(data);
+        UserModel.updateOne(
+          { accountNumber: aNum },
+          { $set: { fund: data[0].fund + updatedAmount } },
+          (err, result) => {
+            if (!err) {
+              console.log(result);
+              if (result.nModified > 0) {
+                res.send("Funds have been added to account");
+              } else {
+                res.send("No Sufficient Funds");
+              }
+            } else {
+              res.send("Error generated " + err);
             }
-        }else {
-            res.send("Error generated "+ err);
-        }
-    })
-}else{
-  res.send("Invalid account Number")
-}
-    
-})
+          }
+        );
+      } else {
+        res.send("Invalid account Number");
+      }
+    });
   }
-
-
-}
+};
 
 let updateAccountFundsByID = (req, res) => {
   let userid = req.body.userid;

@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-admin-navbar',
@@ -8,11 +10,15 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class AdminNavbarComponent implements OnInit {
   @Output()
   componentSwitch = new EventEmitter<number>();
-  constructor() {}
+  constructor(public router: Router, public sessionService: SessionService) {}
 
   ngOnInit(): void {}
   switchView(componentNumber: number) {
     console.log(`Switching to ${componentNumber}`);
     this.componentSwitch.emit(componentNumber);
+  }
+  logout() {
+    this.sessionService.setAdminAuthorized(false);
+    this.router.navigate(['']);
   }
 }

@@ -19,8 +19,7 @@ export class OrderService {
     console.log('In service');
     console.log(orderInfo);
     let httpOrderInfo = {
-      _id: orderInfo._id,
-      userName: orderInfo.userId,
+      userName: orderInfo.userName,
       orderDate: orderInfo.orderDate,
       cart: convertedCart,
       orderStatus: orderInfo.orderStatus,
@@ -35,27 +34,40 @@ export class OrderService {
       );
   }
 
-  updateOrderStatusById(orderRef: any): Observable<any>{
-    console.log(orderRef["_id"]);
-    return this.http.put('http://localhost:9090/user/updateOrderStatus', orderRef, {
-      responseType: 'text',
-    });
+  updateOrderStatusById(orderRef: any): Observable<any> {
+    console.log(orderRef['_id']);
+    return this.http.put(
+      'http://localhost:9090/user/updateOrderStatus',
+      orderRef,
+      {
+        responseType: 'text',
+      }
+    );
   }
 
   retrieveOrderById(id: any): Observable<Order[]> {
     return this.http.get<Order[]>(
-      'http://localhost:9090/order/getOrderByUser/'+id);
+      'http://localhost:9090/order/getOrderByUser/?uid=' + id
+    );
   }
-
-  retrieveOrders():Observable<Order[]>{
-    return this.http.get<Order[]>(
-      'http://localhost:9090/order/getOrders'
-    )
-  }
-
-  generateReportDaily():Observable<OrderReport[]>{
+  generateReportDaily(): Observable<OrderReport[]> {
     return this.http.get<OrderReport[]>(
       'http://localhost:9090/order/getReportDaily'
-    )
+    );
+  }
+
+  retrieveOrders(): Observable<Order[]> {
+    return this.http.get<Order[]>('http://localhost:9090/order/getOrders');
+  }
+
+  generateReportWeekly(): Observable<OrderReport[]> {
+    return this.http.get<OrderReport[]>(
+      'http://localhost:9090/order/getReportDaily'
+    );
+  }
+  generateReportMonthly(): Observable<OrderReport[]> {
+    return this.http.get<OrderReport[]>(
+      'http://localhost:9090/order/getReportDaily'
+    );
   }
 }

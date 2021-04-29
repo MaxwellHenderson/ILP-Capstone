@@ -17,5 +17,6 @@ export class AdminAddemployeeComponent implements OnInit {
   {
     console.log(employeeRef);
     this.employeeSer.addEmployeeDetails(employeeRef);
+    alert("Employee Added");
   }
 }

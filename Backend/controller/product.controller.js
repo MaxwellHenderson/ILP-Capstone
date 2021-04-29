@@ -67,7 +67,7 @@ let getProductQuantity = (req, res) => {
 
 let deleteProduct = (req, res) => {
   let pid = req.params.pid;
-  ProductModel.deleteOne({ productId: pid }, (err, result) => {
+  ProductModel.deleteOne({ _id: pid }, (err, result) => {
     if (!err) {
       if (result.deletedCount > 0) {
         res.send("Record deleted successfully");
@@ -81,11 +81,12 @@ let deleteProduct = (req, res) => {
 };
 
 let updateProduct = (req, res) => {
+  console.log(req.body);
   let pid = req.body.pid;
   let updatedPrice = req.body.price;
   let updatedQuantity = req.body.quantity;
   ProductModel.updateOne(
-    { productId: pid },
+    { _id: pid },
     { $set: { productPrice: updatedPrice, quantity: updatedQuantity } },
     (err, result) => {
       if (!err) {

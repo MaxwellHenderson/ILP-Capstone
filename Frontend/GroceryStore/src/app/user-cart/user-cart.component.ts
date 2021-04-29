@@ -27,4 +27,14 @@ export class UserCartComponent implements OnInit {
     console.log(productId);
     this.cart.delete(productId);
   }
+  decrementProductQuantity(productId: number) {
+    let quantity: number = this.cart.get(productId)!.productQuantity;
+    quantity = quantity - 1;
+    this.cart.get(productId)!.productQuantity = quantity;
+  }
+  incrementProductQuantity(productId: number) {
+    let quantity: number = this.cart.get(productId)!.productQuantity;
+    quantity = quantity + 1;
+    this.cart.get(productId)!.productQuantity = quantity;
+  }
 }

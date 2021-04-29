@@ -1,3 +1,22 @@
-<div>
-    <input type="button" value="Daily Report" onclick="dailyReport()">
+<div class="container">
+    <input type="button" class="btn btn-primary" value="Daily Report" (click)="dailyReport()">&nbsp;&nbsp;
+    <input type="button" class="btn btn-secondary" value="Weekly Report" (click)="weeklyReport()">&nbsp;&nbsp;
+    <input type="button" class="btn btn-warning" value="Monthly Report" (click)="monthlyReport()"><br/><br/><br/>
+</div>
+
+<div class="container d-flex justify-content-center">
+    <table border="2">
+        <tr>
+            <th>Order ID</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th>Order Date</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th>Order Status</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th>Order Price</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </tr>
+        <tr *ngFor="let pp of reports">
+                <td>{{pp._id}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td>{{pp.orderDate}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td>{{pp.orderStatus}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td>{{pp.totalPrice}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </tr>
+</table>
 </div>

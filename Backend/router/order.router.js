@@ -10,8 +10,8 @@ router.get("/getOrders", OrderController.getOrders);
 router.get("/getOrderByUser", OrderController.getOrderByUser);
 
 
-router.get("",OrderController.getOrderWeek)
-router.get("",OrderController.getOrderMonth)
+router.get("/getReportDailyWeekly",OrderController.getOrderWeek)
+router.get("/getReportMothly",OrderController.getOrderMonth)
 router.get("/getReportDaily",OrderController.getOrderDaily)
 
 

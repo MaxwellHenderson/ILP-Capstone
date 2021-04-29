@@ -32,6 +32,7 @@ import { UserAddFundsComponent } from './user-add-funds/user-add-funds.component
 import { UserOrderStatusComponent } from './user-order-status/user-order-status.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 import { EmployeeSigninComponent } from './employee-signin/employee-signin.component';
 import { SendRequestComponent } from './send-request/send-request.component';
 import { UpdateOrderStatusComponent } from './update-order-status/update-order-status.component';
@@ -41,6 +42,10 @@ import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.
 import { UserComponentsDirective } from './user-components.directive';
 import { UserCheckoutComponent } from './user-checkout/user-checkout.component';
 import { AdminComponentsDirective } from './admin-components.directive';
+import { EmployeeComponentsDirective } from './employee-components.directive';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { LandingPageNavbarComponent } from './landing-page-navbar/landing-page-navbar.component';
+import { LandingPageComponentDirective } from './landing-page-component.directive';
 
 @NgModule({
   declarations: [
@@ -79,8 +84,23 @@ import { AdminComponentsDirective } from './admin-components.directive';
     UserComponentsDirective,
     UserCheckoutComponent,
     AdminComponentsDirective,
+    EmployeeComponentsDirective,
+    LandingPageComponent,
+    LandingPageNavbarComponent,
+    LandingPageComponentDirective,
   ],
-  imports: [BrowserModule, AppRoutingModule,FormsModule,HttpClientModule, ReactiveFormsModule],
+  imports: [BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot(
+      {
+        positionClass:'top-left',
+        closeButton:true,
+      }
+    ),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

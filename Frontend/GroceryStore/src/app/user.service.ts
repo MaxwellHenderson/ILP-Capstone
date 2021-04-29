@@ -12,31 +12,35 @@ export class UserService {
 
   signup(signupRef: any) {
     console.log(signupRef);
-    return this.http
-      .post('http://localhost:9090/user/addUser', signupRef)
-      .subscribe(
-        (result) => console.log(result),
-        (error) => console.log(error)
-      );
+    return this.http.post('http://localhost:9090/user/addUser', signupRef);
   }
 
-  updateAccountFunds(userref:any):any{
-    console.log(userref)
-    return this.http.put("http://localhost:9090/user/updateAccountFunds",userref,{responseType:'text'})
-  }
-  updateUserProfile(userref:any):any{
-    console.log(userref)
-    return this.http.put("http://localhost:9090/user/updateProfile",userref,{responseType:'text'})
+  signin(loginRef: any) {
+    console.log(loginRef);
+    return this.http.post('http://localhost:9090/user/getUser', loginRef);
   }
 
-  retrieveLockedUserDetails():Observable<any>{
-    return this.http.get(
-      'http://localhost:9090/user/getLockedUser'
-    )
+  updateAccountFunds(userref: any): any {
+    console.log(userref);
+    return this.http.put(
+      'http://localhost:9090/user/updateAccountFunds',
+      userref,
+      { responseType: 'text' }
+    );
+  }
+  updateUserProfile(userref: any): any {
+    console.log(userref);
+    return this.http.put('http://localhost:9090/user/updateProfile', userref, {
+      responseType: 'text',
+    });
+  }
+
+  retrieveLockedUserDetails(): Observable<any> {
+    return this.http.get('http://localhost:9090/user/getLockedUser');
   }
 
   unlockUser(userref: any): Observable<any> {
-    console.log(userref["_id"]);
+    console.log(userref['_id']);
     return this.http.put('http://localhost:9090/user/unlockUser', userref, {
       responseType: 'text',
     });
