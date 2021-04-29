@@ -35,6 +35,13 @@ export class OrderService {
       );
   }
 
+  updateOrderStatusById(orderRef: any): Observable<any>{
+    console.log(orderRef["_id"]);
+    return this.http.put('http://localhost:9090/user/updateOrderStatus', orderRef, {
+      responseType: 'text',
+    });
+  }
+
   retrieveOrderById(id: any): Observable<Order[]> {
     return this.http.get<Order[]>(
       'http://localhost:9090/order/getOrderByUser/'+id);

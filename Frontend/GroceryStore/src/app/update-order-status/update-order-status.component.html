@@ -29,5 +29,27 @@
 </div> -->
 
 <div>
-
+    <table border="1">
+        <tr>
+            <th>Order ID</th>
+            <th>userName</th>
+            <th>userId</th>
+            <th>Select order status:</th>
+        </tr>
+        <tr *ngFor="let d of data">
+            <td>{{d._id}}</td>
+            <td>{{d.userName}}</td>
+            <td>{{d.userId}}</td>
+            <td><form (ngSubmit)="updateStatus(d)">
+                    <select [(ngModel)]="selectedOp">
+                        <option *ngFor = "let status of orderStatus" [value]="status">{{status}}
+                        </option>
+                    </select>
+                    <button type="submit">submit</button>
+                </form>
+            </td>  
+        </tr>
+    </table>
 </div>
+
+
