@@ -36,22 +36,18 @@ export class OrderService {
 
   retrieveOrderById(id: any): Observable<OrderReport[]> {
     return this.http.get<OrderReport[]>(
-      'http://localhost:9090/order/getOrderByUser/'+id 
-      
+      'http://localhost:9090/order/getOrderByUser/' + id
     );
   }
 
   updateOrderStatusById(orderRef: any): Observable<any> {
     console.log(orderRef['_id']);
-    return this.http.put(
-      'http://localhost:9090/user/updateOrderStatus',
-      orderRef,
-      {
-        responseType: 'text',
-      }
+    return this.http.post(
+      'http://localhost:9090/order/updateOrderStatus',
+      orderRef
     );
   }
-  
+
   generateReportDaily(): Observable<OrderReport[]> {
     return this.http.get<OrderReport[]>(
       'http://localhost:9090/order/getReportDaily'

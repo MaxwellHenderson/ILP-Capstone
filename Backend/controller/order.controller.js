@@ -1,9 +1,11 @@
 let OrderModel = require("../model/order.model.js");
 
 let updateOrderStatus = (req, res) => {
-  let orderId = req.params._id;
-  let orderStatus = req.params.orderStatus;
-  let reasonForCancellation = req.params.reasonForCancellation;
+  console.log("updating Order");
+  console.log(req.body);
+  let orderId = req.body._id;
+  let orderStatus = req.body.orderStatus;
+  let reasonForCancellation = req.body.reasonForCancellation;
 
   OrderModel.updateOne(
     { _id: orderId },
@@ -79,13 +81,13 @@ let getOrderWeek = (req, res) => {
 };
 
 let getOrderByUser = (req, res) => {
-  console.log("entred.......")
+  console.log("entred.......");
   console.log(req.params.uid);
   let Uid = req.params.uid;
 
   OrderModel.find({ userId: Uid }, (err, data) => {
     if (!err) {
-      console.log(data)
+      console.log(data);
       res.json(data);
     }
   });

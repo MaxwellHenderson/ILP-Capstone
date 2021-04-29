@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
 });
 
 let url =
-  "mongodb://ec2-34-221-237-5.us-west-2.compute.amazonaws.com:27017/GroceryApplication";
+  "mongodb://ec2-34-221-237-5.us-west-2.compute.amazonaws.com.local:27017/GroceryApplication";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
