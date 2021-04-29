@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { BackendUrlService } from './backend-url.service';
 import { CartItem } from './shared/cart-item.model';
 import { Product } from './shared/product.model';
 
@@ -8,17 +9,20 @@ import { Product } from './shared/product.model';
   providedIn: 'root',
 })
 export class ProductService {
-  constructor(public http: HttpClient) {}
+  serverUrl: string = `${this.backendUrlService.getBackendUrl()}/product`;
+
+  constructor(
+    public http: HttpClient,
+    public backendUrlService: BackendUrlService
+  ) {}
 
   getAllProductDetails(): Observable<Product[]> {
-    return this.http.get<Product[]>(
-      'http://localhost:9090/product/getProducts'
-    );
+    return this.http.get<Product[]>(`${this.serverUrl}/getProducts`);
   }
 
   getProductQuantity(productId: number): Observable<Number> {
     return this.http.get<Number>(
-      `http://localhost:9090/product/getProductQuantity?productId=${productId}`
+      `${this.serverUrl}/getProductQuantity?productId=${productId}`
     );
   }
 
@@ -27,10 +31,7 @@ export class ProductService {
       products: products,
     };
     console.log(req);
-    return this.http.post<Object>(
-      `http://localhost:9090/product/getMultipleProducts`,
-      req
-    );
+    return this.http.post<Object>(`${this.serverUrl}/getMultipleProducts`, req);
   }
 
   reduceManyProductQuantity(cart: Map<number, CartItem>) {
@@ -44,7 +45,7 @@ export class ProductService {
       productInfo: productInfo,
     };
     this.http
-      .post(`http://localhost:9090/product/reduceManyProductQuantity`, req)
+      .post(`${this.serverUrl}/reduceManyProductQuantity`, req)
       .subscribe((result) => console.log(result));
   }
 }

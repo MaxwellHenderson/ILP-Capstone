@@ -4,13 +4,18 @@ import { Order, OrderReport } from './shared/order.model';
 import { Observable } from 'rxjs';
 import { ProductReport } from './shared/product.model';
 import { User } from './shared/user.model';
-
+import { BackendUrlService } from './backend-url.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OrderService {
-  constructor(public http: HttpClient) {}
+  serverUrl: string = `${this.backendUrlService.getBackendUrl()}/order`;
+
+  constructor(
+    public http: HttpClient,
+    public backendUrlService: BackendUrlService
+  ) {}
 
   placeOrder(orderInfo: Order) {
     //First have to convert the map to a key-value array to send as http post
@@ -29,59 +34,50 @@ export class OrderService {
       totalPrice: orderInfo.totalPrice,
       userId: orderInfo.userId,
     };
-    this.http
-      .post('http://localhost:9090/order/placeOrder', httpOrderInfo)
-      .subscribe(
-        (result) => console.log(result),
-        (error) => console.log(error)
-      );
+    this.http.post(`${this.serverUrl}/placeOrder`, httpOrderInfo).subscribe(
+      (result) => console.log(result),
+      (error) => console.log(error)
+    );
   }
 
   retrieveOrderById(id: any): Observable<OrderReport[]> {
     return this.http.get<OrderReport[]>(
-      'http://localhost:9090/order/getOrderByUser/' + id
+      `${this.serverUrl}/getOrderByUser/` + id
     );
   }
 
   updateOrderStatusById(orderRef: any): Observable<any> {
     console.log(orderRef['_id']);
-    return this.http.post(
-      'http://localhost:9090/order/updateOrderStatus',
-      orderRef
-    );
+    return this.http.post(`${this.serverUrl}/updateOrderStatus`, orderRef);
   }
 
   generateReportDaily(): Observable<OrderReport[]> {
-    return this.http.get<OrderReport[]>(
-      'http://localhost:9090/order/getReportDaily'
-    );
+    return this.http.get<OrderReport[]>(`${this.serverUrl}/getReportDaily`);
   }
 
   retrieveOrders(): Observable<Order[]> {
-    return this.http.get<Order[]>('http://localhost:9090/order/getOrders');
+    return this.http.get<Order[]>(`${this.serverUrl}/getOrders`);
   }
 
   generateReportWeekly(): Observable<OrderReport[]> {
-    return this.http.get<OrderReport[]>(
-      'http://localhost:9090/order/getReportWeekly'
-    );
+    return this.http.get<OrderReport[]>(`${this.serverUrl}/getReportWeekly`);
   }
   generateReportMonthly(): Observable<OrderReport[]> {
-    return this.http.get<OrderReport[]>(
-      'http://localhost:9090/order/getReportMonthly'
-    );
+    return this.http.get<OrderReport[]>(`${this.serverUrl}/getReportMonthly`);
   }
 
-  generateProductReports(productRef:any): Observable<ProductReport[]> {
+  generateProductReports(productRef: any): Observable<ProductReport[]> {
     return this.http.post<ProductReport[]>(
-      'http://localhost:9090/order/getProductReports',productRef
+      `${this.serverUrl}/getProductReports`,
+      productRef
     );
   }
 
-  generateCostumerReports(userRef:any): Observable<OrderReport> {
-    console.log(userRef)
+  generateCostumerReports(userRef: any): Observable<OrderReport> {
+    console.log(userRef);
     return this.http.post<OrderReport>(
-      'http://localhost:9090/order/getCustomerReports',userRef
+      `${this.serverUrl}/getCustomerReports`,
+      userRef
     );
   }
 }

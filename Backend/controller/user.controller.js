@@ -278,7 +278,7 @@ let unlockUser = (req, res) => {
   let accountLocke = false;
   UserModel.updateOne(
     { _id: userid },
-    { $set: { accountLocked: accountLocke } },
+    { $set: { accountLocked: accountLocke, loginAttempts: 0 } },
     (err, result) => {
       if (!err) {
         console.log(result);

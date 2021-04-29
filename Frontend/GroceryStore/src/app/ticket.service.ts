@@ -1,30 +1,33 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BackendUrlService } from './backend-url.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TicketService {
-  constructor(public http: HttpClient) {}
+  serverUrl: string = `${this.backendUrlService.getBackendUrl()}/ticket`;
 
-  // retrieveOrders(): Observable<Ticket[]> {
-  //   return this.http.get<Ticket[]>('http://localhost:9090/ticket/viewTickets');
-  // }
-  
-  submitLockedAccountTicket(userId: any) {''
+  constructor(
+    public http: HttpClient,
+    public backendUrlService: BackendUrlService
+  ) {}
+
+  submitLockedAccountTicket(userId: any) {
+    ('');
     let ticketInfo = {
       userId: Number(userId),
       ticketDesc: 'Account needs to be unlocked',
     };
     console.log(ticketInfo);
     this.http
-      .post('http://localhost:9090/user/submitLockedAccountTicket', ticketInfo)
-      .subscribe((result) => console.log(result));
-    this.http
       .post(
-        'http://localhost:9090/ticket/submitLockedAccountTicket',
+        `${this.backendUrlService.getBackendUrl()}/user/submitLockedAccountTicket`,
         ticketInfo
       )
+      .subscribe((result) => console.log(result));
+    this.http
+      .post(`${this.serverUrl}/submitLockedAccountTicket`, ticketInfo)
       .subscribe(
         (result) => console.log(result),
         (error) => {
