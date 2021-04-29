@@ -128,16 +128,17 @@ let getCart = (req, res) => {
 
 let updateAccountFunds = (req, res) => {
   let aNum = req.body.aid;
+  let id=req.body._id
   let updatedAmount = req.body.fund;
   if (updatedAmount < 0) {
     res.send("You can't add negative money silly!");
   } else {
-    UserModel.find({ accountNumber: aNum }, (err, data) => {
+    UserModel.find({ accountNumber: aNum,_id:id }, (err, data) => {
       if (!err && data.length != 0) {
         console.log(data);
         UserModel.updateOne(
-          { accountNumber: aNum },
-          { $set: { fund: data[0].fund + updatedAmount } },
+          { accountNumber: aNum,_id:id },
+          { $inc: { fund: +updatedAmount } },
           (err, result) => {
             if (!err) {
               console.log(result);

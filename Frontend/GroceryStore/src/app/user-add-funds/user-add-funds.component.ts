@@ -28,6 +28,9 @@ export class UserAddFundsComponent implements OnInit {
       alert('Please fill the fields');
     } else {
       console.log(userRef);
+      
+      userRef._id=this.sessionService.getUserId()
+      console.log(userRef);
       this.userService
         .updateAccountFunds(userRef)
         .subscribe((result: string) => {
