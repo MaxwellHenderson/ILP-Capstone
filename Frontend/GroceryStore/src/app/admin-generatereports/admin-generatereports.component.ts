@@ -13,8 +13,9 @@ import { User } from '../shared/user.model';
 export class AdminGeneratereportsComponent implements OnInit {
 
   reports?:Array<OrderReport>
-  users?:Array<User>
+  users!:Array<OrderReport>
   products?:Array<ProductReport>
+  dataLoaded:boolean=false
   constructor(public reportSer:OrderService) { }
 
   ngOnInit(): void {
@@ -32,9 +33,15 @@ export class AdminGeneratereportsComponent implements OnInit {
   productReports(){
     this.reportSer.generateProductReports().subscribe(result=>this.products=result);
   }
-  costumerReports(){
+  costumerReports(userRef:any){
     console.log("received")
-    this.reportSer.generateCostumerReports().subscribe(result=>this.users=result);
+    this.reportSer.generateCostumerReports(userRef).subscribe((result:any)=>{
+      
+      this.users=result
+      this.dataLoaded=true
+      console.log(this.users)
+    });
+    //console.log(this.users);
     
   }
 

@@ -3,7 +3,12 @@
   <input type="button" class="btn btn-secondary" value="Weekly Report" (click)="weeklyReport()">&nbsp;&nbsp;
   <input type="button" class="btn btn-warning" value="Monthly Report" (click)="monthlyReport()">&nbsp;&nbsp;
   <input class="btn btn-info" type="button" value="Product Reports" (click)="productReports()">&nbsp;&nbsp;
-  <input class="btn btn-danger" type="button" value="Costumer Reports" (click)="costumerReports()"><br><br><br />
+  
+  <form #userRef = "ngForm" (ngSubmit)= "costumerReports(userRef.value)">
+    <input type = "text" name = "Uid" ngModel>
+    <input class="btn btn-danger" type="submit" value="Costumer Reports"><br/>
+  </form>
+  <br/><br/>
   
 </div>
 
@@ -24,7 +29,7 @@
   </table>
 
 </div>
-
+<br/><br/>
 
 <div class = "container d-flex justify-content-center">
 
@@ -50,30 +55,27 @@
 
 </div>
  
+<br/><br/>
 
 <div class = "container d-flex justify-content-center">
     
-<table border="2">
+<table border="2" *ngIf="dataLoaded">
   <thead>
     <tr>
-      <th scope="col">#</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <th scope="col">User ID</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <th scope="col">First Name</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <th scope="col">Last Name</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <th scope="col">Data of Birth</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <th scope="col">Address</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <th scope="col">Email Id</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <th scope="col">Order ID</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <th scope="col">User Name</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <th scope="col">Order Date</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <th scope="col">Order Status</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <th scope="col">Total Price</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let pp of users">
-      <th scope="row">1</th>
-      <td>{{pp._id}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <td>{{pp.userName}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <td>{{pp.userLastName}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <td>{{pp.userDob}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <td>{{pp.userAddress}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <td>{{pp.userEmail}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <tr *ngFor="let order of users">
+      <td>{{order._id}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <td>{{order.userName}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <td>{{order.orderDate}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <td>{{order.orderStatus}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <td>{{order.totalPrice}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </tr>
   </tbody>
 </table>
