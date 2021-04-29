@@ -1,20 +1,29 @@
 let UserModel = require("../model/user.model.js");
 
+let getFunds = (req, res) => {
+  // console.log("getting funds");
+  UserModel.findById(req.body._id, (err, result) => {
+    if (err) {
+      throw err;
+    }
+    res.json({ funds: result.fund });
+  });
+};
+
 let getUser = (req, res) => {
   console.log("Getting user");
-  console.log(req.body);
+  // console.log(req.body);
   let userName = req.body._id;
   let userPassword = req.body.userPassword;
 
   UserModel.findOne({ _id: userName }, (err, result) => {
     if (err) throw err;
-    console.log(result);
+
     if (!result) {
       console.log("No username");
       return res.json({ success: false, msg: "Incorrect User Name" });
     } else {
       if (result.userPassword == userPassword) {
-        console.log("Correct");
         res.json({
           success: true,
           user: {
@@ -37,7 +46,7 @@ let getUser = (req, res) => {
 
 let addUser = (req, res) => {
   console.log("adding user");
-  console.log(req.body);
+  // console.log(req.body);
   let user = new UserModel({
     _id: req.body.uid,
     userName: req.body.userName, //firstname
@@ -66,14 +75,13 @@ let addUser = (req, res) => {
 
 let updateUserInfo = (req, res) => {
   let Uid = req.body.uid;
-  console.log(Uid)
-  console.log("entered")
+  console.log(Uid);
+  console.log("entered");
   let updatedPassword = req.body.userPassword;
   let updatedPhone = req.body.userPhone;
   let updatedEmail = req.body.userEmail;
   let updatedAddress = req.body.userAddress;
-  
-  
+
   UserModel.updateOne(
     { _id: Uid },
     {
@@ -96,7 +104,6 @@ let updateUserInfo = (req, res) => {
       }
     }
   );
-  
 };
 
 //req.body.cart is an object of product objects
@@ -151,6 +158,29 @@ let updateAccountFunds = (req, res) => {
   }
 };
 
+let subtractFunds = (req, res) => {
+  console.log("\n\nSubtracting funds");
+  let amount = req.body.amount;
+  let _id = req.body._id;
+
+  UserModel.updateOne(
+    { _id: _id },
+    { $inc: { fund: -amount } },
+    (err, result) => {
+      if (!err) {
+        console.log(result);
+        if (result.nModified > 0) {
+          console.log("Funds have been subtracted succesffuly");
+        } else {
+          console.log("Funds not subtracted");
+        }
+      } else {
+        console.log("Error " + err);
+      }
+    }
+  );
+};
+
 let updateAccountFundsByID = (req, res) => {
   let userid = req.body.userid;
   let updatedAmount = req.body.amount;
@@ -172,19 +202,29 @@ let updateAccountFundsByID = (req, res) => {
   );
 };
 
+let submitLockedAccountTicket = (req, res) => {
+  console.log("Submit ticket");
+  console.log(req.body);
+  UserModel.updateOne(
+    { _id: req.body.userId },
+    { $set: { accountLocked: true } },
+    (result) => console.log(result)
+  );
+};
+
 let getLockedUser = (req, res) => {
   UserModel.find({ accountLocked: true }, (err, data) => {
     if (!err) {
-      res.send(data)
+      res.send(data);
     } else {
     }
   });
 };
 
-let unlockUser= (req, res) => {
+let unlockUser = (req, res) => {
   console.log(req.body);
   let userid = req.body._id;
-  let accountLocke =false;
+  let accountLocke = false;
   UserModel.updateOne(
     { _id: userid },
     { $set: { accountLocked: accountLocke } },
@@ -204,6 +244,8 @@ let unlockUser= (req, res) => {
 };
 
 module.exports = {
+  getFunds,
+  subtractFunds,
   getUser,
   updateUserInfo,
   updateAccountFunds,
@@ -211,4 +253,5 @@ module.exports = {
   updateAccountFundsByID,
   getLockedUser,
   unlockUser,
+  submitLockedAccountTicket,
 };

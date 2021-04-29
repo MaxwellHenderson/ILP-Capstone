@@ -7,19 +7,15 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-update-order-status',
   templateUrl: './update-order-status.component.html',
-  styleUrls: ['./update-order-status.component.css']
+  styleUrls: ['./update-order-status.component.css'],
 })
 export class UpdateOrderStatusComponent implements OnInit {
+  public data: any;
+  public msg: any;
+  public objectData: any;
+  public reasonForCancellation: any;
 
-  public data:any;
-  public msg:any;
-  public objectData:any;
-  public reasonForCancellation:any;
-
-  orderStatuses = ["shipped",
-  "outForDeliver",
-  "delivered",
-  "canceled"]
+  orderStatuses = ['shipped', 'outForDeliver', 'delivered', 'canceled'];
 
   // orderStatusRef=new FormGroup({
   //   //orderStatus:new FormControl,
@@ -28,47 +24,45 @@ export class UpdateOrderStatusComponent implements OnInit {
   // });
 
   orderStatus?: string;
-  objRef = {}
+  objRef = {};
 
-
-  orders?:Array<Order>
-  constructor(public orService:OrderService,public userService:UserService) { }
+  orders?: Array<Order>;
+  constructor(
+    public orService: OrderService,
+    public userService: UserService
+  ) {}
 
   ngOnInit(): void {
-
-    this.orService.retrieveOrders().subscribe(
-      (data: any) => {
-        this.data=data;
-        console.log(this.data)
+    this.orService.retrieveOrders().subscribe((data: any) => {
+      this.data = data;
+      console.log(this.data);
     });
     //.subscribe(result=>this.orders=result);
   }
 
-  selectChangeHandler (event: any) {
+  selectChangeHandler(event: any) {
     //update the ui
     this.orderStatus = event.target.value;
     console.log(this.orderStatus);
   }
 
-  updateStatusData(objectData:any,reason:any){
+  updateStatusData(objectData: any, reason: any) {
     console.log(objectData);
-    objectData.orderStatus=this.orderStatus;
+    objectData.orderStatus = this.orderStatus;
     objectData.reasonForCancellation = reason.reasonForCancellation;
-    console.log(objectData);
-    
-    this.orService.updateOrderStatusById(objectData).subscribe(data => {
+    objectData.aid = 123456789;
+    objectData.fund = -objectData.totalPrice;
+
+    this.orService.updateOrderStatusById(objectData).subscribe((data) => {
       this.msg = data;
       console.log(this.msg);
-      alert(this.msg)
-    })
+      alert(this.msg);
+    });
 
-    this.userService.updateAccountFundsByID(objectData).subscribe(data => {
+    this.userService.updateAccountFundsByID(objectData).subscribe((data) => {
       this.msg = data;
       console.log(this.msg);
-      alert(this.msg)
-    })
-
-
+      alert(this.msg);
+    });
   }
-
 }

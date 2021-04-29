@@ -16,6 +16,7 @@ export class UserService {
   }
 
   signin(loginRef: any) {
+    console.log('Signin');
     console.log(loginRef);
     return this.http.post('http://localhost:9090/user/getUser', loginRef);
   }
@@ -33,6 +34,23 @@ export class UserService {
     return this.http.put('http://localhost:9090/user/updateProfile', userref, {
       responseType: 'text',
     });
+  }
+
+  getFunds(userId: number) {
+    return this.http.post('http://localhost:9090/user/getFunds', {
+      _id: userId,
+    });
+  }
+
+  subtractFunds(amount: number, _id: number) {
+    console.log('Subtracting funds');
+    let req = {
+      amount: amount,
+      _id: _id,
+    };
+    this.http
+      .post('http://localhost:9090/user/subtractFunds', req)
+      .subscribe((result) => console.log(result));
   }
 
   retrieveLockedUserDetails(): Observable<any> {

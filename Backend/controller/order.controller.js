@@ -1,9 +1,11 @@
 let OrderModel = require("../model/order.model.js");
 
 let updateOrderStatus = (req, res) => {
-  let orderId = req.params._id;
-  let orderStatus = req.params.orderStatus;
-  let reasonForCancellation = req.params.reasonForCancellation;
+  console.log("updating Order");
+  console.log(req.body);
+  let orderId = req.body._id;
+  let orderStatus = req.body.orderStatus;
+  let reasonForCancellation = req.body.reasonForCancellation;
 
   OrderModel.updateOne(
     { _id: orderId },
@@ -79,11 +81,13 @@ let getOrderWeek = (req, res) => {
 };
 
 let getOrderByUser = (req, res) => {
+  console.log("entred.......");
   console.log(req.params.uid);
   let Uid = req.params.uid;
 
   OrderModel.find({ userId: Uid }, (err, data) => {
     if (!err) {
+      console.log(data);
       res.json(data);
     }
   });
@@ -99,14 +103,12 @@ let getOrders = (req, res) => {
 };
 
 let placeOrder = (req, res) => {
-  console.log("placing order");
   //Get the size of the db to increment order number
   OrderModel.countDocuments({}, (err, count) => {
     if (!err) {
       //After getting count, can set orderId
       req.body._id = count + 1;
-      console.log(req.body);
-      console.log(req.body.cart);
+
       let order = new OrderModel(req.body);
       order.save((err, result) => {
         if (!err) {
@@ -115,6 +117,8 @@ let placeOrder = (req, res) => {
           res.send("Order didn't store " + err);
         }
       });
+    } else {
+      console.log("Error in placing order" + err);
     }
   });
 };

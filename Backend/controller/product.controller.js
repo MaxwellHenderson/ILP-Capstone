@@ -16,43 +16,23 @@ let addProduct = (req, res) => {
   });
 };
 
+let getMultipleProducts = (req, res) => {
+  console.log(req.body);
+  ProductModel.find({ _id: { $in: req.body.products } }, (err, docs) => {
+    console.log(docs);
+    res.json({ products: docs });
+  });
+};
+
 //Get all the product entries in the database as an array of objects
 let getProducts = (req, res) => {
-  // ProductModel.find({},(err,result)=> {
-  //     if(!err){
-  //         res.json(result);
-  //     }
-  // })
-
-  //Dummy return value for testing.
-  let dummyProducts = [
-    {
-      productId: 123,
-      productName: "Mouse",
-      productPrice: 40,
-      quantity: 10,
-    },
-    {
-      productId: 222,
-      productName: "Monitor",
-      productPrice: 33.75,
-      quantity: 5,
-    },
-    {
-      productId: 444,
-      productName: "Router",
-      productPrice: 110.56,
-      quantity: 20,
-    },
-    {
-      productId: 555,
-      productName: "Modem",
-      productPrice: 99.99,
-      quantity: 25,
-    },
-  ];
-
-  res.json(dummyProducts);
+  console.log("getting products");
+  ProductModel.find({}, (err, result) => {
+    if (!err) {
+      console.log(result);
+      res.json({ products: result });
+    }
+  });
 };
 
 //Return the quantity value of the given product
@@ -102,10 +82,27 @@ let updateProduct = (req, res) => {
   );
 };
 
+let reduceManyProductQuantity = (req, res) => {
+  console.log("Reducing Many Products");
+  console.log(req.body);
+  let productInfo = req.body.productInfo;
+  productInfo.forEach((product) => {
+    ProductModel.updateOne(
+      { _id: product.productId },
+      { $inc: { quantity: -product.productQuantity } },
+      (result) => {
+        console.log(result);
+      }
+    );
+  });
+};
+
 module.exports = {
+  getMultipleProducts,
   addProduct,
   getProducts,
   deleteProduct,
   updateProduct,
   getProductQuantity,
+  reduceManyProductQuantity,
 };

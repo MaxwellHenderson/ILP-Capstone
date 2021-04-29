@@ -13,6 +13,7 @@ export class UnlockUsersComponent implements OnInit {
   public data:any;
   public data1:any; 
   public msg:any;
+  dataLoaded:boolean = false;
   
   constructor(public userService:UserService,public router:Router,public ticketService:TicketService) { }
   
@@ -20,6 +21,7 @@ export class UnlockUsersComponent implements OnInit {
     this.userService.retrieveLockedUserDetails().subscribe(
       (data: any) => {
         this.data=data;
+        this.dataLoaded = true;
         console.log(this.data)
     });
 

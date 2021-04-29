@@ -25,9 +25,6 @@ import { AdminGeneratereportsComponent } from './admin-generatereports/admin-gen
 import { UserSigninComponent } from './user-signin/user-signin.component';
 import { UserSignupComponent } from './user-signup/user-signup.component';
 
-
-
-
 import { UserAddFundsComponent } from './user-add-funds/user-add-funds.component';
 import { UserOrderStatusComponent } from './user-order-status/user-order-status.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -72,7 +69,7 @@ import { LandingPageComponentDirective } from './landing-page-component.directiv
 
     UserSigninComponent,
     UserSignupComponent,
-   
+
     UserAddFundsComponent,
     UserOrderStatusComponent,
     EmployeeSigninComponent,
@@ -89,17 +86,16 @@ import { LandingPageComponentDirective } from './landing-page-component.directiv
     LandingPageNavbarComponent,
     LandingPageComponentDirective,
   ],
-  imports: [BrowserModule,
+  imports: [
+    BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot(
-      {
-        positionClass:'top-left',
-        closeButton:true,
-      }
-    ),
+    ToastrModule.forRoot({
+      positionClass: 'top-left',
+      closeButton: true,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
