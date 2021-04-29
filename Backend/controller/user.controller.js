@@ -182,11 +182,12 @@ let subtractFunds = (req, res) => {
 };
 
 let updateAccountFundsByID = (req, res) => {
-  let userid = req.body.userid;
-  let updatedAmount = req.body.amount;
+  console.log("\nUpdating funds by id\n");
+  let userid = req.body.userId;
+  let updatedAmount = req.body.fund;
   UserModel.updateOne(
     { _id: userid },
-    { $set: { fund: updatedAmount } },
+    { $inc: { fund: updatedAmount } },
     (err, result) => {
       if (!err) {
         console.log(result);
