@@ -63,12 +63,12 @@ export class OrderService {
 
   generateReportWeekly(): Observable<OrderReport[]> {
     return this.http.get<OrderReport[]>(
-      'http://localhost:9090/order/getReportDaily'
+      'http://localhost:9090/order/getReportWeekly'
     );
   }
   generateReportMonthly(): Observable<OrderReport[]> {
     return this.http.get<OrderReport[]>(
-      'http://localhost:9090/order/getReportDaily'
+      'http://localhost:9090/order/getReportMonthly'
     );
   }
 
