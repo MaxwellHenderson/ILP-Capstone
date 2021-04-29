@@ -51,7 +51,7 @@ export class UpdateOrderStatusComponent implements OnInit {
     objectData.orderStatus = this.orderStatus;
     objectData.reasonForCancellation = reason.reasonForCancellation;
     objectData.aid = 123456789;
-    objectData.fund = +objectData.totalPrice;
+    objectData.fund = objectData.fund+objectData.totalPrice;
 
     this.orService.updateOrderStatusById(objectData).subscribe((data) => {
       this.msg = data;

@@ -30,6 +30,7 @@ export class SendRequestComponent implements OnInit {
       console.log(reqTitle1+" "+reqDesc1);
 
       this.reqServ.storeRequestDetailsInfo(this.requestRef.value);
+      alert("Request sent successfully!")
       //send request to the backend to update request_collection, use the request-service
     }
 
