@@ -3,16 +3,16 @@
     <br /><br />
     <h3 align="center">User SignIn</h3>
     <br />
-    <form #loginRef="ngForm" (ngSubmit)="checkUser(loginRef.value)">
+    <form #loginRef="ngForm" (ngSubmit)="checkUser(loginRef.value)" class="text-center border border-light p-5">
 
         <label class="col-2"> User ID </label>
         <input typpe="text" name="_id" class="col-2" ngModel /><br /><br />
         <label class="col-2">Password</label>
         <input type="password" name="userPassword" class="col-2" ngModel /><br />
         <br />
-        <input type="submit" value="Login" class="col-1" />
-        <br /><br />
-        <input type="button" value="SignUp" (click)="signUp()" class="col-1" />
+        <input type="submit" value="Login" class="btn btn-success btn-lg" />
+        &nbsp;
+        <input type="button" value="SignUp" (click)="signUp()" class="btn btn-warning btn-lg" />
     </form>
     {{msg}}
     <br>
