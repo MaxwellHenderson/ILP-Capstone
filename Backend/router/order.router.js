@@ -14,6 +14,8 @@ router.get("/getReportDailyWeekly",OrderController.getOrderWeek)
 router.get("/getReportMothly",OrderController.getOrderMonth)
 router.get("/getReportDaily",OrderController.getOrderDaily)
 
+router.get("/getProductReports",OrderController.ProductReports)
+router.get("/getCustomerReports",OrderController.CustomerReports)
 
 module.exports=router;
 

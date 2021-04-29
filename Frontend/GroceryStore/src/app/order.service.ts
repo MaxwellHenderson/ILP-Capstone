@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Order, OrderReport } from './shared/order.model';
+import { Order, OrderReport, Product, User } from './shared/order.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -39,19 +39,34 @@ export class OrderService {
     return this.http.get<Order[]>(
       'http://localhost:9090/order/getOrderByUser/'+id);
   }
+
   generateReportDaily():Observable<OrderReport[]>{
     return this.http.get<OrderReport[]>(
       'http://localhost:9090/order/getReportDaily'
     )
   }
+
   generateReportWeekly():Observable<OrderReport[]>{
     return this.http.get<OrderReport[]>(
       'http://localhost:9090/order/getReportDaily'
     )
   }
+
   generateReportMonthly():Observable<OrderReport[]>{
     return this.http.get<OrderReport[]>(
       'http://localhost:9090/order/getReportDaily'
+    )
+  }
+
+  generateProductReports():Observable<Product[]>{
+    return this.http.get<Product[]>(
+      'http://localhost:9090/order/getProductReports'
+    )
+  }
+
+  generateCostumerReports():Observable<User[]>{
+    return this.http.get<User[]>(
+      'http://localhost:9090/order/getCustomerReports'
     )
   }
 }

@@ -14,3 +14,11 @@ export interface Order {
 export class OrderReport {
   constructor(public _id:Number,public orderDate:Date,public orderStatus:string,public totalPrice:Number){}
 }
+
+export class User {
+  constructor(public _id:number,public userName:string,public userLastName:string,public userDobdob:Date,public userAddress:string,public userEmail:string,public userPassword:string){}
+}
+
+export class Product {
+  constructor(public productName:string,public productPrice:number,public quantity:number){}
+}

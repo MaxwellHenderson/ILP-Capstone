@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 import { OrderService } from '../order.service';
-import { OrderReport } from '../shared/order.model';
+import { OrderReport, Product, User } from '../shared/order.model';
 
 @Component({
   selector: 'app-admin-generatereports',
@@ -11,6 +11,8 @@ import { OrderReport } from '../shared/order.model';
 export class AdminGeneratereportsComponent implements OnInit {
 
   reports?:Array<OrderReport>
+  users?:Array<User>
+  products?:Array<Product>
   constructor(public reportSer:OrderService) { }
 
   ngOnInit(): void {
@@ -24,6 +26,14 @@ export class AdminGeneratereportsComponent implements OnInit {
   }
   monthlyReport(){
     this.reportSer.generateReportMonthly().subscribe(result=>this.reports=result);
+  }
+  productReports(){
+    this.reportSer.generateProductReports().subscribe(result=>this.products=result)
+  }
+  costumerReports(){
+    console.log("received")
+    this.reportSer.generateCostumerReports().subscribe(result=>this.users=result)
+    
   }
 
 }

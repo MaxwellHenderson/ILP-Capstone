@@ -104,5 +104,27 @@ let placeOrder = (req, res) => {
   });
 };
 
+exports.productReports = (req,res)=>{
+  ProductModel.find({},(err,result)=>{
+      if(!err){
+          
+          res.json(result);
+          console.log(result)
+      }
+  })
+}
+
+exports.costumerDetails = (req,res)=>{
+    
+  UserModel.find({},(err,result)=> {
+     
+      if(!err){
+          
+          res.json(result);
+          console.log(result)
+      }
+  })
+}
+
 
 module.exports={updateOrderStatus,getOrderById,getOrderWeek,getOrderMonth,getOrderDaily,placeOrder,getOrderByUser,getOrders};
