@@ -202,6 +202,16 @@ let updateAccountFundsByID = (req, res) => {
   );
 };
 
+let submitLockedAccountTicket = (req, res) => {
+  console.log("Submit ticket");
+  console.log(req.body);
+  UserModel.updateOne(
+    { _id: req.body.userId },
+    { $set: { accountLocked: true } },
+    (result) => console.log(result)
+  );
+};
+
 let getLockedUser = (req, res) => {
   UserModel.find({ accountLocked: true }, (err, data) => {
     if (!err) {
@@ -243,4 +253,5 @@ module.exports = {
   updateAccountFundsByID,
   getLockedUser,
   unlockUser,
+  submitLockedAccountTicket,
 };

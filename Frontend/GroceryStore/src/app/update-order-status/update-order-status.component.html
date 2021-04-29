@@ -1,4 +1,3 @@
-<p>update-order-status works!</p>
 <!-- <div>
     <select #selStatus>
         <option *ngFor = "let status of orderStatus" [value]="status" (click)="updateStatus(selStatus)">{{status}}
@@ -28,8 +27,8 @@
 </table>
 </div> -->
 
-<div>
-    <table border="1">
+<div class="container">
+    <table class="table" border="1">
         <tr>
             <th>Order ID</th>
             <th>userName</th>
@@ -40,16 +39,15 @@
             <td>{{d._id}}</td>
             <td>{{d.userName}}</td>
             <td>{{d.userId}}</td>
-            <td><form (ngSubmit)="updateStatus(d)">
+            <td>
+                <form (ngSubmit)="updateStatus(d)">
                     <select [(ngModel)]="selectedOp">
-                        <option *ngFor = "let status of orderStatus" [value]="status">{{status}}
+                        <option *ngFor="let status of orderStatus" [value]="status">{{status}}
                         </option>
                     </select>
                     <button type="submit">submit</button>
                 </form>
-            </td>  
+            </td>
         </tr>
     </table>
 </div>
-
-

@@ -14,6 +14,9 @@ export class TicketService {
     };
     console.log(ticketInfo);
     this.http
+      .post('http://localhost:9090/user/submitLockedAccountTicket', ticketInfo)
+      .subscribe((result) => console.log(result));
+    this.http
       .post(
         'http://localhost:9090/ticket/submitLockedAccountTicket',
         ticketInfo

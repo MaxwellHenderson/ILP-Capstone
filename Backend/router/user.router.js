@@ -13,7 +13,10 @@ router.post("/addUser", UserController.addUser);
 
 router.put("/updateFundsByID", UserController.updateAccountFundsByID);
 router.put("/updateProfile", UserController.updateUserInfo);
-
+router.post(
+  "/submitLockedAccountTicket",
+  UserController.submitLockedAccountTicket
+);
 router.put("/unlockUser", UserController.unlockUser);
 
 module.exports = router;
