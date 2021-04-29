@@ -28,6 +28,7 @@ export class UserSigninComponent implements OnInit {
   ngOnInit(): void {}
 
   checkUser(loginRef: any) {
+    console.log('Checking');
     this.userService.signin(loginRef).subscribe((result: any) => {
       console.log('Checking user');
       console.log(result);
@@ -40,9 +41,8 @@ export class UserSigninComponent implements OnInit {
 
         console.log(this.signInData.user);
         this.sessionService.setUserAuthorized(true);
-        this.sessionService.setUserId = this.signInData.userId;
-        this.sessionService.setUserName = this.signInData.userName;
-
+        this.sessionService.setUserId(this.signInData.user._id);
+        this.sessionService.setUserName(this.signInData.user.userName);
         this.router.navigate(['userWindow']);
       } else {
         this.toastr.error(this.signInData.msg, 'Error', {
