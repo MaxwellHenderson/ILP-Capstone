@@ -40,14 +40,16 @@
             <td>{{d._id}}</td>
             <td>{{d.userName}}</td>
             <td>{{d.userId}}</td>
-            <td><form (ngSubmit)="updateStatus(d)">
-                    <select [(ngModel)]="selectedOp">
-                        <option *ngFor = "let status of orderStatus" [value]="status">{{status}}
+            <td>
+                    <select [(ngModel)]="orderStatus" (change)="selectChangeHandler($event)" ngModel>
+                        <option *ngFor = "let status of orderStatuses" [value]="status">{{status}}
                         </option>
                     </select>
-                    <button type="submit">submit</button>
-                </form>
-            </td>  
+                    <form #statusRef="ngForm" (ngSubmit)="updateStatusData(d,statusRef.value)">
+                    <input type="text" name="reasonForCancellation" ngModel/>
+                    <button type="submit">Update</button>
+                    </form>  
+            </td>
         </tr>
     </table>
 </div>
