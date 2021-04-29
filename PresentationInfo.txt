@@ -6,3 +6,10 @@ Powerpoint
 4th demo (switch to demo)
 5th challenges
 6th thanks
+
+
+From admin, we are covering
+AddProducts
+UpdateProducts
+DeleteProducts
+ViewRequests

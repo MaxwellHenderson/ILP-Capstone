@@ -16,6 +16,7 @@ export class OrderReport {
     public _id: Number,
     public orderDate: Date,
     public orderStatus: string,
+    public cart:Map<number,CartItem>,
     public totalPrice: Number
   ) {}
 }
