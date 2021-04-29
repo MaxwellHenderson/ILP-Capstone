@@ -33,12 +33,14 @@
             <th>Order ID</th>
             <th>userName</th>
             <th>userId</th>
+            <th>Current Order Status</th>
             <th>Select order status:</th>
         </tr>
         <tr *ngFor="let d of data">
             <td>{{d._id}}</td>
             <td>{{d.userName}}</td>
             <td>{{d.userId}}</td>
+            <td>{{d.orderStatus}}</td>
             <td>
                 <select [(ngModel)]="orderStatus" (change)="selectChangeHandler($event)" ngModel>
                     <option *ngFor="let status of orderStatuses" [value]="status">{{status}}
