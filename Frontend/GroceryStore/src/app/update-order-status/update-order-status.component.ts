@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { OrderService } from '../order.service';
 import { Order } from '../shared/order.model';
 
@@ -10,22 +11,30 @@ import { Order } from '../shared/order.model';
 export class UpdateOrderStatusComponent implements OnInit {
 
   public data:any;
-  public data1:any; 
   public msg:any;
+  public objectData:any;
+  public reasonForCancellation:any;
 
-  orderStatus = ["shipped",
+  orderStatuses = ["shipped",
   "outForDeliver",
   "delivered",
   "canceled"]
 
-  selectedOp?: string;
-  printedOp?: string;
+  // orderStatusRef=new FormGroup({
+  //   //orderStatus:new FormControl,
+  //   reasonForCancellation:new FormControl(),
+
+  // });
+
+  orderStatus?: string;
+  objRef = {}
+
 
   orders?:Array<Order>
   constructor(public orService:OrderService) { }
 
   ngOnInit(): void {
-    // this.orService.retrieveOrders()
+
     this.orService.retrieveOrders().subscribe(
       (data: any) => {
         this.data=data;
@@ -34,14 +43,23 @@ export class UpdateOrderStatusComponent implements OnInit {
     //.subscribe(result=>this.orders=result);
   }
 
-  updateStatus(data1:any){
-    this.printedOp = this.selectedOp;
+  selectChangeHandler (event: any) {
+    //update the ui
+    this.orderStatus = event.target.value;
+    console.log(this.orderStatus);
+  }
 
-    this.orService.updateOrderStatusById(data1).subscribe(data => {
-      this.msg = data;
-      console.log(this.msg);
-      alert(this.msg)
-    })
+  updateStatusData(objectData:any,reason:any){
+    console.log(objectData);
+    objectData.orderStatus=this.orderStatus;
+    objectData.reasonForCancellation = reason.reasonForCancellation;
+    console.log(objectData);
+    
+    //   this.orService.updateOrderStatusById().subscribe(data => {
+    //   this.msg = data;
+    //   console.log(this.msg);
+    //   alert(this.msg)
+    // })
   }
 
 }
