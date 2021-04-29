@@ -48,7 +48,6 @@ export class UserSigninComponent implements OnInit {
         this.toastr.error(this.signInData.msg, 'Error', {
           timeOut: 2000,
         });
-        this.router.navigate(['userSignin']);
       }
     });
   }

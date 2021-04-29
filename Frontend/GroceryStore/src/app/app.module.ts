@@ -24,7 +24,7 @@ import { AdminDeleteemployeeComponent } from './admin-deleteemployee/admin-delet
 import { AdminGeneratereportsComponent } from './admin-generatereports/admin-generatereports.component';
 import { UserSigninComponent } from './user-signin/user-signin.component';
 import { UserSignupComponent } from './user-signup/user-signup.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserAddFundsComponent } from './user-add-funds/user-add-funds.component';
 import { UserOrderStatusComponent } from './user-order-status/user-order-status.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -96,6 +96,7 @@ import { LandingPageComponentDirective } from './landing-page-component.directiv
       positionClass: 'top-left',
       closeButton: true,
     }),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
