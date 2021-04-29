@@ -46,5 +46,15 @@ export class UserService {
     });
   }
 
+  updateAccountFundsByID(userRef:any): Observable<any>{
+    return this.http.put(
+      'http://localhost:9090/user/updateAccountFundsByID',
+      userRef,
+      {
+        responseType: 'text',
+      }
+    );
+  }
+
   verifyUser() {}
 }

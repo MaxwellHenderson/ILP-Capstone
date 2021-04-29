@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { OrderService } from '../order.service';
 import { Order } from '../shared/order.model';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-update-order-status',
@@ -31,7 +32,7 @@ export class UpdateOrderStatusComponent implements OnInit {
 
 
   orders?:Array<Order>
-  constructor(public orService:OrderService) { }
+  constructor(public orService:OrderService,public userService:UserService) { }
 
   ngOnInit(): void {
 
@@ -55,11 +56,19 @@ export class UpdateOrderStatusComponent implements OnInit {
     objectData.reasonForCancellation = reason.reasonForCancellation;
     console.log(objectData);
     
-    //   this.orService.updateOrderStatusById().subscribe(data => {
-    //   this.msg = data;
-    //   console.log(this.msg);
-    //   alert(this.msg)
-    // })
+    this.orService.updateOrderStatusById(objectData).subscribe(data => {
+      this.msg = data;
+      console.log(this.msg);
+      alert(this.msg)
+    })
+
+    this.userService.updateAccountFundsByID(objectData).subscribe(data => {
+      this.msg = data;
+      console.log(this.msg);
+      alert(this.msg)
+    })
+
+
   }
 
 }
