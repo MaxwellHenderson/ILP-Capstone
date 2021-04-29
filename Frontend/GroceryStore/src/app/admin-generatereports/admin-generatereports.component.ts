@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 import { OrderService } from '../order.service';
-import { OrderReport, Product, User } from '../shared/order.model';
+import { OrderReport } from '../shared/order.model';
+import { ProductReport} from '../shared/product.model';
+import { User } from '../shared/user.model';
 
 @Component({
   selector: 'app-admin-generatereports',
@@ -12,7 +14,7 @@ export class AdminGeneratereportsComponent implements OnInit {
 
   reports?:Array<OrderReport>
   users?:Array<User>
-  products?:Array<Product>
+  products?:Array<ProductReport>
   constructor(public reportSer:OrderService) { }
 
   ngOnInit(): void {

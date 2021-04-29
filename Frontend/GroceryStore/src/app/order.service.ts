@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Order, OrderReport, Product, User } from './shared/order.model';
+import { Order, OrderReport } from './shared/order.model';
 import { Observable } from 'rxjs';
+import { ProductReport } from './shared/product.model';
+import { User } from './shared/user.model';
+
 
 @Injectable({
   providedIn: 'root',
@@ -69,8 +72,8 @@ export class OrderService {
     );
   }
 
-  generateProductReports(): Observable<Product[]> {
-    return this.http.get<Product[]>(
+  generateProductReports(): Observable<ProductReport[]> {
+    return this.http.get<ProductReport[]>(
       'http://localhost:9090/order/getProductReports'
     );
   }

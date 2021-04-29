@@ -4,3 +4,11 @@ export interface Product {
   productPrice: number;
   quantity: number;
 }
+
+export class ProductReport {
+  constructor(
+    public productName: string,
+    public productPrice: number,
+    public quantity: number
+  ) {}
+}

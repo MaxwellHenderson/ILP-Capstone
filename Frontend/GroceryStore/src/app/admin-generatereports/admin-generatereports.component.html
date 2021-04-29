@@ -1,7 +1,10 @@
 <div class="container">
   <input type="button" class="btn btn-primary" value="Daily Report" (click)="dailyReport()">&nbsp;&nbsp;
   <input type="button" class="btn btn-secondary" value="Weekly Report" (click)="weeklyReport()">&nbsp;&nbsp;
-  <input type="button" class="btn btn-warning" value="Monthly Report" (click)="monthlyReport()"><br /><br /><br />
+  <input type="button" class="btn btn-warning" value="Monthly Report" (click)="monthlyReport()">&nbsp;&nbsp;
+  <input class="btn btn-info" type="button" value="Product Reports" (click)="productReports()">&nbsp;&nbsp;
+  <input class="btn btn-danger" type="button" value="Costumer Reports" (click)="costumerReports()"><br><br><br />
+  
 </div>
 
 <div class="container d-flex justify-content-center">
@@ -19,55 +22,64 @@
       <td>{{pp.totalPrice}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </tr>
   </table>
+
 </div>
 
-<input class="btn btn-primary" type="button" value="Product Reports" (click)="productReports()"><br>
 
-<table class="table table-dark">
+<div class = "container d-flex justify-content-center">
+
+  <table border="2">
+    <thead>
+      <tr>
+  
+        <th scope="col">Name</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <th scope="col">Price</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <th scope="col">Quantity</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pp of products">
+  
+        <td>{{pp.productName}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <td>{{pp.productPrice}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <td>{{pp.quantity}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+ 
+
+<div class = "container d-flex justify-content-center">
+    
+<table border="2">
   <thead>
     <tr>
-
-      <th scope="col">Name</th>
-      <th scope="col">Price</th>
-      <th scope="col">Quantity</th>
-
+      <th scope="col">#</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <th scope="col">User ID</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <th scope="col">First Name</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <th scope="col">Last Name</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <th scope="col">Data of Birth</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <th scope="col">Address</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <th scope="col">Email Id</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let pp of products">
-
-      <td>{{pp.productName}}</td>
-      <td>{{pp.productPrice}}</td>
-      <td>{{pp.quantity}}</td>
+    <tr *ngFor="let pp of users">
+      <th scope="row">1</th>
+      <td>{{pp._id}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <td>{{pp.userName}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <td>{{pp.userLastName}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <td>{{pp.userDob}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <td>{{pp.userAddress}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <td>{{pp.userEmail}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </tr>
   </tbody>
 </table>
 
-<div>
-  <input class="btn btn-primary" type="button" value="Costumer Reports" (click)="costumerReports()"><br>
-
-  <table class="table table-dark">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">User ID</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Data of Birth</th>
-        <th scope="col">Address</th>
-        <th scope="col">Email Id</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let pp of users">
-        <th scope="row">1</th>
-        <td>{{pp._id}}</td>
-        <td>{{pp.userName}}</td>
-        <td>{{pp.userLastName}}</td>
-        <td>{{pp.userDob}}</td>
-        <td>{{pp.userAddress}}</td>
-        <td>{{pp.userEmail}</td>
-      </tr>
-    </tbody>
-  </table>
 </div>
+
+
+
+
