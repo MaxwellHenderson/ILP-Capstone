@@ -30,7 +30,7 @@ export class UserCartComponent implements OnInit {
   decrementProductQuantity(productId: number) {
     let quantity: number = this.cart.get(productId)!.productQuantity;
     quantity = quantity - 1;
-    this.cart.get(productId)!.productQuantity = quantity;
+    if (quantity >= 0) this.cart.get(productId)!.productQuantity = quantity;
   }
   incrementProductQuantity(productId: number) {
     let quantity: number = this.cart.get(productId)!.productQuantity;
