@@ -1,14 +1,14 @@
-<div class="container">
-    <table border="1">
+<div class="container d-flex justify-content-center">
+    <table border="2">
             <tr>
-                <th>Request ID</th>
-                <th>Request Details</th>
-                <th>request Status</th>
+                <th>Request ID</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <th>Request Details</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <th>request Status</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </tr>
             <tr *ngFor="let pp of requests">
-                    <td>{{pp._id}}</td>
-                    <td>{{pp.request}}</td>
-                    <td>{{pp.requestStatus}}</td>
+                    <td>{{pp._id}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <td>{{pp.request}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <td>{{pp.requestStatus}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </tr>
     </table>
 </div>
