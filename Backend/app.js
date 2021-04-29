@@ -6,6 +6,8 @@ let cors = require("cors");
 app.use(express.static(process.cwd()));
 
 app.get("/", (req, res) => {
+  console.log("Connection established");
+  console.log(req);
   res.sendFile(__dirname + "/index.html");
 });
 
