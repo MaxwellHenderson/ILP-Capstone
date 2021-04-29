@@ -132,12 +132,9 @@ let updateAccountFunds = (req, res) => {
   let updatedAmount = req.body.fund;
   if (updatedAmount < 0) {
     res.send("You can't add negative money silly!");
-  } else {
-    UserModel.find({ accountNumber: aNum,_id:id }, (err, data) => {
-      if (!err && data.length != 0) {
-        console.log(data);
-        UserModel.updateOne(
-          { accountNumber: aNum,_id:id },
+  } 
+  else {
+          UserModel.updateOne({ accountNumber: aNum,_id:id },
           { $inc: { fund: +updatedAmount } },
           (err, result) => {
             if (!err) {
@@ -152,12 +149,10 @@ let updateAccountFunds = (req, res) => {
             }
           }
         );
-      } else {
-        res.send("Invalid account Number");
-      }
-    });
+      } 
+    
   }
-};
+
 
 let subtractFunds = (req, res) => {
   console.log("\n\nSubtracting funds");
