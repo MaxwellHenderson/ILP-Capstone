@@ -34,9 +34,10 @@ export class OrderService {
       );
   }
 
-  retrieveOrderById(id: any): Observable<Order[]> {
-    return this.http.get<Order[]>(
-      'http://localhost:9090/order/getOrderByUser/?uid=' + id
+  retrieveOrderById(id: any): Observable<OrderReport[]> {
+    return this.http.get<OrderReport[]>(
+      'http://localhost:9090/order/getOrderByUser/'+id 
+      
     );
   }
   generateReportDaily(): Observable<OrderReport[]> {

@@ -7,7 +7,7 @@ router.post("/placeOrder", OrderController.placeOrder);
 router.put("", OrderController.updateOrderStatus);
 router.get("", OrderController.getOrderById);
 router.get("", OrderController.getOrders);
-router.get("/getOrderByUser", OrderController.getOrderByUser);
+router.get("/getOrderByUser/:uid", OrderController.getOrderByUser);
 
 
 router.get("/getReportDailyWeekly",OrderController.getOrderWeek)
