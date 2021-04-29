@@ -5,6 +5,7 @@
   <input class="btn btn-info" type="button" value="Product Reports" (click)="productReports()">&nbsp;&nbsp;
   
   <form #userRef = "ngForm" (ngSubmit)= "costumerReports(userRef.value)">
+    <br/>
     <input type = "text" name = "Uid" ngModel>
     <input class="btn btn-danger" type="submit" value="Costumer Reports"><br/>
   </form>
