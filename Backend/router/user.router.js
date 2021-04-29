@@ -12,4 +12,6 @@ router.post("/addUser", UserController.addUser);
 router.put("/updateFundsByID", UserController.updateAccountFundsByID);
 router.put("/updateProfile", UserController.updateUserInfo);
 
+router.put("/unlockUser", UserController.unlockUser);
+
 module.exports = router;
