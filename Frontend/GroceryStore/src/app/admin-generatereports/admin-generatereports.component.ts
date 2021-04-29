@@ -28,11 +28,11 @@ export class AdminGeneratereportsComponent implements OnInit {
     this.reportSer.generateReportMonthly().subscribe(result=>this.reports=result);
   }
   productReports(){
-    this.reportSer.generateProductReports().subscribe(result=>this.products=result)
+    this.reportSer.generateProductReports().subscribe(result=>this.products=result);
   }
   costumerReports(){
     console.log("received")
-    this.reportSer.generateCostumerReports().subscribe(result=>this.users=result)
+    this.reportSer.generateCostumerReports().subscribe(result=>this.users=result);
     
   }
 
