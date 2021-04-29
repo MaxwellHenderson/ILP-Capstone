@@ -2,6 +2,8 @@ let express = require("express");
 let router = express.Router();
 let UserController = require("../controller/user.controller.js");
 
+router.post("/getFunds", UserController.getFunds);
+router.post("/subtractFunds", UserController.subtractFunds);
 router.post("/getUser", UserController.getUser);
 router.put("/updateUserInfo", UserController.updateUserInfo);
 router.put("/updateAccountFunds", UserController.updateAccountFunds);

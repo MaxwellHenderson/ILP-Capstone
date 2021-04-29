@@ -20,8 +20,9 @@ export class StorefrontComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.productService.getAllProductDetails().subscribe((result) => {
-      this.products = result;
+    this.productService.getAllProductDetails().subscribe((result: any) => {
+      console.log(result);
+      this.products = result.products;
       this.dataLoaded = true;
       console.log(this.products);
     });

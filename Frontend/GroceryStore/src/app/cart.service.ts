@@ -10,19 +10,19 @@ export class CartService {
   constructor() {}
   addProductToCart(productInfo: any) {
     //If the item is already in the cart, increase the quantity of that item
-    if (this.cart.has(productInfo.productId)) {
-      let item: CartItem = <CartItem>this.cart.get(productInfo.productId);
+    if (this.cart.has(productInfo._id)) {
+      let item: CartItem = <CartItem>this.cart.get(productInfo._id);
       item.productQuantity = item.productQuantity + 1;
-      this.cart.set(productInfo.productId, item);
+      this.cart.set(productInfo._id, item);
     } else {
       //Otherwise, create the CartItem and add it to the cart
       let item: CartItem = {
-        productId: productInfo.productId,
+        productId: productInfo._id,
         productName: productInfo.productName,
         productPrice: productInfo.productPrice,
         productQuantity: 1,
       };
-      this.cart.set(productInfo.productId, item);
+      this.cart.set(productInfo._id, item);
     }
   }
 
