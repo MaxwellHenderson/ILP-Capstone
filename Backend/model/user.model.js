@@ -25,6 +25,7 @@ let UserSchema = mongoose.Schema({
   ],
   accountLocked: Boolean,
   ticketId: Number,
+  loginAttempts: Number,
 });
 
 let UserModel = mongoose.model("User", UserSchema);

@@ -23,7 +23,23 @@ let getUser = (req, res) => {
       console.log("No username");
       return res.json({ success: false, msg: "Incorrect User Name" });
     } else {
+      console.log("find result");
+      console.log(result);
+      console.log("Login attempts ");
+      console.log(result.loginAttempts);
       if (result.userPassword == userPassword) {
+        //Successful user verification
+
+        //Reset login attempts
+        UserModel.updateOne(
+          { _id: userName },
+          { $set: { loginAttempts: 0 } },
+          (err, result) => {
+            if (err) {
+              console.log("Error resetting login attempts");
+            }
+          }
+        );
         res.json({
           success: true,
           user: {
@@ -37,8 +53,38 @@ let getUser = (req, res) => {
           },
         });
       } else {
-        console.log("Wrong pass");
-        return res.json({ success: false, msg: "Incorrect password" });
+        //Pasword incorrect. Check login attempts
+        if (result.loginAttempts > 1) {
+          //Too many login attempts, lock account
+          console.log("locking account");
+          UserModel.updateOne(
+            { _id: userName },
+            { $set: { accountLocked: true } },
+            (err, result) => {
+              if (err) {
+                console.log("error locking account " + err);
+              }
+            }
+          );
+          return res.json({
+            success: false,
+            msg:
+              "Too many login attempts. This account has been locked. Please raise a ticket to unlock your account.",
+          });
+        } else {
+          //Failed login, but no lock
+          console.log("Wrong pass bucko " + userName);
+          UserModel.updateOne(
+            { _id: userName },
+            { $inc: { loginAttempts: 1 } },
+            (err, result) => {
+              console.log("updating login attempts");
+              console.log(result);
+              if (err) console.log("Error increasing login attempts " + err);
+            }
+          );
+          return res.json({ success: false, msg: "Incorrect password" });
+        }
       }
     }
   });
@@ -61,6 +107,7 @@ let addUser = (req, res) => {
     cart: [],
     accountLocked: false,
     ticketId: 0,
+    loginAttempts: 0,
   });
   user.save((err, result) => {
     if (!err) {
@@ -128,31 +175,29 @@ let getCart = (req, res) => {
 
 let updateAccountFunds = (req, res) => {
   let aNum = req.body.aid;
-  let id=req.body._id
+  let id = req.body._id;
   let updatedAmount = req.body.fund;
   if (updatedAmount < 0) {
     res.send("You can't add negative money silly!");
-  } 
-  else {
-          UserModel.updateOne({ accountNumber: aNum,_id:id },
-          { $inc: { fund: +updatedAmount } },
-          (err, result) => {
-            if (!err) {
-              console.log(result);
-              if (result.nModified > 0) {
-                res.send("Funds have been added to account");
-              } else {
-                res.send("No Sufficient Funds");
-              }
-            } else {
-              res.send("Error generated " + err);
-            }
+  } else {
+    UserModel.updateOne(
+      { accountNumber: aNum, _id: id },
+      { $inc: { fund: +updatedAmount } },
+      (err, result) => {
+        if (!err) {
+          console.log(result);
+          if (result.nModified > 0) {
+            res.send("Funds have been added to account");
+          } else {
+            res.send("No Sufficient Funds");
           }
-        );
-      } 
-    
+        } else {
+          res.send("Error generated " + err);
+        }
+      }
+    );
   }
-
+};
 
 let subtractFunds = (req, res) => {
   console.log("\n\nSubtracting funds");
