@@ -40,8 +40,9 @@ export class AdminWindowComponent implements OnInit {
     const componetRef = viewContainerRef.createComponent<AdminComponent>(
       componentFactory
     );
-    // componetRef.instance.switchView.subscribe((event: any) =>
-    //   this.switchView(event)
-    // );
+    if (componetRef.instance.switchView)
+      componetRef.instance.switchView.subscribe((event: any) =>
+        this.switchView(event)
+      );
   }
 }

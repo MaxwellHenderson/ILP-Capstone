@@ -27,6 +27,15 @@ let getUser = (req, res) => {
       console.log(result);
       console.log("Login attempts ");
       console.log(result.loginAttempts);
+      //If account is locked, prevent signin
+      if (result.accountLocked) {
+        console.log("Account locked as attempt is made");
+        return res.json({
+          succes: false,
+          msg:
+            "This account is locked. Please submit an unlock request to retrieve your account.",
+        });
+      }
       if (result.userPassword == userPassword) {
         //Successful user verification
 

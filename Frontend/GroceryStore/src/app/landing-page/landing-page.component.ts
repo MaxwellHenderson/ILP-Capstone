@@ -40,8 +40,9 @@ export class LandingPageComponent implements OnInit {
     const componetRef = viewContainerRef.createComponent<LandingComponent>(
       componentFactory
     );
-    // componetRef.instance.componentSwitch.subscribe((event: any) =>
-    //   this.switchView(event)
-    // );
+    if (componetRef.instance.componentSwitch)
+      componetRef.instance.componentSwitch.subscribe((event: any) =>
+        this.switchView(event)
+      );
   }
 }
