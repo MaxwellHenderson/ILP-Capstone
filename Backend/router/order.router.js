@@ -13,7 +13,7 @@ router.get("/getReportWeekly", OrderController.getOrderWeek);
 router.get("/getReportMonthly", OrderController.getOrderMonth);
 router.get("/getReportDaily", OrderController.getOrderDaily);
 
-router.get("/getProductReports", OrderController.productReports);
+router.post("/getProductReports", OrderController.productReports);
 router.post("/getCustomerReports", OrderController.costumerDetails);
 
 module.exports = router;

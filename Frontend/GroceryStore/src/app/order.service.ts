@@ -72,9 +72,9 @@ export class OrderService {
     );
   }
 
-  generateProductReports(): Observable<ProductReport[]> {
-    return this.http.get<ProductReport[]>(
-      'http://localhost:9090/order/getProductReports'
+  generateProductReports(productRef:any): Observable<ProductReport[]> {
+    return this.http.post<ProductReport[]>(
+      'http://localhost:9090/order/getProductReports',productRef
     );
   }
 

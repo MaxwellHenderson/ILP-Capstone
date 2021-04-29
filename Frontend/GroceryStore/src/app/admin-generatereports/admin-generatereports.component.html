@@ -2,8 +2,13 @@
   <input type="button" class="btn btn-primary" value="Daily Report" (click)="dailyReport()">&nbsp;&nbsp;
   <input type="button" class="btn btn-secondary" value="Weekly Report" (click)="weeklyReport()">&nbsp;&nbsp;
   <input type="button" class="btn btn-warning" value="Monthly Report" (click)="monthlyReport()">&nbsp;&nbsp;
-  <input class="btn btn-info" type="button" value="Product Reports" (click)="productReports()">&nbsp;&nbsp;
-  
+ 
+  <form #productRef = "ngForm" (ngSubmit)= "productReports(productRef.value)">
+    <br/>
+    <input type = "text" name = "pName" ngModel>
+    <input class="btn btn-info" type="submit" value="Product Report"><br/>
+  </form>
+
   <form #userRef = "ngForm" (ngSubmit)= "costumerReports(userRef.value)">
     <br/>
     <input type = "text" name = "Uid" ngModel>
@@ -14,18 +19,18 @@
 </div>
 
 <div class="container d-flex justify-content-center">
-  <table border="2">
+  <table border="2" class="table table-striped table-bordered" *ngIf="dataLoaded1">
     <tr>
-      <th>Order ID</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <th>Order Date</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <th>Order Status</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <th>Order Price</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <th>Order ID</th>
+      <th>Order Date</th>
+      <th>Order Status</th>
+      <th>Order Price</th>
     </tr>
     <tr *ngFor="let pp of reports">
-      <td>{{pp._id}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <td>{{pp.orderDate}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <td>{{pp.orderStatus}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <td>{{pp.totalPrice}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <td>{{pp._id}}</td>
+      <td>{{pp.orderDate}}</td>
+      <td>{{pp.orderStatus}}</td>
+      <td>{{pp.totalPrice}}</td>
     </tr>
   </table>
 
@@ -34,22 +39,22 @@
 
 <div class = "container d-flex justify-content-center">
 
-  <table border="2">
+  <table border="2" class="table table-striped table-bordered" *ngIf="dataLoaded2">
     <thead>
       <tr>
   
-        <th scope="col">Name</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <th scope="col">Price</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <th scope="col">Quantity</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
   
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let pp of products">
   
-        <td>{{pp.productName}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <td>{{pp.productPrice}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <td>{{pp.quantity}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <td>{{pp.productName}}</td>
+        <td>{{pp.productPrice}}</td>
+        <td>{{pp.quantity}}</td>
       </tr>
     </tbody>
   </table>
@@ -60,23 +65,23 @@
 
 <div class = "container d-flex justify-content-center">
     
-<table border="2" *ngIf="dataLoaded">
+<table border="2" class="table table-striped table-bordered" *ngIf="dataLoaded3">
   <thead>
     <tr>
-      <th scope="col">Order ID</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <th scope="col">User Name</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <th scope="col">Order Date</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <th scope="col">Order Status</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <th scope="col">Total Price</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <th scope="col">Order ID</th>
+      <th scope="col">User Name</th>
+      <th scope="col">Order Date</th>
+      <th scope="col">Order Status</th>
+      <th scope="col">Total Price</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let order of users">
-      <td>{{order._id}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <td>{{order.userName}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <td>{{order.orderDate}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <td>{{order.orderStatus}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <td>{{order.totalPrice}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <td>{{order._id}}</td>
+      <td>{{order.userName}}</td>
+      <td>{{order.orderDate}}</td>
+      <td>{{order.orderStatus}}</td>
+      <td>{{order.totalPrice}}</td>
     </tr>
   </tbody>
 </table>
