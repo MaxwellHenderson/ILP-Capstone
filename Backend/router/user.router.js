@@ -11,7 +11,7 @@ router.get("/getLockedUser", UserController.getLockedUser);
 
 router.post("/addUser", UserController.addUser);
 
-router.put("/updateFundsByID", UserController.updateAccountFundsByID);
+router.post("/updateAccountFundsByID", UserController.updateAccountFundsByID);
 router.put("/updateProfile", UserController.updateUserInfo);
 router.post(
   "/submitLockedAccountTicket",

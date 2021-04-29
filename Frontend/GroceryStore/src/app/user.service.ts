@@ -64,8 +64,8 @@ export class UserService {
     });
   }
 
-  updateAccountFundsByID(userRef:any): Observable<any>{
-    return this.http.put(
+  updateAccountFundsByID(userRef: any): Observable<any> {
+    return this.http.post(
       'http://localhost:9090/user/updateAccountFundsByID',
       userRef,
       {
