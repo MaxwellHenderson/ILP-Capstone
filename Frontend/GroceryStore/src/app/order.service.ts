@@ -19,8 +19,7 @@ export class OrderService {
     console.log('In service');
     console.log(orderInfo);
     let httpOrderInfo = {
-      _id: orderInfo._id,
-      userName: orderInfo.userId,
+      userName: orderInfo.userName,
       orderDate: orderInfo.orderDate,
       cart: convertedCart,
       orderStatus: orderInfo.orderStatus,
@@ -35,38 +34,50 @@ export class OrderService {
       );
   }
 
-  retrieveOrderById(id: any): Observable<Order[]> {
-    return this.http.get<Order[]>(
-      'http://localhost:9090/order/getOrderByUser/'+id);
+  retrieveOrderById(id: any): Observable<OrderReport[]> {
+    return this.http.get<OrderReport[]>(
+      'http://localhost:9090/order/getOrderByUser/' + id
+    );
   }
 
-  generateReportDaily():Observable<OrderReport[]>{
+  updateOrderStatusById(orderRef: any): Observable<any> {
+    console.log(orderRef['_id']);
+    return this.http.post(
+      'http://localhost:9090/order/updateOrderStatus',
+      orderRef
+    );
+  }
+
+  generateReportDaily(): Observable<OrderReport[]> {
     return this.http.get<OrderReport[]>(
       'http://localhost:9090/order/getReportDaily'
-    )
+    );
   }
 
-  generateReportWeekly():Observable<OrderReport[]>{
+  retrieveOrders(): Observable<Order[]> {
+    return this.http.get<Order[]>('http://localhost:9090/order/getOrders');
+  }
+
+  generateReportWeekly(): Observable<OrderReport[]> {
     return this.http.get<OrderReport[]>(
       'http://localhost:9090/order/getReportDaily'
-    )
+    );
   }
-
-  generateReportMonthly():Observable<OrderReport[]>{
+  generateReportMonthly(): Observable<OrderReport[]> {
     return this.http.get<OrderReport[]>(
       'http://localhost:9090/order/getReportDaily'
-    )
+    );
   }
 
-  generateProductReports():Observable<Product[]>{
+  generateProductReports(): Observable<Product[]> {
     return this.http.get<Product[]>(
       'http://localhost:9090/order/getProductReports'
-    )
+    );
   }
 
-  generateCostumerReports():Observable<User[]>{
+  generateCostumerReports(): Observable<User[]> {
     return this.http.get<User[]>(
       'http://localhost:9090/order/getCustomerReports'
-    )
+    );
   }
 }

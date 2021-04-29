@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { SessionService } from '../session.service';
 import { UserService } from '../user.service';
 
 @Component({
@@ -10,6 +11,8 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-signin.component.css'],
 })
 export class UserSigninComponent implements OnInit {
+  @Output()
+  componentSwitch = new EventEmitter<number>();
   msg: string = '';
   //msg1:string = "";
 
@@ -18,67 +21,40 @@ export class UserSigninComponent implements OnInit {
   constructor(
     public router: Router,
     public userService: UserService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    public sessionService: SessionService
   ) {}
 
   ngOnInit(): void {}
 
-  /*
-  checkUser() {
-    console.log(this.loginRef.value); // all value
-    let user1 = this.loginRef.get('user')?.value; // get specific control value
-    let pass1 = this.loginRef.get('pass')?.value;
-
-    let values = JSON.parse(sessionStorage.getItem('CredentialsInfo')!);
-    console.log('You are Succesfully Logged in ..!!');
-    this.msg = 'Login Success !';
-    sessionStorage.setItem('userInfo', JSON.stringify(user1));
-
-    if (user1 == values.registerUser && pass1 == values.registerPass) {
-      this.router.navigate(['userWindow']);
-      console.log('Navigated');
-      console.log('You are Succesfully Logged in ..!!');
-      alert('Login Success !');
-      this.router.navigate(['userWindow']);
-    } else {
-      this.msg = 'Login Failed, Please Try Again ..!!';
-    }
-  }
-
-*/
-
   checkUser(loginRef: any) {
+    console.log('Checking');
     this.userService.signin(loginRef).subscribe((result: any) => {
+      console.log('Checking user');
+      console.log(result);
       this.signInData = result;
 
       if (this.signInData.success) {
-        this.router.navigate(['userWindow']);
-      }
-
-      this.router.navigate(['userWindow']);
-
-      /*
-      if(this.signInData.success){
-        this.toastr.success('Successful Signed In', 'Success',{
-          timeOut:2000,
+        this.toastr.success('Successful Signed In', 'Success', {
+          timeOut: 2000,
         });
-    
-      console.log(this.signInData.user)
-      sessionStorage.setItem('userDetails',JSON.stringify(this.signInData.user));
-        //this.msg= "Hello";
-        this.router.navigate(['userWindow']);
 
-      }else{
-        this.toastr.error(this.signInData.msg,'Error' , {
-          timeOut:2000,
-        })
+        console.log(this.signInData.user);
+        this.sessionService.setUserAuthorized(true);
+        this.sessionService.setUserId(this.signInData.user._id);
+        this.sessionService.setUserName(this.signInData.user.userName);
+        this.router.navigate(['userWindow']);
+      } else {
+        this.toastr.error(this.signInData.msg, 'Error', {
+          timeOut: 2000,
+        });
         this.router.navigate(['userSignin']);
-      }*/
+      }
     });
   }
 
   signUp() {
-    this.router.navigate(['userSignup']);
+    this.switchView(1);
   }
 
   switchView(componentNumber: number) {

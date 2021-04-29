@@ -23,22 +23,30 @@ export class EmployeeSigninComponent implements OnInit {
     console.log('checking');
     this.empSer.authenticateEmployee(empRef).subscribe((result) => {
       this.msg = result;
-      console.log(JSON.parse(this.msg).data._id);
-      this.sesSer.setEmployeeId(JSON.parse(this.msg).data._id);
-      console.log('empId' + this.sesSer.getEmployeeId());
-
-      if (this.msg === 'invalid') {
-        this.errmsg = 'Invalid Credentials ..Please Try again';
+      console.log(empRef.userName);
+      console.log(empRef.userPassword);
+      if (empRef.userName == '' || empRef.userPassword == '') {
+        alert('Please fill all the fields');
+      } else if (this.msg === 'invalid') {
+        alert('Invalid Credentials ..Please Try again');
       } else {
+        console.log(JSON.parse(this.msg).data._id);
+        this.sesSer.setEmployeeId(JSON.parse(this.msg).data._id);
+        console.log('empId' + this.sesSer.getEmployeeId());
         this.empSer.updateCount(empRef).subscribe((result: string) => {
           this.count = result;
           console.log(JSON.parse(this.count));
+          this.sesSer.setEmployeeAuthorized(true);
           if (JSON.parse(this.count).loginCount < 2) {
             //link to update password
-            this.router.navigate(['editpassword']);
+            this.router.navigate(['employeeWindow'], {
+              state: { changePassword: true },
+            });
           } else {
             //link to dashboard
-            this.router.navigate(['employeeWindow']);
+            this.router.navigate(['employeeWindow'], {
+              state: { changePassword: false },
+            });
           }
         });
       }

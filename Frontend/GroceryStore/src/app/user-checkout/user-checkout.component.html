@@ -1,4 +1,11 @@
 <div class="container" *ngIf="dataLoaded">
     Total cart value is ${{totalCartValue}}
     <button (click)="placeOrder()">Place order</button>
+    <div *ngIf="outOfStock">
+        There is insufficient quantity in stock of the following products
+        <li *ngFor="let product of outOfStockItems">
+            <ul>{{product.productName}}</ul>
+        </li>
+    </div>
+    {{msg}}
 </div>

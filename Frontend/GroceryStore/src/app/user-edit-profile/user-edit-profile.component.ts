@@ -17,6 +17,7 @@ export class UserEditProfileComponent implements OnInit {
   updateInfo(userRef:any){
     console.log(userRef)
     let uid=this.sessServ.getUserId()
+    console.log(uid)
     userRef.uid=uid
     this.userSer.updateUserProfile(userRef).subscribe((result:string)=> {
       this.updateMsg=result;

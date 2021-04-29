@@ -1,1 +1,17 @@
-<p>unlock-users works!</p>
+<div class="container" *ngIf="dataLoaded">
+    <table class="table" border="1">
+        <tr>
+            <th>User_ID</th>
+            <th>userName</th>
+        </tr>
+        <tr *ngFor="let d of data">
+
+            <td>{{d._id}}</td>
+            <td>{{d.userName}}</td>
+            <td>
+                <form (ngSubmit)="unlockUser(d)"><button type="submit">submit</button></form>
+            </td>
+
+        </tr>
+    </table>
+</div>

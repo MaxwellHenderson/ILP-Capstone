@@ -1,1 +1,56 @@
-<p>update-order-status works!</p>
+<!-- <div>
+    <select #selStatus>
+        <option *ngFor = "let status of orderStatus" [value]="status" (click)="updateStatus(selStatus)">{{status}}
+        </option>
+      </select>
+      {{selStatus.value}}
+</div>
+<div></div> -->
+
+<!-- <div>
+    <button (click)="fetchOrders()">Fetch Orders</button>
+</div> -->
+
+<!-- <div>
+
+    <table border="1">
+        <tr>
+            <th>PId</th>
+            <th>ProductName</th>
+            <th>Price</th>
+        </tr>
+        <tr *ngFor="let or of orders">
+                <td>{{or._id}}</td>
+                <td>{{or.ProductName}}</td>
+                <td>{{or.totalPrice}}</td>
+        </tr>
+</table>
+</div> -->
+
+<div class="container">
+    <table class="table" border="1">
+        <tr>
+            <th>Order ID</th>
+            <th>userName</th>
+            <th>userId</th>
+            <th>Current Order Status</th>
+            <th>Select order status:</th>
+        </tr>
+        <tr *ngFor="let d of data">
+            <td>{{d._id}}</td>
+            <td>{{d.userName}}</td>
+            <td>{{d.userId}}</td>
+            <td>{{d.orderStatus}}</td>
+            <td>
+                <select [(ngModel)]="orderStatus" (change)="selectChangeHandler($event)" ngModel>
+                    <option *ngFor="let status of orderStatuses" [value]="status">{{status}}
+                    </option>
+                </select>
+                <form #statusRef="ngForm" (ngSubmit)="updateStatusData(d,statusRef.value)">
+                    <input type="text" name="reasonForCancellation" ngModel />
+                    <button type="submit">Update</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>

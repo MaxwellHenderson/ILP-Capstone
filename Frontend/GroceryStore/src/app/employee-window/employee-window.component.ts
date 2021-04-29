@@ -24,7 +24,11 @@ export class EmployeeWindowComponent implements OnInit {
 
   ngOnInit(): void {
     this.employeeViews = this.employeeComponentService.getViews();
-    this.switchView(0);
+    if (history.state.changePassword) {
+      this.switchView(3);
+    } else {
+      this.switchView(0);
+    }
   }
 
   switchView(componentNumber: any) {

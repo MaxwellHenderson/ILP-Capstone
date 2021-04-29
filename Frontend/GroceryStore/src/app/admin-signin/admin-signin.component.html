@@ -1,5 +1,5 @@
 <div class="container">
-    <form action="http://localhost:4200/adminWindow" (ngSubmit)="signIn()" method="post">
+    <form #loginRef="ngForm" (ngSubmit)="signIn(loginRef.value)">
 
         <br /><br />
         <h2 align="center">Sign In</h2>
@@ -10,7 +10,7 @@
         <input type="password" name="password" ngModel> <br /><br /><br />
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="submit" value="SignIn" />
+        <input type="submit" class="btn btn-success" value="SignIn"/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
