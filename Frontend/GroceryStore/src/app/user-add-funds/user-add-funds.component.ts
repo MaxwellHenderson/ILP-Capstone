@@ -13,9 +13,13 @@ export class UserAddFundsComponent implements OnInit {
   ngOnInit(): void {
   }
   updateFunds(userRef:any){
+    if(userRef.aid=="" ||userRef.fund==""){
+     alert("Please fill the fields")
+    }else{
     console.log(userRef);
     this.userService.updateAccountFunds(userRef).subscribe((result:string)=> {
       this.updateMsg=result;
     });
+  }
   }
 }
