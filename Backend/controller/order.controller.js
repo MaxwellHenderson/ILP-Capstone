@@ -125,7 +125,8 @@ let placeOrder = (req, res) => {
 };
 
 let productReports = (req, res) => {
-  ProductModel.find({}, (err, result) => {
+  let pName=req.body.pName
+  ProductModel.find({productName:pName}, (err, result) => {
     if (!err) {
       res.json(result);
       console.log(result);

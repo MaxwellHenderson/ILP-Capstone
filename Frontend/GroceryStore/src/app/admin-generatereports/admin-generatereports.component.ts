@@ -15,30 +15,46 @@ export class AdminGeneratereportsComponent implements OnInit {
   reports?:Array<OrderReport>
   users!:Array<OrderReport>
   products?:Array<ProductReport>
-  dataLoaded:boolean=false
+  dataLoaded1:boolean=false
+  dataLoaded2:boolean=false
+  dataLoaded3:boolean=false
   constructor(public reportSer:OrderService) { }
 
   ngOnInit(): void {
   }
 
   dailyReport(){
-    this.reportSer.generateReportDaily().subscribe(result=>this.reports=result);
+    this.reportSer.generateReportDaily().subscribe((result)=>{
+      this.reports=result
+      this.dataLoaded1=true
+    });
   }
   weeklyReport(){
-    this.reportSer.generateReportWeekly().subscribe(result=>this.reports=result);
+    this.reportSer.generateReportWeekly().subscribe((result)=>{
+      this.reports=result
+      this.dataLoaded1=true
+    });
   }
   monthlyReport(){
-    this.reportSer.generateReportMonthly().subscribe(result=>this.reports=result);
+    this.reportSer.generateReportMonthly().subscribe((result)=>{
+      this.reports=result
+      this.dataLoaded1=true
+    });
   }
-  productReports(){
-    this.reportSer.generateProductReports().subscribe(result=>this.products=result);
+  productReports(productRef:any){
+    this.reportSer.generateProductReports(productRef).subscribe((result:any)=>{
+      
+      this.products=result
+      this.dataLoaded2=true
+      console.log(this.users)
+    });
   }
   costumerReports(userRef:any){
     console.log("received")
     this.reportSer.generateCostumerReports(userRef).subscribe((result:any)=>{
       
       this.users=result
-      this.dataLoaded=true
+      this.dataLoaded3=true
       console.log(this.users)
     });
     //console.log(this.users);
