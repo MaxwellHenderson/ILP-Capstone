@@ -9,11 +9,11 @@ router.get("", OrderController.getOrderById);
 router.get("/getOrders", OrderController.getOrders);
 router.get("/getOrderByUser/:uid", OrderController.getOrderByUser);
 
-router.get("/getReportDailyWeekly", OrderController.getOrderWeek);
+router.get("/getReportWeekly", OrderController.getOrderWeek);
 router.get("/getReportMothly", OrderController.getOrderMonth);
 router.get("/getReportDaily", OrderController.getOrderDaily);
 
-router.get("/getProductReports", OrderController.ProductReports);
-router.get("/getCustomerReports", OrderController.CustomerReports);
+router.get("/getProductReports", OrderController.productReports);
+router.get("/getCustomerReports", OrderController.costumerDetails);
 
 module.exports = router;
