@@ -1,4 +1,5 @@
 let OrderModel = require("../model/order.model.js");
+let ProductModel = require("../model/product.model.js");
 
 let updateOrderStatus = (req, res) => {
   console.log("updating Order");
@@ -133,7 +134,10 @@ let productReports = (req, res) => {
 };
 
 let costumerDetails = (req, res) => {
-  UserModel.find({}, (err, result) => {
+  let uName=req.body.Uid
+  console.log(req.body)
+  //let idNum=parseInt(uid)
+  OrderModel.find({userName:uName}, (err, result) => {
     if (!err) {
       res.json(result);
       console.log(result);

@@ -78,9 +78,10 @@ export class OrderService {
     );
   }
 
-  generateCostumerReports(): Observable<User[]> {
-    return this.http.get<User[]>(
-      'http://localhost:9090/order/getCustomerReports'
+  generateCostumerReports(userRef:any): Observable<OrderReport> {
+    console.log(userRef)
+    return this.http.post<OrderReport>(
+      'http://localhost:9090/order/getCustomerReports',userRef
     );
   }
 }

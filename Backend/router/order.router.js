@@ -14,6 +14,6 @@ router.get("/getReportMothly", OrderController.getOrderMonth);
 router.get("/getReportDaily", OrderController.getOrderDaily);
 
 router.get("/getProductReports", OrderController.productReports);
-router.get("/getCustomerReports", OrderController.costumerDetails);
+router.post("/getCustomerReports", OrderController.costumerDetails);
 
 module.exports = router;
