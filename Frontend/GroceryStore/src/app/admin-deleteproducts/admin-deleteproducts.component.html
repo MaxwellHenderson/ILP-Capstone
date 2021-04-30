@@ -1,15 +1,22 @@
-<div class = "login">
-    
-    <br/><br/>  
-    <h3>Delete Products</h3>
+<div class="container row">
 
-    <br/><br/>
-    <label>Product Id</label>
-    <input type="text" id="Uname" #idRef/><br/><br/><br/>
-    <input type="button" id="log" class="btn btn-danger" value="Delete"
-    (click)="deleteById(idRef.value)"/><br/><br/>
-   
-   
-    {{deleteMsg}}
+    <div class="login container col-2">
 
+        <br /><br />
+        <h3>Delete Products</h3>
+
+        <br /><br />
+        <label>Product Id</label>
+        <input type="text" id="Uname" #idRef /><br /><br /><br />
+        <input type="button" id="log" class="btn btn-danger" value="Delete"
+            (click)="deleteById(idRef.value)" /><br /><br />
+
+
+        {{deleteMsg}}
+
+    </div>
+    <div class="container col-2">
+
+        <app-proudct-table></app-proudct-table>
+    </div>
 </div>

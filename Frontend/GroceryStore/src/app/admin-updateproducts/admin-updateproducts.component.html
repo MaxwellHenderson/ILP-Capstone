@@ -1,20 +1,30 @@
-<div class = "login">
-    <form #productRef = "ngForm" (ngSubmit)= "updatePrice(productRef.value)">
-        
-        <br/><br/>
-        <h3>Update Products</h3>
-        <br/><br/><br/>
-        <label>Product Id</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type = "text" id="Uname" name = "pid" ngModel> <br/><br/><br/>
-       
-        <label>Product Price</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type = "text" id="Uname" name = "price" ngModel> <br/><br/><br/>
-        <label>Product Quantity</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type = "number" id="Uname" name = "quantity" ngModel> <br/><br/><br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type = "submit" id="log" class="btn btn-success" value = "Update"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        
-    </form>
+<div class="container row">
 
-    {{updateMsg}}
+    <div class="login container col-2">
+        <form #productRef="ngForm" (ngSubmit)="updatePrice(productRef.value)">
+
+            <br /><br />
+            <h3>Update Products</h3>
+            <br /><br /><br />
+            <label>Product Id</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" id="Uname" name="pid" ngModel> <br /><br /><br />
+
+            <label>Product Price</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" id="Uname" name="price" ngModel> <br /><br /><br />
+            <label>Product Quantity</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="number" id="Uname" name="quantity" ngModel> <br /><br /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="submit" id="log" class="btn btn-success" value="Update" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </form>
+
+        {{updateMsg}}
+    </div>
+
+    <div class="container col">
+
+        <app-proudct-table></app-proudct-table>
+    </div>
 </div>
