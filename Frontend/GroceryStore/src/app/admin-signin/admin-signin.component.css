@@ -2,7 +2,7 @@ body
 {  
     margin: 0;  
     padding: 0;  
-    background-color:#6abadeba;  
+    background-color:#0aa9f3ba;  
     font-family: 'Arial';  
 }  
 .login{  
@@ -11,14 +11,14 @@ body
         margin: auto;  
         margin: 20 0 0 450px;  
         padding: 10px;  
-        background: #23463f;  
+        background: #424444;  
         border-radius: 15px ;  
           
 }  
 h3{  
     text-align: center;  
     color: #dfdfdf;  
-    padding: 20px;  
+    padding: 10px;  
 }  
 label{  
     color: #08ffd1;  
@@ -29,13 +29,23 @@ label{
     height: 30px;  
     border: none;  
     border-radius: 3px;  
-    padding-left: 8px;  
+    padding-left: 1px;  
 }  
 #Pass{  
     width: 300px;  
     height: 30px;  
     border: none;  
     border-radius: 3px;  
-    padding-left: 8px;  
+    padding-left: 1px;  
       
+}  
+#log{  
+  width: 300px;  
+  height: 30px;  
+  border: none;  
+  border-radius: 17px;  
+  padding-left: 7px;  
+  color: white;  
+
+
 }  

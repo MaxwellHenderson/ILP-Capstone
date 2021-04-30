@@ -1,20 +1,20 @@
-<div class = "container form-group">
+<div class = "login">
     <form #productRef = "ngForm" (ngSubmit)= "storeProduct(productRef.value)">
         
         <br/><br/>
-        <h2 align = "center">Add Products</h2>
+        <h3 >Add Products</h3>
         <br/><br/><br/>
-        <label>Product Id</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type = "text"  name = "pid" ngModel> <br/><br/><br/>
-        <label>Product Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type = "text" name = "productName" ngModel> <br/><br/><br/>
-        <label>Product Price</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type = "text" name = "price" ngModel> <br/><br/><br/>
-        <label>Product Quantity</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type = "number" name = "quantity" ngModel> <br/><br/><br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type = "submit" class="btn btn-success" value = "Add"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type = "reset" class="btn btn-warning" value = "Reset"/> 
+        <label>Product Id</label>
+        <input type = "text" id="Uname" name = "pid" ngModel> <br/><br/><br/>
+        <label>Product Name</label>
+        <input type = "text" id="Uname" name = "productName" ngModel> <br/><br/><br/>
+        <label>Product Price</label>
+        <input type = "text" id="Uname" name = "price" ngModel> <br/><br/><br/>
+        <label>Product Quantity</label> 
+        <input type = "number" id="Uname" name = "quantity" ngModel> <br/><br/><br/>
+ 
+        <input type = "submit" id="log" class="btn btn-success" value = "Add"/> <br/>
+        <input type = "reset" id="log" class="btn btn-warning" value = "Reset"/> 
     
     </form>
 </div>
