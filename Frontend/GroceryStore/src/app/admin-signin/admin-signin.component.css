@@ -1,47 +1,41 @@
-.container
-{
-  padding:60px 15px;
-  font-family: 'Roboto', sans-serif;
-}
-.tile
-{
-  display:inline-block;
-  width:100%;
-  background-color:#fff;
-  box-shadow:0px 0px 10px 3px rgba(0,0,0,0.1);
-  position:relative;
-  overflow:hidden;
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.form-control
-{
-  border-radius: 0px;
-  height: 40px;
-}
-.btn
-{
-  border-radius: 0px;
-  padding: 0px;
-  line-height: 40px;
-  font-size: 16px;
-  text-transform: uppercase;
-}
-.login
-{
-  position: absolute;
-  top: 20px;
-  left: -67%;
-  overflow: hidden;
-  transform: rotate(0deg);
-  padding: 20px 60px 20px 20px;
-  transition: all .5s ease-out;
-}
-.login.show
-{
-  left: 0;
-  right: auto;
-}
+body  
+{  
+    margin: 0;  
+    padding: 0;  
+    background-color:#6abadeba;  
+    font-family: 'Arial';  
+}  
+.login{  
+        width: 382px;  
+        overflow: hidden;  
+        margin: auto;  
+        margin: 20 0 0 450px;  
+        padding: 10px;  
+        background: #23463f;  
+        border-radius: 15px ;  
+          
+}  
+h3{  
+    text-align: center;  
+    color: #dfdfdf;  
+    padding: 20px;  
+}  
+label{  
+    color: #08ffd1;  
+    font-size: 17px;  
+}  
+#Uname{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+}  
+#Pass{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+}  
