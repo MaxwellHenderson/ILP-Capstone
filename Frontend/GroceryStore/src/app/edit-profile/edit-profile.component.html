@@ -1,10 +1,10 @@
-<div class="container">
-    <h2>Update Employee password using Employee ID</h2>
+<div class="login">
+    <h3>Update Employee password using Employee ID</h3>
     <form #empRef="ngForm" (ngSubmit)="updatePassword(empRef.value)">
         <label>Employee Id</label>
-        <input type="number" name="empID" ngModel /><br /><br />
+        <input type="number" id="Uname" name="empID" ngModel /><br /><br />
         <label>New Password</label>
-        <input type="password" name="password" ngModel /><br /><br />
-        <button type="submit" class="btn btn-success">Update the Password</button>
+        <input type="password" id="Uname" name="password" ngModel /><br /><br />
+        <button type="submit" id="log" class="btn btn-success">Update the Password</button>
     </form>
 </div>
