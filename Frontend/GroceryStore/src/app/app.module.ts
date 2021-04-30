@@ -44,6 +44,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LandingPageNavbarComponent } from './landing-page-navbar/landing-page-navbar.component';
 import { LandingPageComponentDirective } from './landing-page-component.directive';
 import { ProudctTableComponent } from './proudct-table/proudct-table.component';
+import { EmployeeTableComponent } from './employee-table/employee-table.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import { ProudctTableComponent } from './proudct-table/proudct-table.component';
     LandingPageNavbarComponent,
     LandingPageComponentDirective,
     ProudctTableComponent,
+    EmployeeTableComponent,
   ],
   imports: [
     BrowserModule,

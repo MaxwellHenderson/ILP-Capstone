@@ -8,7 +8,7 @@ import { ProductService } from '../product.service';
   styleUrls: ['./proudct-table.component.css'],
 })
 export class ProudctTableComponent implements OnInit {
-  products?: Array<Product>;
+  products?: Array<any>;
   dataLoaded: boolean = false;
   constructor(public productService: ProductService) {}
 
@@ -17,6 +17,7 @@ export class ProudctTableComponent implements OnInit {
       console.log(result);
       this.products = result.products;
       this.dataLoaded = true;
+      console.log('product table');
       console.log(this.products);
     });
   }

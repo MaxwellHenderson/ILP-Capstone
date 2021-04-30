@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AdminService } from '../admin.service';
 import { ProductService } from '../product.service';
 import { Product } from '../shared/product.model';
@@ -9,6 +9,9 @@ import { Product } from '../shared/product.model';
   styleUrls: ['./admin-deleteproducts.component.css'],
 })
 export class AdminDeleteproductsComponent implements OnInit {
+  @Output()
+  switchView = new EventEmitter<number>();
+
   deleteMsg?: string;
   products?: Array<Product>;
   dataLoaded: boolean = false;
@@ -32,5 +35,6 @@ export class AdminDeleteproductsComponent implements OnInit {
       this.deleteMsg = result;
     });
     alert('Product Deleted');
+    this.switchView.emit(2);
   }
 }
