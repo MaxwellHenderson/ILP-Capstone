@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 import { CartItem } from './shared/cart-item.model';
 
 @Injectable({
@@ -6,8 +7,13 @@ import { CartItem } from './shared/cart-item.model';
 })
 export class CartService {
   cart: Map<number, CartItem> = new Map();
+  cartSize: Observable<number>;
+  private cartSizeSubject: Subject<number>;
 
-  constructor() {}
+  constructor() {
+    this.cartSizeSubject = new Subject<number>();
+    this.cartSize = this.cartSizeSubject.asObservable();
+  }
   addProductToCart(productInfo: any) {
     //If the item is already in the cart, increase the quantity of that item
     if (this.cart.has(productInfo._id)) {
@@ -23,6 +29,7 @@ export class CartService {
         productQuantity: 1,
       };
       this.cart.set(productInfo._id, item);
+      this.cartSizeSubject.next(this.cart.size);
     }
   }
 

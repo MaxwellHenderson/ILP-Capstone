@@ -1,35 +1,35 @@
 <div class="container">
     <br /><br />
-    <h3 align="center">User SignUp !!</h3>
+    <h3 align="center">User SignUp</h3>
     <br />
 
-    <form #signupRef="ngForm" (ngSubmit)="registerUser(signupRef.value)">
+    <form #signupRef="ngForm" (ngSubmit)="registerUser(signupRef)" novalidate>
         <label class="col-2"> FirstName </label>
-        <input typpe="text" name="userName" class="col-2" ngModel /><br />
+        <input type="text" name="userName" class="col-2" ngModel required /><br />
         <br />
         <label class="col-2"> LastName </label>
-        <input typpe="text" name="userLastName" class=" col-2" ngModel /><br />
+        <input type="text" name="userLastName" class=" col-2" ngModel required /><br />
         <br />
         <label class="col-2"> UserID </label>
-        <input type="number" name="uid" class=" col-2" ngModel /><br />
+        <input type="number" name="uid" class=" col-2" ngModel required /><br />
         <br />
         <label class="col-2"> Email ID </label>
-        <input typpe="email" name="userEmail" class="col-2" ngModel /><br />
+        <input type="email" name="userEmail" class="col-2" ngModel email required /><br />
         <br />
         <label class="col-2">Password</label>
-        <input type="password" name="userPassword" class=" col-2" ngModel /><br />
+        <input type="password" name="userPassword" class=" col-2" ngModel required /><br />
         <br />
         <label class=" col-2"> Date of Birth </label>
-        <input type="date" name="userDob" class=" col-2" ngModel /><br />
+        <input type="date" name="userDob" class=" col-2" ngModel required /><br />
         <br />
         <label class="col-2"> Phone number </label>
-        <input type="number" name="userPhone" class=" col-2" ngModel /><br />
+        <input type="tel" name="userPhone" class=" col-2" ngModel required pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" /><br />
         <br />
         <label class="col-2"> Address </label>
-        <input type="text" name="userAddress" class=" col-2" ngModel /><br />
+        <input type="text" name="userAddress" class=" col-2" ngModel required /><br />
         <br />
 
-        <input type="submit" value="SignUp" />
+        <input type="submit" value="SignUp" /> {{validFormMessage}}
         <br /><br />
         <input type="reset" value="Reset" />
     </form>

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartService } from '../cart.service';
 import { SessionService } from '../session.service';
 
 @Component({
@@ -10,7 +11,16 @@ import { SessionService } from '../session.service';
 export class UserNavbarComponent implements OnInit {
   @Output()
   componentSwitch = new EventEmitter<number>();
-  constructor(public router: Router, public sessionService: SessionService) {}
+  cartSize?: number;
+  constructor(
+    public router: Router,
+    public sessionService: SessionService,
+    public cartService: CartService
+  ) {
+    cartService.cartSize.subscribe((newSize: number) => {
+      this.cartSize = newSize;
+    });
+  }
 
   ngOnInit(): void {}
   switchView(componentNumber: number) {
