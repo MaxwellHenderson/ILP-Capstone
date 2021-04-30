@@ -1,17 +1,17 @@
-<div class="container" *ngIf="dataLoaded">
-    <table class="table" border="1">
+<div class="container">
+    <h2>Unlock User</h2>
+    <table class="table">
         <tr>
-            <th>User_ID</th>
-            <th>userName</th>
+            <th>User ID</th>
+            <th>User Name</th>
         </tr>
         <tr *ngFor="let d of data">
 
             <td>{{d._id}}</td>
             <td>{{d.userName}}</td>
             <td>
-                <form (ngSubmit)="unlockUser(d)"><button type="submit">submit</button></form>
+                <form (ngSubmit)="unlockUser(d)"><button type="submit" class="btn btn-success">Unlock this user</button></form>
             </td>
-
         </tr>
     </table>
 </div>
