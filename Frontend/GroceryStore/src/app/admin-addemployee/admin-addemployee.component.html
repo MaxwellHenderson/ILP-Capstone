@@ -20,3 +20,25 @@
 
     </form>
 </div>
+
+<br/>
+<div class="container d-flex justify-content-center">
+    <table border="2" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Employee ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Employee Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pp of employees">
+                    <td>{{pp._id}}</td>
+                    <td>{{pp.userName}}</td>
+                    <td>{{pp.userLastName}}</td>
+                    <td>{{pp.userEmail}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
