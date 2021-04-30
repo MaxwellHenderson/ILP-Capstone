@@ -1,22 +1,44 @@
-<div class = "container">
+<div class = "login">
     <form #employeeRef = "ngForm" (ngSubmit)= "storeEmployee(employeeRef.value)">
         
         <br/><br/>
-        <h2 align = "center">Add Employees</h2>
+        <h3>Add Employees</h3>
         <br/><br/><br/>
         <label>Employee Id</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type = "text" name = "eid" ngModel> <br/><br/>
+        <input type = "text" id="Uname" name = "eid" ngModel> <br/><br/>
         <label>FirstName</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type = "text" name = "userName" ngModel> <br/><br/>
+        <input type = "text" id="Uname" name = "userName" ngModel> <br/><br/>
         <label>LastName</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type = "text" name = "userLastName" ngModel> <br/><br/>
+        <input type = "text" id="Uname" name = "userLastName" ngModel> <br/><br/>
         <label>Email ID</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type = "text" name = "userEmail" ngModel> <br/><br/>
+        <input type = "text" id="Uname" name = "userEmail" ngModel> <br/><br/>
         <label>Password</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type = "password" name = "userPassword" ngModel> <br/><br/>
+        <input type = "password" id="Uname" name = "userPassword" ngModel> <br/><br/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type = "submit" class="btn btn-success" value = "Add"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type = "reset" class="btn btn-warning" value = "Reset"/> 
+        <input type = "submit" id="log" class="btn btn-success" value = "Add"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type = "reset" id="log" class="btn btn-warning" value = "Reset"/> 
 
     </form>
+</div>
+
+<br/>
+<div class="container d-flex justify-content-center">
+    <table border="2" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Employee ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Employee Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pp of employees">
+                    <td>{{pp._id}}</td>
+                    <td>{{pp.userName}}</td>
+                    <td>{{pp.userLastName}}</td>
+                    <td>{{pp.userEmail}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>

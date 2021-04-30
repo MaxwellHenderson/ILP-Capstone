@@ -16,7 +16,7 @@ export class EditProfileComponent implements OnInit {
   updatePassword(empRef:any){
     console.log(empRef);
     this.empService.editEmpPassword(empRef);
+    alert("Password successfully updated!")
   }
-
 }
 

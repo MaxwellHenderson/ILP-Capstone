@@ -16,6 +16,14 @@ let getEmployee = (req, res) => {
   );
 };
 
+let getAllEmployees=(req,res)=>{
+  EmployeeModel.find({},(err,data)=>{
+    if(!err){
+      res.json(data);
+    }
+  })
+}
+
 let addEmployee = (req, res) => {
   let employee = new EmployeeModel({
     _id: req.body.eid,
@@ -101,4 +109,5 @@ module.exports = {
   removeEmployee,
   updateEmployeePassword,
   updateLoginCount,
+  getAllEmployees
 };

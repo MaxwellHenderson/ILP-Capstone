@@ -1,18 +1,18 @@
-<div class="container">
-  <input type="button" class="btn btn-primary" value="Daily Report" (click)="dailyReport()">&nbsp;&nbsp;
-  <input type="button" class="btn btn-secondary" value="Weekly Report" (click)="weeklyReport()">&nbsp;&nbsp;
-  <input type="button" class="btn btn-warning" value="Monthly Report" (click)="monthlyReport()">&nbsp;&nbsp;
+<div class="login">
+  <input type="button" id="log" class="btn btn-primary" value="Daily Report" (click)="dailyReport()">&nbsp;&nbsp;
+  <input type="button" id="log" class="btn btn-secondary" value="Weekly Report" (click)="weeklyReport()">&nbsp;&nbsp;
+  <input type="button" id="log" class="btn btn-warning" value="Monthly Report" (click)="monthlyReport()">&nbsp;&nbsp;
  
   <form #productRef = "ngForm" (ngSubmit)= "productReports(productRef.value)">
     <br/>
-    <input type = "text" name = "pName" ngModel>
-    <input class="btn btn-info" type="submit" value="Product Report"><br/>
+    <input type = "text" id="Uname" name = "pName" ngModel>
+    <input class="btn btn-info" id="log" type="submit" value="Product Report"><br/>
   </form>
 
   <form #userRef = "ngForm" (ngSubmit)= "costumerReports(userRef.value)">
     <br/>
-    <input type = "text" name = "Uid" ngModel>
-    <input class="btn btn-danger" type="submit" value="Costumer Reports"><br/>
+    <input type = "text" id="Uname" name = "Uid" ngModel>
+    <input class="btn btn-danger" id="log" type="submit" value="Costumer Reports"><br/>
   </form>
   <br/><br/>
   

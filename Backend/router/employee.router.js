@@ -7,5 +7,6 @@ router.put("/updateEmployeePassword",EmployeeController.updateEmployeePassword);
 router.post("/addEmployee",EmployeeController.addEmployee);
 router.delete("/deleteEmployee/:empID",EmployeeController.removeEmployee);
 router.put("/updateCount",EmployeeController.updateLoginCount);
+router.get("/getAllEmployees",EmployeeController.getAllEmployees);
 
 module.exports=router;
