@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import { BackendUrlService } from './backend-url.service';
+import { Employee } from './shared/employee.model';
 
 @Injectable({
   providedIn: 'root',
@@ -44,5 +45,8 @@ export class EmployeeService {
     return this.http.delete(`${this.serverUrl}/deleteEmployee/` + id, {
       responseType: 'text',
     });
+  }
+  getAllEmployees(): Observable<Employee[]> {
+    return this.http.get<Employee[]>(`${this.serverUrl}/getAllEmployees`);
   }
 }

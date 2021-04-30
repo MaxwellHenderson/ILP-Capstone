@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../employee.service';
+import { Employee } from '../shared/employee.model';
 
 @Component({
   selector: 'app-admin-addemployee',
@@ -8,9 +9,11 @@ import { EmployeeService } from '../employee.service';
 })
 export class AdminAddemployeeComponent implements OnInit {
 
+  employees?:Array<Employee>
   constructor(public employeeSer:EmployeeService) { }
 
   ngOnInit(): void {
+    this.employeeSer.getAllEmployees().subscribe(result=>this.employees=result);
   }
 
   storeEmployee(employeeRef:any)
