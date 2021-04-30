@@ -1,7 +1,7 @@
 
-<div class="container">
+<div class="container d-flex justify-content-center">
     <h2>Update order status</h2><br/>
-    <table class="table">
+    <table border="2" class="table table-striped table-bordered">
         <tr>
             <th>Order ID</th>
             <th>User Name</th>
@@ -15,11 +15,12 @@
             <td>{{d.userId}}</td>
             <td>{{d.orderStatus}}</td>
             <td>
+                <form #statusRef="ngForm" (ngSubmit)="updateStatusData(d,statusRef.value)">
                 <select [(ngModel)]="orderStatus" (change)="selectChangeHandler($event)" ngModel>
                     <option *ngFor="let status of orderStatuses" [value]="status">{{status}}
                     </option>
                 </select>
-                <form #statusRef="ngForm" (ngSubmit)="updateStatusData(d,statusRef.value)">
+
                     <input type="text" name="reasonForCancellation" ngModel />
                     <button type="submit" class="btn btn-success">Update status</button>
                 </form>

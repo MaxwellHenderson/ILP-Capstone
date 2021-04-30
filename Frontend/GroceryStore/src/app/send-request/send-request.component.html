@@ -1,12 +1,12 @@
-<div class="container">
-    <h2>Update inventory</h2>
+<div class="login">
+    <h3>Update inventory</h3>
     <form [formGroup]="requestRef" (ngSubmit)="addRequest()">
         <label>Request Id </label>
-        <input type="number" formControlName="rid" /><br /><br/>
+        <input type="number" id="Uname" formControlName="rid" /><br /><br/>
         <label>Add Description </label>
-        <input type="text" formControlName="request" /><br /><br/>
-        <button type="submit" class="btn btn-success">Send Request</button>
-        <button type="reset" class="btn btn-secondary">Reset</button>
+        <input type="text" id="Uname" formControlName="request" /><br /><br/>
+        <button type="submit" id="log" class="btn btn-success">Send Request</button>
+        <button type="reset" id="log" class="btn btn-secondary">Reset</button>
     </form>
 
 </div>

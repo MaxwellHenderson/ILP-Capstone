@@ -1,18 +1,16 @@
-<div class="container">
-
-    <br /><br />
-    <h3 align="center">User SignIn</h3>
+<div class="login">
+    <h3>User SignIn</h3>
     <br />
     <form #loginRef="ngForm" (ngSubmit)="checkUser(loginRef.value)" class="text-center border border-light p-5">
 
-        <label class="col-2"> User ID </label>
-        <input type="number" name="_id" class="col-2" ngModel /><br /><br />
-        <label class="col-2">Password</label>
-        <input type="password" name="userPassword" class="col-2" ngModel /><br />
+        <label class="col-3"> User ID </label>
+        <input type="number" id="Uname" name="_id" class="col-2" ngModel /><br /><br />
+        <label class="col-3">Password</label>
+        <input type="password" id="Uname" name="userPassword" class="col-2" ngModel /><br />
         <br />
-        <input type="submit" value="Login" class="btn btn-success btn-lg" />
+        <input type="submit" id="log" value="Login" class="btn btn-success btn-lg" />
         &nbsp;
-        <input type="button" value="SignUp" (click)="signUp()" class="btn btn-warning btn-lg" />
+        <input type="button" id="log" value="SignUp" (click)="signUp()" class="btn btn-warning btn-lg" />
     </form>
     {{msg}}
     <br>
